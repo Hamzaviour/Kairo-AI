@@ -1,11 +1,20 @@
 import React, { useState } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
 import { CheckCircle2, Sparkles, Shield, ArrowRight, Loader2, AlertCircle } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 
+const DEMO_ACCOUNTS: Record<string, { email: string; password: string }> = {
+  admin: { email: 'alexander.wright@enterprise.com', password: 'P@ssw0rd!2026' },
+  user: { email: 'sarah.jenkins@enterprise.com', password: 'Secur3_Token#88' },
+};
+
 export const LoginPage: React.FC = () => {
   const { login } = useAuth();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [searchParams] = useSearchParams();
+  // The landing page links here with ?demo=admin|user to prefill a demo account
+  const demo = DEMO_ACCOUNTS[searchParams.get('demo') ?? ''];
+  const [email, setEmail] = useState(demo?.email ?? '');
+  const [password, setPassword] = useState(demo?.password ?? '');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -29,8 +38,16 @@ export const LoginPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-slate-50 flex flex-col justify-center py-12 px-4 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md text-center">
+        <Link
+          to="/"
+          className="inline-flex items-center gap-1 mb-6 text-xs font-medium text-slate-500 hover:text-indigo-600"
+        >
+          <ArrowRight className="w-3.5 h-3.5 rotate-180" aria-hidden="true" />
+          Back to home
+        </Link>
+        <br />
         <div className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-indigo-600 text-white shadow-lg shadow-indigo-600/30 mb-4">
           <CheckCircle2 className="w-7 h-7" />
         </div>

@@ -12,6 +12,9 @@ from app.models.user import User
 from app.services.task_service import get_scoped_tasks_query
 from app.schemas.excel import ExcelTaskPreviewRow, ExcelImportPreviewResponse
 
+# Legacy workbook status labels and their normalized values (see scripts/migrate_excel.py)
+LEGACY_STATUS_MAP = {"pending": "todo", "to_do": "todo", "under_review": "in_review"}
+
 class ExcelService:
     @staticmethod
     def export_tasks_to_excel(db: Session, current_user: User) -> io.BytesIO:
@@ -172,8 +175,7 @@ class ExcelService:
 
             status_idx = col_map.get("status")
             raw_status = str(row[status_idx] or "todo").strip().lower().replace(" ", "_") if status_idx is not None and status_idx < len(row) and row[status_idx] else "todo"
-            if raw_status == "pending":
-                raw_status = "todo"
+            raw_status = LEGACY_STATUS_MAP.get(raw_status, raw_status)
             if raw_status not in valid_statuses:
                 raw_status = "todo"
 
