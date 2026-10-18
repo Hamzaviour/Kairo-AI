@@ -56,12 +56,13 @@ export const TaskListView: React.FC<TaskListViewProps> = ({
     <div className="space-y-4">
       {/* Filter and Search Bar */}
       <div className="bg-white p-3 rounded-xl border border-slate-200/90 shadow-2xs flex flex-wrap items-center justify-between gap-3">
-        <div className="flex items-center gap-2 flex-1 min-w-[240px]">
-          <div className="relative flex-1">
+        <div className="flex flex-wrap items-center gap-2 flex-1 min-w-0">
+          <div className="relative flex-1 basis-full sm:basis-auto min-w-[200px]">
             <Search className="w-4 h-4 text-slate-400 absolute left-3 top-2.5" />
             <input
               type="text"
-              placeholder="Filter tasks by title or content..."
+              placeholder="Filter tasks by title or content…"
+              aria-label="Filter tasks"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               className="w-full pl-9 pr-3 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-lg outline-none focus:bg-white focus:border-indigo-500 transition-colors"
@@ -98,7 +99,7 @@ export const TaskListView: React.FC<TaskListViewProps> = ({
         </div>
 
         <div className="text-xs text-slate-500 font-medium">
-          Showing <span className="font-bold text-slate-800">{filteredTasks.length}</span> tasks
+          Showing <span className="tabular font-bold text-slate-800">{filteredTasks.length}</span> tasks
         </div>
       </div>
 

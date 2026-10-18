@@ -107,6 +107,8 @@ export interface Project {
   owner_id: string;
   is_archived: boolean;
   created_at: string;
+  tasks_count?: number;
+  completed_tasks_count?: number;
 }
 
 export interface NotificationItem {

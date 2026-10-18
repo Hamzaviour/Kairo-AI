@@ -16,15 +16,34 @@ interface TaskDetailDrawerProps {
   onDuplicate: (taskId: string) => Promise<void>;
 }
 
-export const TaskDetailDrawer: React.FC<TaskDetailDrawerProps> = ({
+export const TaskDetailDrawer: React.FC<TaskDetailDrawerProps> = ({ task, onClose, ...actions }) => {
+  useEffect(() => {
+    if (!task) return;
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [task, onClose]);
+
+  if (!task) return null;
+
+  return (
+    <>
+      <div className="fixed inset-0 z-30 bg-slate-900/20 animate-fade-in" onClick={onClose} aria-hidden="true" />
+      <TaskDetailPanel key={task.id} task={task} onClose={onClose} {...actions} />
+    </>
+  );
+};
+
+// Hooks live here so they run unconditionally; the wrapper above owns the null case.
+const TaskDetailPanel: React.FC<TaskDetailDrawerProps & { task: Task }> = ({
   task,
   onClose,
   onUpdate,
   onDelete,
   onDuplicate,
 }) => {
-  if (!task) return null;
-
   const [activeTab, setActiveTab] = useState<'details' | 'comments' | 'history'>('details');
   const [title, setTitle] = useState(task.title);
   const [description, setDescription] = useState(task.description || '');
@@ -42,6 +61,8 @@ export const TaskDetailDrawer: React.FC<TaskDetailDrawerProps> = ({
     setSubtasks(task.subtasks || []);
     setAiPriority(null);
 
+    // List payloads carry only subtask counts; the detail endpoint has the checklist itself
+    taskService.getTask(task.id).then((detail) => setSubtasks(detail.subtasks || [])).catch(() => {});
     // Fetch comments and activity
     taskService.getComments(task.id).then(setComments).catch(() => {});
     taskService.getActivityLogs(task.id).then(setActivityLogs).catch(() => {});
@@ -101,7 +122,7 @@ export const TaskDetailDrawer: React.FC<TaskDetailDrawerProps> = ({
   };
 
   return (
-    <div className="fixed inset-y-0 right-0 z-40 w-full sm:w-[520px] bg-white shadow-2xl border-l border-slate-200 flex flex-col animate-slide-in-right">
+    <div role="dialog" aria-modal="true" aria-label={task.title} className="fixed inset-y-0 right-0 z-40 w-full sm:w-[520px] bg-white shadow-2xl border-l border-slate-200 flex flex-col animate-slide-in-right">
       {/* Top action bar */}
       <div className="h-14 px-5 border-b border-slate-200 flex items-center justify-between bg-slate-50/70">
         <div className="flex items-center gap-2">
@@ -137,6 +158,7 @@ export const TaskDetailDrawer: React.FC<TaskDetailDrawerProps> = ({
             onClick={() => onDuplicate(task.id)}
             className="p-1.5 text-slate-400 hover:text-slate-700 hover:bg-slate-100 rounded-lg"
             title="Duplicate task"
+            aria-label="Duplicate task"
           >
             <Copy className="w-4 h-4" />
           </button>
@@ -147,12 +169,15 @@ export const TaskDetailDrawer: React.FC<TaskDetailDrawerProps> = ({
             }}
             className="p-1.5 text-slate-400 hover:text-rose-600 hover:bg-rose-50 rounded-lg"
             title="Archive task"
+            aria-label="Archive task"
           >
             <Trash2 className="w-4 h-4" />
           </button>
           <button
             onClick={onClose}
             className="p-1.5 text-slate-400 hover:text-slate-700 hover:bg-slate-100 rounded-lg ml-2"
+            title="Close (Esc)"
+            aria-label="Close task details"
           >
             <X className="w-4 h-4" />
           </button>
@@ -237,7 +262,7 @@ export const TaskDetailDrawer: React.FC<TaskDetailDrawerProps> = ({
             )}
 
             {/* AI Priority Recommendation Pill */}
-            <div className="p-3 bg-gradient-to-br from-indigo-50/80 to-purple-50/60 border border-indigo-100 rounded-xl space-y-2">
+            <div className="p-3 bg-indigo-50/70 border border-indigo-100 rounded-xl space-y-2">
               <div className="flex items-center justify-between">
                 <span className="flex items-center gap-1.5 text-xs font-bold text-indigo-900">
                   <Sparkles className="w-3.5 h-3.5 text-indigo-600" />

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { 
   X, Sparkles, Send, Calendar, CheckCircle2, 
-  ArrowRight, Bot, User, Clock, Loader2 
+  ArrowRight, Bot, User, Clock, Loader2, CalendarClock, AlertTriangle, PenLine 
 } from 'lucide-react';
 import { aiService, AISmartScheduleItem } from '../../services/aiService';
 import { ParsedTaskDTO, TaskCreateInput } from '../../types';
@@ -136,7 +136,7 @@ export const AICopilotDrawer: React.FC<AICopilotDrawerProps> = ({
   return (
     <div className="fixed inset-y-0 right-0 z-40 w-full sm:w-[460px] bg-white shadow-2xl border-l border-slate-200 flex flex-col animate-slide-in-right">
       {/* Header */}
-      <div className="h-14 px-5 border-b border-slate-200 flex items-center justify-between bg-gradient-to-r from-indigo-50 to-purple-50">
+      <div className="h-14 px-5 border-b border-slate-200 flex items-center justify-between bg-indigo-50/70">
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white shadow-xs">
             <Sparkles className="w-4 h-4" />
@@ -152,6 +152,7 @@ export const AICopilotDrawer: React.FC<AICopilotDrawerProps> = ({
         <button
           onClick={onClose}
           className="p-1.5 text-slate-400 hover:text-slate-700 hover:bg-white rounded-lg"
+          aria-label="Close AI Copilot"
         >
           <X className="w-4 h-4" />
         </button>
@@ -161,21 +162,24 @@ export const AICopilotDrawer: React.FC<AICopilotDrawerProps> = ({
       <div className="p-3 bg-slate-50 border-b border-slate-200/80 flex items-center gap-2 overflow-x-auto text-[11px]">
         <button
           onClick={() => handleSend("Plan my day with optimized schedule")}
-          className="px-2.5 py-1 bg-white hover:bg-indigo-50 hover:text-indigo-700 hover:border-indigo-200 text-slate-700 rounded-lg border border-slate-200 shrink-0 font-medium transition-all"
+          className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-white hover:bg-indigo-50 hover:text-indigo-700 hover:border-indigo-200 text-slate-700 rounded-lg border border-slate-200 shrink-0 font-medium transition-colors"
         >
-          📅 Plan my day
+          <CalendarClock className="w-3.5 h-3.5 text-indigo-500" aria-hidden="true" />
+          Plan my day
         </button>
         <button
           onClick={() => handleSend("What tasks are currently blocked or overdue?")}
-          className="px-2.5 py-1 bg-white hover:bg-indigo-50 hover:text-indigo-700 hover:border-indigo-200 text-slate-700 rounded-lg border border-slate-200 shrink-0 font-medium transition-all"
+          className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-white hover:bg-indigo-50 hover:text-indigo-700 hover:border-indigo-200 text-slate-700 rounded-lg border border-slate-200 shrink-0 font-medium transition-colors"
         >
-          ⚠️ Overdue items
+          <AlertTriangle className="w-3.5 h-3.5 text-amber-500" aria-hidden="true" />
+          Overdue items
         </button>
         <button
           onClick={() => handleSend("Add task: Review Q4 deployment checklist by tomorrow 5pm with urgent priority")}
-          className="px-2.5 py-1 bg-white hover:bg-indigo-50 hover:text-indigo-700 hover:border-indigo-200 text-slate-700 rounded-lg border border-slate-200 shrink-0 font-medium transition-all"
+          className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-white hover:bg-indigo-50 hover:text-indigo-700 hover:border-indigo-200 text-slate-700 rounded-lg border border-slate-200 shrink-0 font-medium transition-colors"
         >
-          ✍️ Natural language parse
+          <PenLine className="w-3.5 h-3.5 text-slate-500" aria-hidden="true" />
+          Natural language parse
         </button>
       </div>
 

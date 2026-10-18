@@ -14,7 +14,8 @@ import { AdminUserManagement } from '../components/admin/AdminUserManagement';
 import { taskService } from '../services/taskService';
 import { Task, TaskStatus, TaskCreateInput } from '../types';
 import { useAuth } from '../context/AuthContext';
-import { ShieldAlert } from 'lucide-react';
+import { ProjectsView } from '../components/projects/ProjectsView';
+import { AuditTrailView } from '../components/admin/AuditTrailView';
 
 export const DashboardPage: React.FC = () => {
   const { user } = useAuth();
@@ -28,6 +29,19 @@ export const DashboardPage: React.FC = () => {
   const [isAIDrawerOpen, setIsAIDrawerOpen] = useState(false);
   const [isExcelModalOpen, setIsExcelModalOpen] = useState(false);
   const [isCommandPaletteOpen, setIsCommandPaletteOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  // Global ⌘K / Ctrl+K shortcut toggles the command palette from anywhere in the workspace
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        setIsCommandPaletteOpen((open) => !open);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
 
   const fetchTasks = async () => {
     try {
@@ -96,6 +110,8 @@ export const DashboardPage: React.FC = () => {
         taskCounts={taskCounts}
         onOpenAI={() => setIsAIDrawerOpen(true)}
         onOpenExcel={() => setIsExcelModalOpen(true)}
+        isMobileOpen={isSidebarOpen}
+        onMobileClose={() => setIsSidebarOpen(false)}
       />
 
       {/* Main Content Workspace */}
@@ -108,9 +124,10 @@ export const DashboardPage: React.FC = () => {
           onOpenAI={() => setIsAIDrawerOpen(true)}
           onOpenExcel={() => setIsExcelModalOpen(true)}
           onOpenSearch={() => setIsCommandPaletteOpen(true)}
+          onOpenMenu={() => setIsSidebarOpen(true)}
         />
 
-        <main className="flex-1 overflow-y-auto p-4 sm:p-6">
+        <main className="flex-1 overflow-y-auto p-3 sm:p-6">
           {activeTab === 'my_tasks' && (
             <TaskListView
               tasks={tasks}
@@ -138,42 +155,13 @@ export const DashboardPage: React.FC = () => {
             <TaskCalendarView tasks={tasks} onSelectTask={setSelectedTask} />
           )}
 
-          {activeTab === 'projects' && (
-            <div className="space-y-4">
-              <h2 className="text-lg font-bold text-slate-800">Projects Hub</h2>
-              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                <div className="p-4 bg-white rounded-xl border border-slate-200 shadow-2xs space-y-2">
-                  <div className="flex items-center justify-between">
-                    <span className="font-bold text-sm text-slate-800">Core Engineering</span>
-                    <span className="w-2.5 h-2.5 rounded-full bg-indigo-500" />
-                  </div>
-                  <p className="text-xs text-slate-500">Database schema, auth token rotation, and API services</p>
-                  <div className="pt-2 text-[11px] font-semibold text-indigo-600">3 Active Tasks</div>
-                </div>
-              </div>
-            </div>
-          )}
+          {activeTab === 'projects' && <ProjectsView />}
 
           {activeTab === 'analytics' && <AnalyticsView />}
 
           {activeTab === 'admin_users' && <AdminUserManagement />}
 
-          {activeTab === 'admin_logs' && (
-            <div className="space-y-4">
-              <div className="flex items-center gap-2">
-                <ShieldAlert className="w-5 h-5 text-indigo-600" />
-                <h2 className="text-lg font-bold text-slate-800">Organizational Audit Logs</h2>
-              </div>
-              <div className="p-6 bg-white rounded-xl border border-slate-200 text-xs text-slate-600 space-y-2">
-                <div className="p-2.5 bg-slate-50 rounded-lg">
-                  <span className="font-semibold text-slate-800">Database Schema Verified:</span> 19 tables, 20 indexes active on Neon PostgreSQL.
-                </div>
-                <div className="p-2.5 bg-slate-50 rounded-lg">
-                  <span className="font-semibold text-slate-800">Excel Data Sync:</span> Alexander Wright and Sarah Jenkins records seeded with bcrypt security.
-                </div>
-              </div>
-            </div>
-          )}
+          {activeTab === 'admin_logs' && <AuditTrailView />}
         </main>
       </div>
 
