@@ -91,7 +91,7 @@ The draft is never saved automatically; the user confirms it. All Copilot calls 
 sequenceDiagram
   participant B as Browser
   participant A as FastAPI
-  participant S as apply_task_scope
+  participant S as get_scoped_tasks_query
   participant DB as PostgreSQL
   B->>A: GET /api/tasks/{id} (Bearer access token)
   A->>A: decode JWT, load user, check is_active

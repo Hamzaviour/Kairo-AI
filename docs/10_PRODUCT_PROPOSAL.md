@@ -46,7 +46,7 @@ This proposal asks for approval to run TaskPilot as the team's task system of re
 ### 3.2 Why this approach
 
 - **Low switching cost:** the import/export loop lets the team migrate gradually and keep stakeholders who still want a spreadsheet.
-- **Security by construction:** isolation lives in the data-access layer (`apply_task_scope`), not in UI hiding, and is covered by automated tests.
+- **Security by construction:** isolation lives in the data-access layer (`get_scoped_tasks_query` / `get_task_or_404` in `backend/app/services/task_service.py`), not in UI hiding, and is covered by automated tests.
 - **No vendor lock on AI:** the Copilot runs without any API key; an LLM provider is optional.
 
 ## 4. Scope
