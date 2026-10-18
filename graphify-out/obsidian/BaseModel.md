@@ -1,0 +1,17 @@
+---
+source_file: ""
+type: "code"
+community: "Task & Subtask API"
+tags:
+  - graphify/code
+  - graphify/EXTRACTED
+  - community/Task__Subtask_API
+---
+
+# BaseModel
+
+## Connections
+- [[PaginatedResponse]] - `inherits` [EXTRACTED]
+- [[ResponseEnvelope]] - `inherits` [EXTRACTED]
+
+#graphify/code #graphify/EXTRACTED #community/Task__Subtask_API

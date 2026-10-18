@@ -21,6 +21,11 @@ export default {
           900: '#312e81',
         },
       },
+      // Used across the app; Tailwind 3.4 ships neither, so they rendered no shadow before
+      boxShadow: {
+        '2xs': '0 1px rgb(0 0 0 / 0.05)',
+        xs: '0 1px 2px 0 rgb(0 0 0 / 0.05)',
+      },
       fontFamily: {
         sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
       },

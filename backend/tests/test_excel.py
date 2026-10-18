@@ -37,3 +37,23 @@ def test_excel_import_preview(client, user_token):
     assert data["preview_items"][0]["title"] == "Imported Test Task"
     assert data["preview_items"][0]["status"] == "in_progress"
     assert data["preview_items"][0]["priority"] == "high"
+
+def test_excel_import_preview_maps_legacy_statuses_and_flags_empty_titles(client, user_token):
+    wb = openpyxl.Workbook()
+    ws = wb.active
+    ws.title = "Task"
+    ws.append(["Task Heading", "Task Status", "Task Priority"])
+    ws.append(["Legacy pending row", "Pending", "Low"])
+    ws.append(["Legacy review row", "Under Review", "Medium"])
+    ws.append([None, "Blocked", "High"])
+    buf = io.BytesIO()
+    wb.save(buf)
+
+    files = {"file": ("legacy.xlsx", buf.getvalue(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")}
+    res = client.post("/api/excel/preview-import", files=files, headers={"Authorization": f"Bearer {user_token}"})
+    assert res.status_code == 200
+    data = res.json()["data"]
+    statuses = [row["status"] for row in data["preview_items"]]
+    assert statuses[:2] == ["todo", "in_review"]
+    assert data["valid_rows_count"] == 2
+    assert data["invalid_rows_count"] == 1

@@ -67,3 +67,29 @@ def test_task_creation_and_subtasks(client, user_token):
     res_sub = client.patch(f"/api/subtasks/{sub_id}", json={"is_completed": True}, headers={"Authorization": f"Bearer {user_token}"})
     assert res_sub.status_code == 200
     assert res_sub.json()["data"]["is_completed"] is True
+
+def test_task_activity_log_is_scoped(client, admin_token, user_token):
+    # Admin creates a private task; its activity log records the creation
+    res = client.post(
+        "/api/tasks",
+        json={"title": "Admin Activity Probe", "priority": "low"},
+        headers={"Authorization": f"Bearer {admin_token}"}
+    )
+    assert res.status_code == 201
+    task_id = res.json()["data"]["id"]
+
+    res_log = client.get(f"/api/tasks/{task_id}/activity", headers={"Authorization": f"Bearer {admin_token}"})
+    assert res_log.status_code == 200
+    assert res_log.json()["data"][0]["action"] == "created"
+
+    # Sarah cannot read another user's activity log
+    res_probe = client.get(f"/api/tasks/{task_id}/activity", headers={"Authorization": f"Bearer {user_token}"})
+    assert res_probe.status_code == 404
+
+def test_admin_audit_logs_and_user_denied(client, admin_token, user_token):
+    res = client.get("/api/admin/audit-logs", headers={"Authorization": f"Bearer {admin_token}"})
+    assert res.status_code == 200
+    assert isinstance(res.json()["data"], list) and len(res.json()["data"]) > 0
+
+    res_user = client.get("/api/admin/audit-logs", headers={"Authorization": f"Bearer {user_token}"})
+    assert res_user.status_code == 403

@@ -16,6 +16,7 @@ from app.schemas.task import (
     TaskTagResponse, TaskTagCreate, SubtaskResponse
 )
 from app.schemas.common import ResponseEnvelope, PaginatedResponse
+from app.schemas.collaboration import ActivityLogResponse
 from app.services.task_service import (
     get_scoped_tasks_query, get_task_or_404, create_task,
     update_task, update_task_status, delete_task, duplicate_task, bulk_update_tasks
@@ -116,6 +117,16 @@ def get_task_details(
     dto.subtasks_count = len(task.subtasks)
     dto.completed_subtasks_count = sum(1 for s in task.subtasks if s.is_completed)
     return ResponseEnvelope(data=dto)
+
+@router.get("/{task_id}/activity", response_model=ResponseEnvelope[List[ActivityLogResponse]])
+def get_task_activity(
+    task_id: UUID,
+    current_user: User = Depends(get_current_active_user),
+    db: Session = Depends(get_db)
+):
+    """List the immutable activity log of a task, newest first. Enforces data isolation."""
+    task = get_task_or_404(db, task_id, current_user)
+    return ResponseEnvelope(data=[ActivityLogResponse.from_log(log) for log in task.activity_logs])
 
 @router.put("/{task_id}", response_model=ResponseEnvelope[TaskResponse])
 def update_existing_task(

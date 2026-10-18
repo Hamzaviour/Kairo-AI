@@ -2,6 +2,7 @@ from datetime import datetime, timedelta, timezone
 from typing import Optional, Any, Union
 import bcrypt
 import hashlib
+import uuid
 import jwt
 from app.core.config import settings
 
@@ -40,6 +41,7 @@ def create_refresh_token(subject: Union[str, Any]) -> str:
         "sub": str(subject),
         "exp": expire,
         "iat": datetime.now(timezone.utc),
+        "jti": uuid.uuid4().hex,  # keeps tokens issued within the same second distinct
         "type": "refresh"
     }
     return jwt.encode(to_encode, settings.JWT_SECRET_KEY, algorithm=settings.JWT_ALGORITHM)

@@ -57,3 +57,18 @@ def test_ai_chat_privacy_scoping(client, user_token):
     assert "response" in answer
     # Sarah should NEVER see Alexander's private tasks mentioned in AI chat!
     assert "Implement User Authentication" not in answer["response"]
+
+def test_ai_parse_task_extracts_weekday_and_cleans_title(client, user_token):
+    res = client.post(
+        "/api/ai/parse-task",
+        json={"text": "Submit Q4 budget report to Alex by next Thursday with urgent priority"},
+        headers={"Authorization": f"Bearer {user_token}"}
+    )
+    assert res.status_code == 200
+    data = res.json()["data"]
+    assert data["title"] == "Submit Q4 budget report to Alex"
+    assert data["priority"] == "urgent"
+    assert data["due_date"] is not None
+    from datetime import datetime
+    assert datetime.fromisoformat(data["due_date"]).weekday() == 3  # Thursday
+    assert any("report" in s.lower() for s in data["suggested_subtasks"])

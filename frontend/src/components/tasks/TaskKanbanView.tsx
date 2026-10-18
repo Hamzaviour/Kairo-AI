@@ -61,7 +61,7 @@ export const TaskKanbanView: React.FC<TaskKanbanViewProps> = ({
   };
 
   return (
-    <div className="flex gap-4 overflow-x-auto pb-4 pt-1 items-start min-h-[calc(100vh-180px)]">
+    <div className="flex gap-4 overflow-x-auto pb-4 pt-1 items-start min-h-[calc(100vh-180px)] snap-x snap-mandatory sm:snap-none">
       {COLUMNS.map((col) => {
         const columnTasks = tasks.filter((t) => t.status === col.id);
 
@@ -70,7 +70,7 @@ export const TaskKanbanView: React.FC<TaskKanbanViewProps> = ({
             key={col.id}
             onDragOver={handleDragOver}
             onDrop={(e) => handleDrop(e, col.id)}
-            className="w-80 shrink-0 bg-slate-100/70 border border-slate-200/80 rounded-xl p-3 flex flex-col max-h-[calc(100vh-170px)] transition-colors hover:bg-slate-100"
+            className="w-[85vw] sm:w-80 snap-start shrink-0 bg-slate-100/70 border border-slate-200/80 rounded-xl p-3 flex flex-col max-h-[calc(100vh-170px)] transition-colors hover:bg-slate-100"
           >
             {/* Column Header */}
             <div className="flex items-center justify-between pb-3 mb-2 border-b border-slate-200/60">

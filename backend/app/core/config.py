@@ -1,20 +1,27 @@
 import os
 from typing import List
+from pydantic import AliasChoices, Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+# Public development default; a deployment must override it or anyone could mint tokens
+DEV_JWT_SECRET = "hccdi-task-manager-super-secure-jwt-secret-key-2026-production-grade"
+
 
 class Settings(BaseSettings):
     APP_NAME: str = "HCCDI Task Manager"
     APP_VERSION: str = "1.0.0"
-    ENVIRONMENT: str = "development"
+    # Deployed on Vercel unless told otherwise, so error responses never echo exception details
+    ENVIRONMENT: str = "production" if os.environ.get("VERCEL") else "development"
     LOG_LEVEL: str = "INFO"
     
     # Database
-    DATABASE_URL: str
+    # Vercel's Neon / Postgres integrations inject POSTGRES_URL; DATABASE_URL wins when both are set
+    DATABASE_URL: str = Field(validation_alias=AliasChoices("DATABASE_URL", "POSTGRES_URL"))
     DATABASE_POOL_SIZE: int = 5
     DATABASE_MAX_OVERFLOW: int = 10
     
     # Security / JWT
-    JWT_SECRET_KEY: str = "hccdi-task-manager-super-secure-jwt-secret-key-2026-production-grade"
+    JWT_SECRET_KEY: str = DEV_JWT_SECRET
     JWT_ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60
     REFRESH_TOKEN_EXPIRE_DAYS: int = 7
@@ -39,3 +46,9 @@ class Settings(BaseSettings):
     )
 
 settings = Settings()
+
+if os.environ.get("VERCEL") and settings.JWT_SECRET_KEY == DEV_JWT_SECRET:
+    raise RuntimeError(
+        "JWT_SECRET_KEY is not set. Add a long random value in Vercel → Project Settings → "
+        "Environment Variables (e.g. `openssl rand -hex 32`) and redeploy."
+    )

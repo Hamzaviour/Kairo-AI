@@ -1,0 +1,646 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-18T08:54:47.407594+00:00",
+  "title": "Design System: HCCDI TaskPilot",
+  "extensions": {
+    "colorMeta": {
+      "indigo-commit": {
+        "role": "primary",
+        "displayName": "Indigo Commit",
+        "canonical": "#4f46e5",
+        "tonalRamp": [
+          "#312e81",
+          "#3730a3",
+          "#4338ca",
+          "#4f46e5",
+          "#6366f1",
+          "#818cf8",
+          "#c7d2fe",
+          "#eef2ff"
+        ]
+      },
+      "indigo-commit-deep": {
+        "role": "primary",
+        "displayName": "Indigo Commit Deep",
+        "canonical": "#4338ca",
+        "tonalRamp": [
+          "#312e81",
+          "#3730a3",
+          "#4338ca",
+          "#4f46e5",
+          "#6366f1",
+          "#818cf8",
+          "#c7d2fe",
+          "#eef2ff"
+        ]
+      },
+      "indigo-signal": {
+        "role": "primary",
+        "displayName": "Indigo Signal",
+        "canonical": "#6366f1",
+        "tonalRamp": [
+          "#312e81",
+          "#3730a3",
+          "#4338ca",
+          "#4f46e5",
+          "#6366f1",
+          "#818cf8",
+          "#c7d2fe",
+          "#eef2ff"
+        ]
+      },
+      "indigo-on-ink": {
+        "role": "primary",
+        "displayName": "Indigo on Ink",
+        "canonical": "#818cf8",
+        "tonalRamp": [
+          "#312e81",
+          "#3730a3",
+          "#4338ca",
+          "#4f46e5",
+          "#6366f1",
+          "#818cf8",
+          "#c7d2fe",
+          "#eef2ff"
+        ]
+      },
+      "indigo-wash": {
+        "role": "primary",
+        "displayName": "Indigo Wash",
+        "canonical": "#eef2ff",
+        "tonalRamp": [
+          "#312e81",
+          "#3730a3",
+          "#4338ca",
+          "#4f46e5",
+          "#6366f1",
+          "#818cf8",
+          "#c7d2fe",
+          "#eef2ff"
+        ]
+      },
+      "indigo-selection": {
+        "role": "primary",
+        "displayName": "Indigo Selection",
+        "canonical": "#c7d2fe",
+        "tonalRamp": [
+          "#312e81",
+          "#3730a3",
+          "#4338ca",
+          "#4f46e5",
+          "#6366f1",
+          "#818cf8",
+          "#c7d2fe",
+          "#eef2ff"
+        ]
+      },
+      "ledger-ink": {
+        "role": "neutral",
+        "displayName": "Ledger Ink",
+        "canonical": "#0f172a",
+        "tonalRamp": [
+          "#020617",
+          "#0f172a",
+          "#1e293b",
+          "#334155",
+          "#64748b",
+          "#94a3b8",
+          "#e2e8f0",
+          "#f8fafc"
+        ]
+      },
+      "ledger-ink-deep": {
+        "role": "neutral",
+        "displayName": "Ledger Ink Deep",
+        "canonical": "#020617",
+        "tonalRamp": [
+          "#020617",
+          "#0f172a",
+          "#1e293b",
+          "#334155",
+          "#64748b",
+          "#94a3b8",
+          "#e2e8f0",
+          "#f8fafc"
+        ]
+      },
+      "ink-rule": {
+        "role": "neutral",
+        "displayName": "Ink Rule",
+        "canonical": "#1e293b",
+        "tonalRamp": [
+          "#020617",
+          "#0f172a",
+          "#1e293b",
+          "#334155",
+          "#64748b",
+          "#94a3b8",
+          "#e2e8f0",
+          "#f8fafc"
+        ]
+      },
+      "slate-strong": {
+        "role": "neutral",
+        "displayName": "Slate Strong",
+        "canonical": "#334155",
+        "tonalRamp": [
+          "#020617",
+          "#0f172a",
+          "#1e293b",
+          "#334155",
+          "#64748b",
+          "#94a3b8",
+          "#e2e8f0",
+          "#f8fafc"
+        ]
+      },
+      "slate-body": {
+        "role": "neutral",
+        "displayName": "Slate Body",
+        "canonical": "#475569",
+        "tonalRamp": [
+          "#020617",
+          "#0f172a",
+          "#1e293b",
+          "#334155",
+          "#64748b",
+          "#94a3b8",
+          "#e2e8f0",
+          "#f8fafc"
+        ]
+      },
+      "slate-muted": {
+        "role": "neutral",
+        "displayName": "Slate Muted",
+        "canonical": "#64748b",
+        "tonalRamp": [
+          "#020617",
+          "#0f172a",
+          "#1e293b",
+          "#334155",
+          "#64748b",
+          "#94a3b8",
+          "#e2e8f0",
+          "#f8fafc"
+        ]
+      },
+      "slate-quiet": {
+        "role": "neutral",
+        "displayName": "Slate Quiet",
+        "canonical": "#94a3b8",
+        "tonalRamp": [
+          "#020617",
+          "#0f172a",
+          "#1e293b",
+          "#334155",
+          "#64748b",
+          "#94a3b8",
+          "#e2e8f0",
+          "#f8fafc"
+        ]
+      },
+      "slate-on-ink": {
+        "role": "neutral",
+        "displayName": "Slate on Ink",
+        "canonical": "#cbd5e1",
+        "tonalRamp": [
+          "#020617",
+          "#0f172a",
+          "#1e293b",
+          "#334155",
+          "#64748b",
+          "#94a3b8",
+          "#e2e8f0",
+          "#f8fafc"
+        ]
+      },
+      "slate-hairline": {
+        "role": "neutral",
+        "displayName": "Slate Hairline",
+        "canonical": "#e2e8f0",
+        "tonalRamp": [
+          "#020617",
+          "#0f172a",
+          "#1e293b",
+          "#334155",
+          "#64748b",
+          "#94a3b8",
+          "#e2e8f0",
+          "#f8fafc"
+        ]
+      },
+      "slate-well": {
+        "role": "neutral",
+        "displayName": "Slate Well",
+        "canonical": "#f1f5f9",
+        "tonalRamp": [
+          "#020617",
+          "#0f172a",
+          "#1e293b",
+          "#334155",
+          "#64748b",
+          "#94a3b8",
+          "#e2e8f0",
+          "#f8fafc"
+        ]
+      },
+      "paper-cool": {
+        "role": "neutral",
+        "displayName": "Cool Paper",
+        "canonical": "#f8fafc",
+        "tonalRamp": [
+          "#020617",
+          "#0f172a",
+          "#1e293b",
+          "#334155",
+          "#64748b",
+          "#94a3b8",
+          "#e2e8f0",
+          "#f8fafc"
+        ]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Paper",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "#020617",
+          "#0f172a",
+          "#1e293b",
+          "#334155",
+          "#64748b",
+          "#94a3b8",
+          "#e2e8f0",
+          "#f8fafc"
+        ]
+      },
+      "sheet-emerald": {
+        "role": "secondary",
+        "displayName": "Sheet Emerald",
+        "canonical": "#047857",
+        "tonalRamp": [
+          "#022c22",
+          "#065f46",
+          "#047857",
+          "#059669",
+          "#34d399",
+          "#a7f3d0",
+          "#d1fae5",
+          "#ecfdf5"
+        ]
+      },
+      "sheet-emerald-wash": {
+        "role": "secondary",
+        "displayName": "Sheet Emerald Wash",
+        "canonical": "#ecfdf5",
+        "tonalRamp": [
+          "#022c22",
+          "#065f46",
+          "#047857",
+          "#059669",
+          "#34d399",
+          "#a7f3d0",
+          "#d1fae5",
+          "#ecfdf5"
+        ]
+      },
+      "flag-rose": {
+        "role": "tertiary",
+        "displayName": "Flag Rose",
+        "canonical": "#be123c",
+        "tonalRamp": [
+          "#4c0519",
+          "#9f1239",
+          "#be123c",
+          "#e11d48",
+          "#fb7185",
+          "#fecdd3",
+          "#ffe4e6",
+          "#fff1f2"
+        ]
+      },
+      "flag-rose-wash": {
+        "role": "tertiary",
+        "displayName": "Flag Rose Wash",
+        "canonical": "#fff1f2",
+        "tonalRamp": [
+          "#4c0519",
+          "#9f1239",
+          "#be123c",
+          "#e11d48",
+          "#fb7185",
+          "#fecdd3",
+          "#ffe4e6",
+          "#fff1f2"
+        ]
+      },
+      "caution-amber": {
+        "role": "tertiary",
+        "displayName": "Caution Amber",
+        "canonical": "#b45309",
+        "tonalRamp": [
+          "#451a03",
+          "#92400e",
+          "#b45309",
+          "#d97706",
+          "#fbbf24",
+          "#fde68a",
+          "#fef3c7",
+          "#fffbeb"
+        ]
+      },
+      "caution-amber-wash": {
+        "role": "tertiary",
+        "displayName": "Caution Amber Wash",
+        "canonical": "#fffbeb",
+        "tonalRamp": [
+          "#451a03",
+          "#92400e",
+          "#b45309",
+          "#d97706",
+          "#fbbf24",
+          "#fde68a",
+          "#fef3c7",
+          "#fffbeb"
+        ]
+      },
+      "motion-blue": {
+        "role": "tertiary",
+        "displayName": "Motion Blue",
+        "canonical": "#1d4ed8",
+        "tonalRamp": [
+          "#172554",
+          "#1e40af",
+          "#1d4ed8",
+          "#2563eb",
+          "#60a5fa",
+          "#bfdbfe",
+          "#dbeafe",
+          "#eff6ff"
+        ]
+      },
+      "motion-blue-wash": {
+        "role": "tertiary",
+        "displayName": "Motion Blue Wash",
+        "canonical": "#eff6ff",
+        "tonalRamp": [
+          "#172554",
+          "#1e40af",
+          "#1d4ed8",
+          "#2563eb",
+          "#60a5fa",
+          "#bfdbfe",
+          "#dbeafe",
+          "#eff6ff"
+        ]
+      },
+      "review-violet": {
+        "role": "tertiary",
+        "displayName": "Review Violet",
+        "canonical": "#6d28d9",
+        "tonalRamp": [
+          "#2e1065",
+          "#5b21b6",
+          "#6d28d9",
+          "#7c3aed",
+          "#a78bfa",
+          "#ddd6fe",
+          "#ede9fe",
+          "#f5f3ff"
+        ]
+      },
+      "review-violet-wash": {
+        "role": "tertiary",
+        "displayName": "Review Violet Wash",
+        "canonical": "#f5f3ff",
+        "tonalRamp": [
+          "#2e1065",
+          "#5b21b6",
+          "#6d28d9",
+          "#7c3aed",
+          "#a78bfa",
+          "#ddd6fe",
+          "#ede9fe",
+          "#f5f3ff"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Landing hero headline and closing call; one per surface."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Landing section headings; app page titles step down to 1.5rem."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Proof items, demo-account cards, drawer task title."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Marketing paragraphs, max 65ch."
+      },
+      "body-dense": {
+        "displayName": "Body Dense",
+        "purpose": "All app working text: tables, nav, buttons, inputs."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Uppercase structural captions: column headers, nav groups, field labels."
+      },
+      "mono": {
+        "displayName": "Mono",
+        "purpose": "IDs, file paths, API probes, version strings."
+      }
+    },
+    "shadows": [
+      {
+        "name": "drawer-lift",
+        "value": "0 25px 50px -12px rgba(0,0,0,0.25)",
+        "purpose": "Task drawer and modals over a slate-900/20 scrim."
+      },
+      {
+        "name": "card-lift",
+        "value": "0 20px 25px -5px rgba(226,232,240,0.6), 0 8px 10px -6px rgba(226,232,240,0.6)",
+        "purpose": "Login card on cool paper."
+      },
+      {
+        "name": "stage-lift",
+        "value": "0 30px 80px -20px rgba(2,6,23,0.6)",
+        "purpose": "Hero workspace and video frame on ledger ink, with a 1px white/10 ring."
+      },
+      {
+        "name": "control-nudge",
+        "value": "0 1px 2px 0 rgba(0,0,0,0.05)",
+        "purpose": "Selected segmented-control option, small demo panels."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Entrances: fade-in 180ms, drawer slide-in 220ms, sidebar slide 200ms."
+      },
+      {
+        "name": "hover-colors",
+        "value": "150ms cubic-bezier(0.4, 0, 0.2, 1)",
+        "purpose": "Default colour-only hover and press feedback."
+      },
+      {
+        "name": "scope-collapse",
+        "value": "500ms ease-out",
+        "purpose": "Viewer-switch row collapse and the scope note fade (300ms delay)."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "0.01ms",
+        "purpose": "Global override under prefers-reduced-motion; auto-demos stop."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px"
+      },
+      {
+        "name": "md",
+        "value": "768px"
+      },
+      {
+        "name": "lg",
+        "value": "1024px"
+      },
+      {
+        "name": "xl",
+        "value": "1280px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one committed action in an app view (New Task, Sign in).",
+      "html": "<button class=\"ds-btn-primary\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14\"/><path d=\"M12 5v14\"/></svg>New Task</button>",
+      "css": ".ds-btn-primary{font-family:Inter,system-ui,-apple-system,sans-serif;display:inline-flex;align-items:center;gap:4px;padding:6px 12px;font-size:12px;font-weight:600;color:#fff;background:#4f46e5;border:none;border-radius:8px;cursor:pointer;transition:background-color .15s cubic-bezier(.4,0,.2,1)}.ds-btn-primary:hover{background:#4338ca}.ds-btn-primary:active{background:#3730a3}.ds-btn-primary:focus-visible{outline:2px solid #6366f1;outline-offset:2px}"
+    },
+    {
+      "name": "Hero CTA pair on ink",
+      "kind": "button",
+      "refersTo": "button-primary-large",
+      "description": "Landing primary and secondary actions on the slate-900 stage.",
+      "html": "<div class=\"ds-ink\"><a class=\"ds-cta\" href=\"#\">Try the live demo <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a><a class=\"ds-cta-ghost\" href=\"#\">Watch the 20s tour</a></div>",
+      "css": ".ds-ink{font-family:Inter,system-ui,-apple-system,sans-serif;background:#0f172a;padding:24px;display:flex;flex-wrap:wrap;gap:12px}.ds-cta,.ds-cta-ghost{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:12px;font-size:14px;font-weight:600;color:#fff;text-decoration:none;transition:background-color .15s cubic-bezier(.4,0,.2,1)}.ds-cta{background:#4f46e5}.ds-cta:hover{background:#6366f1}.ds-cta-ghost{box-shadow:inset 0 0 0 1px rgba(255,255,255,.2)}.ds-cta-ghost:hover{background:rgba(255,255,255,.05)}.ds-cta:focus-visible,.ds-cta-ghost:focus-visible{outline:2px solid #6366f1;outline-offset:2px}"
+    },
+    {
+      "name": "Copilot and Excel tinted buttons",
+      "kind": "button",
+      "refersTo": "button-copilot",
+      "description": "Feature entry points: indigo for AI, emerald for the spreadsheet side.",
+      "html": "<div class=\"ds-row\"><button class=\"ds-btn-ai\">AI Copilot</button><button class=\"ds-btn-xl\">Excel Hub</button></div>",
+      "css": ".ds-row{font-family:Inter,system-ui,-apple-system,sans-serif;display:flex;gap:8px}.ds-btn-ai,.ds-btn-xl{padding:6px 12px;font-size:12px;font-weight:600;border-radius:8px;cursor:pointer;transition:background-color .15s cubic-bezier(.4,0,.2,1)}.ds-btn-ai{color:#4338ca;background:#eef2ff;border:1px solid rgba(199,210,254,.8)}.ds-btn-ai:hover{background:#e0e7ff}.ds-btn-xl{color:#065f46;background:#ecfdf5;border:1px solid #a7f3d0}.ds-btn-xl:hover{background:#d1fae5}.ds-btn-ai:focus-visible,.ds-btn-xl:focus-visible{outline:2px solid #6366f1;outline-offset:2px}"
+    },
+    {
+      "name": "Text input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Search, filter and form fields: cool-paper fill that turns white with an indigo border on focus.",
+      "html": "<input class=\"ds-input\" placeholder=\"Search tasks…\" />",
+      "css": ".ds-input{font-family:Inter,system-ui,-apple-system,sans-serif;width:260px;padding:6px 12px;font-size:12px;color:#0f172a;background:#f8fafc;border:1px solid #e2e8f0;border-radius:8px;outline:none;transition:background-color .15s,border-color .15s}.ds-input::placeholder{color:#94a3b8}.ds-input:hover{border-color:#cbd5e1}.ds-input:focus-visible{background:#fff;border-color:#6366f1}"
+    },
+    {
+      "name": "Sidebar navigation",
+      "kind": "nav",
+      "refersTo": "nav-item",
+      "description": "Slate-900 column; the active destination is the indigo fill.",
+      "html": "<nav class=\"ds-side\"><div class=\"ds-side-h\">Workspaces</div><a class=\"ds-nav ds-nav-on\" href=\"#\"><span>Task List</span><span class=\"ds-count ds-count-on\">9</span></a><a class=\"ds-nav\" href=\"#\"><span>Kanban Board</span><span class=\"ds-count\">2</span></a><a class=\"ds-nav\" href=\"#\"><span>Calendar &amp; Deadlines</span></a></nav>",
+      "css": ".ds-side{font-family:Inter,system-ui,-apple-system,sans-serif;width:240px;background:#0f172a;padding:16px 12px;display:flex;flex-direction:column;gap:4px}.ds-side-h{font-size:11px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:#94a3b8;padding:0 8px 8px}.ds-nav{display:flex;justify-content:space-between;align-items:center;padding:8px 10px;border-radius:8px;font-size:12px;font-weight:500;color:#cbd5e1;text-decoration:none;transition:background-color .15s,color .15s}.ds-nav:hover{background:rgba(30,41,59,.8);color:#fff}.ds-nav-on,.ds-nav-on:hover{background:#4f46e5;color:#fff}.ds-nav:focus-visible{outline:2px solid #6366f1;outline-offset:2px}.ds-count{font-variant-numeric:tabular-nums;font-size:10px;font-weight:700;padding:2px 6px;border-radius:9999px;background:#1e293b;color:#cbd5e1}.ds-count-on{background:rgba(55,48,163,.8);color:#fff}"
+    },
+    {
+      "name": "Status and priority pills",
+      "kind": "chip",
+      "refersTo": "pill-status-in-progress",
+      "description": "Fixed-meaning 50-wash + 700-text state pills.",
+      "html": "<div class=\"ds-pills\"><span class=\"ds-pill ds-blue\">In Progress</span><span class=\"ds-pill ds-violet\">In Review</span><span class=\"ds-pill ds-rose\">Blocked</span><span class=\"ds-pill ds-emerald\">Completed</span><span class=\"ds-pill ds-amber\">High</span><span class=\"ds-pill ds-slate\">Low</span></div>",
+      "css": ".ds-pills{font-family:Inter,system-ui,-apple-system,sans-serif;display:flex;flex-wrap:wrap;gap:6px}.ds-pill{padding:2px 8px;border-radius:6px;font-size:11px;font-weight:600}.ds-blue{background:#eff6ff;color:#1d4ed8}.ds-violet{background:#f5f3ff;color:#6d28d9}.ds-rose{background:#fff1f2;color:#be123c}.ds-emerald{background:#ecfdf5;color:#047857}.ds-amber{background:#fffbeb;color:#b45309}.ds-slate{background:#f1f5f9;color:#475569}"
+    },
+    {
+      "name": "Task table panel",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "Hairline-bordered white panel with uppercase column labels and dense rows.",
+      "html": "<div class=\"ds-panel\"><div class=\"ds-th\"><span>Task heading</span><span>Priority</span><span>Due</span></div><div class=\"ds-tr\"><span class=\"ds-t\">Prepare Q4 budget report</span><span class=\"ds-p ds-u\">Urgent</span><span class=\"ds-d\">Oct 21</span></div><div class=\"ds-tr\"><span class=\"ds-t\">Weekly sprint retro notes</span><span class=\"ds-p ds-m\">Medium</span><span class=\"ds-d\">Oct 19</span></div></div>",
+      "css": ".ds-panel{font-family:Inter,system-ui,-apple-system,sans-serif;width:420px;background:#fff;border:1px solid #e2e8f0;border-radius:12px;overflow:hidden}.ds-th,.ds-tr{display:grid;grid-template-columns:1fr 80px 56px;align-items:center;padding:10px 16px}.ds-th{background:#f8fafc;border-bottom:1px solid #e2e8f0;font-size:10px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:#64748b}.ds-tr{border-bottom:1px solid #f1f5f9;font-size:12px;transition:background-color .15s}.ds-tr:hover{background:rgba(248,250,252,.8)}.ds-t{font-weight:600;color:#1e293b}.ds-p{justify-self:start;padding:2px 8px;border-radius:6px;font-size:10px;font-weight:600}.ds-u{background:#fff1f2;color:#be123c}.ds-m{background:#eff6ff;color:#1d4ed8}.ds-d{font-variant-numeric:tabular-nums;color:#64748b}"
+    },
+    {
+      "name": "Viewer switch with scope probe",
+      "kind": "custom",
+      "refersTo": "viewer-switch",
+      "description": "Signature segmented radio that flips scope; the footer prints the count and the API response.",
+      "html": "<div class=\"ds-vs\"><div class=\"ds-vs-bar\"><span class=\"ds-vs-l\">Viewing as</span><div class=\"ds-vs-track\" role=\"radiogroup\"><button class=\"ds-vs-o\" role=\"radio\" aria-checked=\"false\">Alexander <span>· Admin</span></button><button class=\"ds-vs-o ds-vs-on\" role=\"radio\" aria-checked=\"true\">Sarah <span>· User</span></button></div></div><div class=\"ds-vs-f\"><span><b>4</b> of 9 tasks visible · own tasks only</span><code>GET /api/tasks/5647ef57… → 404 Not Found</code></div></div>",
+      "css": ".ds-vs{font-family:Inter,system-ui,-apple-system,sans-serif;width:520px;background:#fff;border:1px solid #e2e8f0;border-radius:16px;overflow:hidden}.ds-vs-bar{height:56px;padding:0 16px;display:flex;align-items:center;justify-content:flex-end;gap:10px;border-bottom:1px solid #e2e8f0}.ds-vs-l{font-size:13px;font-weight:500;color:#64748b}.ds-vs-track{display:flex;padding:4px;border-radius:12px;background:#f1f5f9;border:1px solid #e2e8f0}.ds-vs-o{padding:6px 14px;border:none;border-radius:8px;background:transparent;font:inherit;font-size:14px;font-weight:600;color:#475569;cursor:pointer;transition:background-color .15s,color .15s}.ds-vs-o span{color:#94a3b8}.ds-vs-o:hover{background:#fff;color:#0f172a}.ds-vs-on,.ds-vs-on:hover{background:#4f46e5;color:#fff;box-shadow:0 1px 2px 0 rgba(0,0,0,.05)}.ds-vs-on span{color:#c7d2fe}.ds-vs-o:focus-visible{outline:2px solid #6366f1;outline-offset:2px}.ds-vs-f{display:flex;flex-wrap:wrap;justify-content:space-between;gap:4px 16px;padding:10px 16px;background:#f8fafc;font-size:11px;color:#475569}.ds-vs-f b{font-variant-numeric:tabular-nums;color:#0f172a}.ds-vs-f code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:10.5px;color:#be123c}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Scoped Ledger",
+    "overview": "**Creative North Star: \"The Scoped Ledger\"**\n\nTaskPilot looks like the operational ledger it replaces, cleaned up and given a lock. A slate-900 ink column (the sidebar, and on the landing page the whole hero stage) holds white task tables whose meaning is carried by small tinted pills: status, priority, scope. One indigo carries every commitment the user can make: the active nav item, the primary button, the selected viewer, the focus ring. Everything else is slate.\n\nDensity is high and calm. Working surfaces run on 12px text, 10–11px uppercase column labels and tabular numerals so dates, counts and IDs line up like a spreadsheet. The marketing surface is the same world at page scale: the real shell (sidebar, top bar, task table) becomes the hero instead of a screenshot, with display type in tight-tracked Inter bold above it. Depth comes from hairline borders and the ink/paper contrast, not from shadows; only things that float above the workspace (drawer, modal card, the hero stage) lift.\n\nThe world rejects gradients and glass on new surfaces. The app's earlier indigo-to-purple gradients were removed; the indigo is flat.",
+    "keyCharacteristics": [
+      "Slate-900 ink ground against white and cool-paper task surfaces.",
+      "One committed accent (indigo-600); semantic tints for state, never for decoration.",
+      "Inter throughout, tabular numerals for every count, date and ID.",
+      "Hairline-bordered panels at 12px radius; pills at 6px.",
+      "Product truth as imagery: the real shell, real seed rows, real API responses in mono."
+    ],
+    "rules": [
+      {
+        "name": "The One Commitment Rule",
+        "body": "Indigo appears only where the user commits or is located: a primary action, the current nav item, the selected scope, focus. If an element is not clickable-and-primary or currently selected, it is not indigo-600.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tint-Means-State Rule",
+        "body": "Emerald, rose, amber, blue and violet appear as 50-wash + 700-text pairs bound to a fixed meaning (Excel/done, blocked/urgent/error, high/held back, in progress/medium, in review). They are never used as section colour or ornament.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tabular Rule",
+        "body": "Every count, date, row number and ID uses tabular numerals (the `.tabular` utility, `font-variant-numeric: tabular-nums`). Columns of numbers must align like the spreadsheet they replace.",
+        "section": "typography"
+      },
+      {
+        "name": "The Uppercase-Is-Structure Rule",
+        "body": "Uppercase tracked labels are reserved for structural captions (column headers, nav group headings, form field labels). Section headings on marketing surfaces carry no eyebrow above them.",
+        "section": "typography"
+      },
+      {
+        "name": "The Stable Stage Rule",
+        "body": "Interactive demos reserve their full height. When content collapses (the viewer switch hiding rows), the frame keeps its size and the vacated space carries an explanatory note, so the page never shifts under the reader.",
+        "section": "layout"
+      },
+      {
+        "name": "The Border-First Rule",
+        "body": "A panel that sits in the page flow gets a hairline border, not a shadow. Lift is earned by floating (drawer, modal, stage).",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** keep indigo-600 for primary actions, current location, selected scope and focus only.",
+      "**Do** express task state with 50-wash + 700-text pills using the fixed mapping: blue in progress, violet in review, rose blocked/urgent, amber high, emerald completed, slate backlog/to do/low.",
+      "**Do** set every count, date and ID in tabular numerals, and IDs, paths and API responses in mono.",
+      "**Do** separate in-flow panels with a 1px slate-200 border at 12px radius; reserve shadows for drawers, modals and the hero stage.",
+      "**Do** show the real product (shell, seed rows, import preview, API probe) as imagery on marketing surfaces.",
+      "**Do** transition colour only (`transition-colors`, 150–200ms) on hover; use `cubic-bezier(0.16, 1, 0.3, 1)` for entrances, and honour `prefers-reduced-motion`.",
+      "**Do** reserve the full height of interactive demos so toggling never shifts the page."
+    ],
+    "donts": [
+      "**Don't** use gradients anywhere; the indigo-to-purple gradients were removed and stay removed.",
+      "**Don't** add glass (translucent blurred) panels to new surfaces; the sticky top bar's white/90 blur is the only incumbent case.",
+      "**Don't** introduce a second accent or use purple for roles or emphasis; indigo is the brand and violet means \"In Review\" only.",
+      "**Don't** put eyebrow labels above section headings or invent metrics, customers or testimonials as decoration.",
+      "**Don't** use `transition-all` for hover or press feedback; transition colour, and name the properties when a collapse animates several."
+    ]
+  }
+}

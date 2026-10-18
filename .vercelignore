@@ -1,0 +1,8 @@
+graphify-out
+brag-output
+data
+docs
+scripts
+backend/tests
+**/__pycache__
+**/node_modules

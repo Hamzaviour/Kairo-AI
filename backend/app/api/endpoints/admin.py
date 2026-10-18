@@ -98,5 +98,5 @@ def get_system_audit_logs(
 ):
     """Global organization-wide activity logs (Admin only)."""
     logs = db.query(TaskActivityLog).order_by(TaskActivityLog.created_at.desc()).limit(limit).all()
-    dtos = [ActivityLogResponse.model_validate(l) for l in logs]
+    dtos = [ActivityLogResponse.from_log(l) for l in logs]
     return ResponseEnvelope(data=dtos)
