@@ -40,6 +40,45 @@ class AIService:
         db.add(record)
         db.commit()
 
+    WEEKDAYS = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+    DATE_PHRASE = re.compile(
+        r'\s*\b(?:(?:by|before|on|due|until)\s+)?'
+        r'(?:(?:next|this)\s+(?:week|monday|tuesday|wednesday|thursday|friday|saturday|sunday)'
+        r'|monday|tuesday|wednesday|thursday|friday|saturday|sunday'
+        r'|today|tonight|tomorrow|end of (?:the )?week|eow|in\s+\d+\s+days?)\b'
+        r'(?:\s+(?:at\s+)?\d{1,2}(?::\d{2})?\s*(?:am|pm))?',
+        re.IGNORECASE,
+    )
+    PRIORITY_PHRASE = re.compile(
+        r'\s*\b(?:with\s+)?(?:an?\s+)?(?:urgent|high|medium|low|critical)\s+priority\b'
+        r'|\s*\b(?:asap|urgently)\b',
+        re.IGNORECASE,
+    )
+
+    @classmethod
+    def _extract_due_date(cls, lower: str, now: datetime) -> Optional[datetime]:
+        """Resolve relative date phrases ("next thursday", "in 3 days", "tomorrow") to a due date."""
+        def at(day: datetime, hour: int) -> datetime:
+            return day.replace(hour=hour, minute=0, second=0, microsecond=0)
+
+        if "today" in lower or "tonight" in lower:
+            return at(now, 18)
+        if "tomorrow" in lower:
+            return at(now + timedelta(days=1), 18)
+        m = re.search(r'\bin\s+(\d+)\s+days?\b', lower)
+        if m:
+            return at(now + timedelta(days=int(m.group(1))), 18)
+        if "end of week" in lower or "end of the week" in lower or re.search(r'\beow\b', lower):
+            return at(now + timedelta(days=(4 - now.weekday()) % 7), 17)
+        for idx, name in enumerate(cls.WEEKDAYS):
+            if re.search(rf'\b{name}\b', lower):
+                # "thursday", "this thursday" and "next thursday" all resolve to the coming occurrence
+                days_ahead = (idx - now.weekday()) % 7 or 7
+                return at(now + timedelta(days=days_ahead), 17)
+        if "next week" in lower:
+            return at(now + timedelta(days=7), 18)
+        return None
+
     @classmethod
     def parse_task_nlp(cls, text: str, user: User, db: Session) -> ParsedTaskResponse:
         """
@@ -64,25 +103,15 @@ class AIService:
 
         # Due date extraction
         now = datetime.now(timezone.utc)
-        if "today" in lower:
-            due_date = now.replace(hour=18, minute=0, second=0, microsecond=0)
-        elif "tomorrow" in lower:
-            due_date = (now + timedelta(days=1)).replace(hour=18, minute=0, second=0, microsecond=0)
-        elif "next week" in lower:
-            due_date = (now + timedelta(days=7)).replace(hour=18, minute=0, second=0, microsecond=0)
-        elif "friday" in lower:
-            days_ahead = (4 - now.weekday()) % 7
-            if days_ahead <= 0:
-                days_ahead += 7
-            due_date = (now + timedelta(days=days_ahead)).replace(hour=17, minute=0, second=0, microsecond=0)
-        elif "monday" in lower:
-            days_ahead = (0 - now.weekday()) % 7
-            if days_ahead <= 0:
-                days_ahead += 7
-            due_date = (now + timedelta(days=days_ahead)).replace(hour=17, minute=0, second=0, microsecond=0)
+        due_date = cls._extract_due_date(lower, now)
 
-        # Title cleaning: strip common conversational prefixes
+        # Title cleaning: strip conversational prefixes, then the date and priority phrases
+        # already captured as structured fields, keeping the user's own casing
         cleaned = re.sub(r'^(i need to|please|can you|create task to|add task:|task:)\s*', '', title, flags=re.IGNORECASE)
+        cleaned = re.sub(r'^(urgent|asap|critical|important)\s*[:\-]\s*', '', cleaned, flags=re.IGNORECASE)
+        cleaned = cls.DATE_PHRASE.sub('', cleaned)
+        cleaned = cls.PRIORITY_PHRASE.sub('', cleaned)
+        cleaned = re.sub(r'\s{2,}', ' ', cleaned).strip(' ,')
         # Take first sentence as title, rest as description
         sentences = [s.strip() for s in re.split(r'[.\n;]', cleaned) if s.strip()]
         if sentences:
@@ -94,7 +123,7 @@ class AIService:
         suggested_subtasks = cls._generate_heuristic_subtasks(title)
 
         response = ParsedTaskResponse(
-            title=title.capitalize(),
+            title=title[:1].upper() + title[1:],
             description=description,
             priority=priority,
             status="todo",
@@ -335,6 +364,14 @@ class AIService:
                 "Set up environment secrets and registry credentials",
                 "Implement automated deployment staging trigger",
                 "Verify live health check endpoint post-deployment"
+            ]
+        elif any(w in t for w in ["report", "budget", "forecast", "summary", "presentation"]):
+            return [
+                "Collect source figures and supporting documents",
+                "Reconcile numbers against last period",
+                "Draft the report with an executive summary",
+                "Circulate for review and incorporate feedback",
+                "Submit the final version to the stakeholder"
             ]
         elif any(w in t for w in ["frontend", "ui", "component", "page"]):
             return [
