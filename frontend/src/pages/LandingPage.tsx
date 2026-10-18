@@ -526,6 +526,7 @@ export const LandingPage: React.FC = () => {
               preload="metadata"
               poster="/media/taskpilot-tour.jpg"
             >
+              <source src="/media/taskpilot-tour.webm" type="video/webm" />
               <source src="/media/taskpilot-tour.mp4" type="video/mp4" />
               Your browser can’t play this video. <a href="/media/taskpilot-tour.mp4">Download the tour (MP4)</a>.
             </video>
