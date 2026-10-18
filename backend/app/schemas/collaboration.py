@@ -47,3 +47,13 @@ class ActivityLogResponse(BaseModel):
     user: Optional[UserResponse] = None
 
     model_config = {"from_attributes": True}
+
+    @classmethod
+    def from_log(cls, log: Any) -> "ActivityLogResponse":
+        # The ORM column is `metadata_`; plain model_validate would read Base.metadata instead
+        return cls(
+            id=log.id, task_id=log.task_id, user_id=log.user_id, action=log.action,
+            field_name=log.field_name, old_value=log.old_value, new_value=log.new_value,
+            metadata=log.metadata_ or {}, created_at=log.created_at,
+            user=UserResponse.model_validate(log.user) if log.user else None,
+        )
