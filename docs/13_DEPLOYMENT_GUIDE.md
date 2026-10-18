@@ -28,7 +28,7 @@ Routing lives in `vercel.json`: `/api/*`, `/docs` and `/redoc` go to the functio
 
 **Option B — directly on neon.tech.** Create a project, copy the **pooled** connection string (host contains `-pooler`) and add it in Vercel as `DATABASE_URL`.
 
-Then create the schema and demo data **once**, from your machine:
+The API creates the schema and the demo data **by itself** the first time it starts against an empty database (set `SEED_DEMO_DATA=false` to create only the schema). To do it by hand instead, or to restore demo rows later, run from your machine:
 
 ```bash
 pip install -r backend/requirements.txt

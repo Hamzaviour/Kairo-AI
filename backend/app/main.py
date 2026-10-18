@@ -1,4 +1,6 @@
+import logging
 import time
+from contextlib import asynccontextmanager
 from datetime import datetime, timezone
 from fastapi import FastAPI, Request, status, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -8,6 +10,20 @@ from sqlalchemy import text
 from app.core.config import settings
 from app.core.database import SessionLocal
 from app.api.api import api_router
+from app.core.demo_seed import bootstrap_if_empty
+
+logger = logging.getLogger(__name__)
+
+
+@asynccontextmanager
+async def lifespan(_: FastAPI):
+    # A fresh deployment (e.g. a new Neon database on Vercel) gets its schema and demo data here
+    try:
+        bootstrap_if_empty()
+    except Exception:
+        logger.exception("Database bootstrap failed; /api/health will report the database state")
+    yield
+
 
 app = FastAPI(
     title=settings.APP_NAME,
@@ -15,7 +31,8 @@ app = FastAPI(
     description="Enterprise AI-Powered Task Management & To-Do Platform API with Multi-Tenant Data Isolation and Dual-Engine AI.",
     docs_url="/docs",
     redoc_url="/redoc",
-    openapi_url="/api/openapi.json"
+    openapi_url="/api/openapi.json",
+    lifespan=lifespan,
 )
 
 # CORS Middleware
