@@ -1,0 +1,5 @@
+# Binary media and review captures add nothing to the code/docs graph
+frontend/public/media/
+brag-output/*.mp4
+brag-output/*.jpg
+.impeccable/review/
