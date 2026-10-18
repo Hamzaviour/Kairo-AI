@@ -100,6 +100,15 @@ const ScopeStage: React.FC = () => {
     setViewer(v);
   };
 
+  const radios = useRef<Record<Viewer, HTMLButtonElement | null>>({ admin: null, user: null });
+  const onSwitchKey = (e: React.KeyboardEvent) => {
+    if (!['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown'].includes(e.key)) return;
+    e.preventDefault();
+    const next: Viewer = viewer === 'admin' ? 'user' : 'admin';
+    choose(next);
+    radios.current[next]?.focus();
+  };
+
   const visibleCount = viewer === 'admin' ? DEMO_TASKS.length : DEMO_TASKS.filter((t) => t.owner === 'Sarah Jenkins').length;
 
   return (
@@ -144,25 +153,27 @@ const ScopeStage: React.FC = () => {
 
         <div className="flex-1 min-w-0 flex flex-col">
           {/* Top bar with the viewer switch */}
-          <div className="h-12 px-3 sm:px-4 flex items-center justify-between gap-3 border-b border-slate-200 bg-white">
+          <div className="h-14 px-3 sm:px-4 flex items-center justify-between gap-3 border-b border-slate-200 bg-white">
             <span className="hidden sm:block text-xs font-semibold text-slate-800">All tasks</span>
-            <div className="flex items-center gap-2 ml-auto" role="radiogroup" aria-label="Viewing as">
-              <span className="text-[11px] font-medium text-slate-500">Viewing as</span>
-              <div className="flex p-0.5 rounded-lg bg-slate-100 border border-slate-200">
+            <div className="flex items-center gap-2.5 ml-auto" role="radiogroup" aria-label="Viewing as" onKeyDown={onSwitchKey}>
+              <span className="hidden sm:inline text-[13px] font-medium text-slate-500">Viewing as</span>
+              <div className="flex p-1 rounded-xl bg-slate-100 border border-slate-200">
                 {([
                   ['admin', 'Alexander', 'Admin'],
                   ['user', 'Sarah', 'User'],
                 ] as const).map(([value, name, role]) => (
                   <button
                     key={value}
+                    ref={(el) => (radios.current[value] = el)}
                     role="radio"
                     aria-checked={viewer === value}
+                    tabIndex={viewer === value ? 0 : -1}
                     onClick={() => choose(value)}
-                    className={`px-2.5 py-1 rounded-md text-[11px] font-semibold transition-colors ${
-                      viewer === value ? 'bg-white text-slate-900 shadow-xs ring-1 ring-slate-200' : 'text-slate-500 hover:text-slate-800'
+                    className={`px-3 sm:px-3.5 py-1.5 rounded-lg text-[13px] sm:text-sm font-semibold transition-colors ${
+                      viewer === value ? 'bg-indigo-600 text-white shadow-sm' : 'text-slate-600 hover:text-slate-900 hover:bg-white'
                     }`}
                   >
-                    {name} <span className={viewer === value ? 'text-indigo-600' : ''}>· {role}</span>
+                    {name} <span className={viewer === value ? 'text-indigo-200' : 'text-slate-400'}>· {role}</span>
                   </button>
                 ))}
               </div>
@@ -267,8 +278,8 @@ const CopilotDemo: React.FC = () => {
         </span>
         <span className="text-xs font-bold text-slate-900">AI Task Copilot</span>
       </div>
-      <div className="p-4 space-y-4">
-        <div className="flex items-start gap-2 rounded-xl border border-slate-200 bg-slate-50 px-3 py-2.5 text-sm text-slate-800 min-h-[3.25rem]">
+      <div className="p-4 sm:p-6 space-y-5">
+        <div className="flex items-start gap-2 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm sm:text-base text-slate-800 min-h-[3.5rem]">
           <span className="flex-1">
             {COPILOT_PROMPT.slice(0, typed)}
             {!done && <span className="inline-block w-px h-4 align-middle bg-indigo-600 animate-pulse ml-px" />}
@@ -277,7 +288,7 @@ const CopilotDemo: React.FC = () => {
         </div>
 
         <div className={`space-y-3 transition-all duration-500 ${done ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'}`}>
-          <div className="text-base font-bold text-slate-900">Submit Q4 budget report to Alex</div>
+          <div className="text-lg sm:text-xl font-bold tracking-[-0.01em] text-slate-900">Submit Q4 budget report to Alex</div>
           <dl className="flex flex-wrap gap-2 text-[11px]">
             <div className="flex items-center gap-1.5 px-2 py-1 rounded-md bg-rose-50 text-rose-700 font-semibold">
               <dt className="sr-only">Priority</dt><dd>Urgent</dd>
@@ -290,7 +301,7 @@ const CopilotDemo: React.FC = () => {
               <dt className="sr-only">Due</dt><dd>Thursday, 5:00 PM</dd>
             </div>
           </dl>
-          <ol className="space-y-1.5 text-xs text-slate-700">
+          <ol className="space-y-2 text-xs sm:text-sm text-slate-700">
             {[
               'Collect source figures and supporting documents',
               'Reconcile numbers against last period',
@@ -323,7 +334,7 @@ const SheetDemo: React.FC = () => (
       <span className="text-[11px] font-semibold text-emerald-700">Import preview</span>
     </div>
     <div className="overflow-x-auto">
-      <table className="w-full min-w-[30rem] border-collapse">
+      <table className="w-full min-w-[22rem] border-collapse">
         <thead>
           <tr className="bg-slate-50 text-[10px] uppercase tracking-wider text-slate-500">
             <th className="w-8 border-r border-b border-slate-200 font-semibold" />
@@ -343,7 +354,7 @@ const SheetDemo: React.FC = () => (
                 {r.legacy === r.normalised ? (
                   <span className="text-slate-700">{r.legacy}</span>
                 ) : (
-                  <span className="flex items-center gap-1.5 whitespace-nowrap">
+                  <span className="flex flex-wrap items-center gap-x-1.5 gap-y-0.5">
                     <span className="text-slate-400 line-through">{r.legacy}</span>
                     <ArrowRight className="w-3 h-3 text-slate-400" aria-label="becomes" />
                     <span className="font-semibold text-indigo-700">{r.normalised}</span>
@@ -424,7 +435,7 @@ export const LandingPage: React.FC = () => {
           </div>
         </nav>
 
-        <section className="max-w-6xl mx-auto px-4 sm:px-6 pt-10 sm:pt-16 pb-16 sm:pb-24">
+        <section className="max-w-6xl mx-auto px-4 sm:px-6 pt-10 sm:pt-16 pb-14 sm:pb-20">
           <div className="max-w-3xl">
             <h1 className="text-[2.25rem] leading-[1.05] sm:text-6xl font-bold tracking-[-0.035em] text-balance">
               Your spreadsheet, rebuilt as a secure AI workspace.
@@ -452,7 +463,8 @@ export const LandingPage: React.FC = () => {
           <div className="mt-12 sm:mt-16">
             <ScopeStage />
             <p className="mt-4 text-sm text-slate-400">
-              Same database, two people. Switch who is looking: Sarah’s workspace simply doesn’t contain Alexander’s work.
+              Flip <span className="font-semibold text-white">Viewing as</span> to Sarah. Same database, but her workspace
+              simply doesn’t contain Alexander’s work.
             </p>
           </div>
         </section>
@@ -460,7 +472,7 @@ export const LandingPage: React.FC = () => {
 
       <main>
         {/* Excel round-trip */}
-        <section id="how" className="max-w-6xl mx-auto px-4 sm:px-6 py-20 sm:py-28 grid gap-12 lg:grid-cols-[1fr_1.15fr] lg:items-center">
+        <section id="how" className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20 grid gap-10 lg:grid-cols-[0.85fr_1.25fr] lg:items-center">
           <div>
             <h2 className="text-3xl sm:text-4xl font-bold tracking-[-0.03em] text-balance">Bring the sheet you already have.</h2>
             <p className="mt-4 text-slate-600 leading-relaxed max-w-prose">
@@ -494,48 +506,46 @@ export const LandingPage: React.FC = () => {
 
         {/* Copilot */}
         <section className="bg-slate-50 border-y border-slate-200">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 py-20 sm:py-28 grid gap-12 lg:grid-cols-[1.15fr_1fr] lg:items-center">
-            <div className="order-2 lg:order-1">
-              <CopilotDemo />
-            </div>
-            <div className="order-1 lg:order-2">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-20 grid gap-10 lg:grid-cols-[0.85fr_1.25fr] lg:items-start">
+            <div className="lg:pt-6">
               <h2 className="text-3xl sm:text-4xl font-bold tracking-[-0.03em] text-balance">Type it the way you’d say it.</h2>
               <p className="mt-4 text-slate-600 leading-relaxed max-w-prose">
                 The Copilot pulls the title, priority and deadline out of a plain sentence and drafts the checklist. It also
-                plans your day, flags overdue work and explains why a task deserves its priority.
+                plans your day, flags overdue work and explains why a task deserves its priority, using only tasks in your
+                own scope.
               </p>
               <p className="mt-4 text-slate-600 leading-relaxed max-w-prose">
                 No API key? It still works. A deterministic engine runs offline, and connecting an LLM key makes the drafts
                 richer.
               </p>
             </div>
+            <CopilotDemo />
           </div>
         </section>
 
-        {/* Video tour */}
-        <section id="tour" className="max-w-6xl mx-auto px-4 sm:px-6 py-20 sm:py-28">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-[-0.03em] text-balance max-w-2xl">
-            Twenty seconds, start to finish.
-          </h2>
-          <p className="mt-4 text-slate-600 max-w-prose">From the old spreadsheet to a scoped, AI-planned workspace.</p>
-          <div className="mt-10 rounded-2xl overflow-hidden bg-slate-900 ring-1 ring-slate-200 shadow-xl aspect-video">
-            <video
-              className="w-full h-full"
-              controls
-              playsInline
-              preload="metadata"
-              poster="/media/taskpilot-tour.jpg"
-            >
-              <source src="/media/taskpilot-tour.webm" type="video/webm" />
-              <source src="/media/taskpilot-tour.mp4" type="video/mp4" />
-              Your browser can’t play this video. <a href="/media/taskpilot-tour.mp4">Download the tour (MP4)</a>.
-            </video>
-          </div>
-        </section>
-
-        {/* Proof */}
+        {/* Video tour + proof share the workspace's slate ground */}
         <section className="bg-slate-900 text-white">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 py-20 sm:py-28">
+          <div id="tour" className="max-w-6xl mx-auto px-4 sm:px-6 pt-16 sm:pt-20 scroll-mt-4">
+            <h2 className="text-3xl sm:text-4xl font-bold tracking-[-0.03em] text-balance max-w-2xl">
+              Twenty seconds, start to finish.
+            </h2>
+            <p className="mt-4 text-slate-400 max-w-prose">From the old spreadsheet to a scoped, AI-planned workspace.</p>
+            <div className="mt-10 rounded-2xl overflow-hidden bg-slate-950 ring-1 ring-white/10 shadow-[0_30px_80px_-20px_rgba(2,6,23,0.8)] aspect-video">
+              <video
+                className="w-full h-full"
+                controls
+                playsInline
+                preload="metadata"
+                poster="/media/taskpilot-tour.jpg"
+              >
+                <source src="/media/taskpilot-tour.webm" type="video/webm" />
+                <source src="/media/taskpilot-tour.mp4" type="video/mp4" />
+                Your browser can’t play this video. <a href="/media/taskpilot-tour.mp4" className="underline">Download the tour (MP4)</a>.
+              </video>
+            </div>
+          </div>
+
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
             <h2 className="text-3xl sm:text-4xl font-bold tracking-[-0.03em] text-balance max-w-2xl">
               Built so a shared workspace can be trusted.
             </h2>
@@ -560,7 +570,7 @@ export const LandingPage: React.FC = () => {
         </section>
 
         {/* Close */}
-        <section className="max-w-6xl mx-auto px-4 sm:px-6 py-20 sm:py-28">
+        <section className="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24">
           <h2 className="text-3xl sm:text-5xl font-bold tracking-[-0.035em] text-balance max-w-3xl">
             Open the workspace as either person.
           </h2>

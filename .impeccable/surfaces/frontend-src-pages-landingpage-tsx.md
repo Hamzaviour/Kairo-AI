@@ -10,7 +10,7 @@ related_targets: []
 Scope: public marketing route `/` for HCCDI TaskPilot. Visitor mode: **Persuade**.
 Audience: enterprise team leads and ops managers still running work in shared Excel trackers.
 Action: open the live demo (sign in with a demo account); secondary: watch the launch video, read the docs.
-Proof on hand: the real app UI, the seeded demo workbook, 19 passing backend tests, IDOR 404 behaviour. No customers, metrics or testimonials exist — never invent them.
+Proof on hand: the real app UI, the seeded demo workbook, 21 passing backend tests, IDOR 404 behaviour. No customers, metrics or testimonials exist — never invent them.
 
 ## Direction contract
 

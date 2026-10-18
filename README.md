@@ -10,6 +10,17 @@
 
 An enterprise-grade, full-stack, AI-powered work orchestration and task management platform that transforms unstructured, error-prone spreadsheets into a secure, collaborative, multi-tenant productivity suite.
 
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FHamzaviour%2FAI-Based-To-Do-App&env=JWT_SECRET_KEY,DATABASE_URL&envDescription=JWT_SECRET_KEY%3A%20long%20random%20string%20(openssl%20rand%20-hex%2032).%20DATABASE_URL%3A%20pooled%20Neon%20Postgres%20URL.&envLink=https%3A%2F%2Fgithub.com%2FHamzaviour%2FAI-Based-To-Do-App%2Fblob%2Fmain%2Fdocs%2F13_DEPLOYMENT_GUIDE.md)
+
+**Watch the 20-second tour:** [`frontend/public/media/taskpilot-tour.mp4`](./frontend/public/media/taskpilot-tour.mp4) (also embedded on the landing page).
+
+| Route | What's there |
+|---|---|
+| `/` | Landing page with a live "Viewing as" scope demo and the video tour |
+| `/login` | Sign in (`?demo=admin` / `?demo=user` pre-fills a demo account) |
+| `/app` | The workspace (List, Kanban, Calendar, Projects, Analytics, Admin) |
+| `/docs` | Interactive API documentation (Swagger) |
+
 ---
 
 ## 🌟 Key Highlights & Architectural Pillars
@@ -74,6 +85,7 @@ task-management-platform/
 │   │   ├── schemas/      # Pydantic v2 validation DTOs and envelopes
 │   │   └── services/     # Task isolation, AI engine, OpenPyXL pipeline
 │   ├── migrations/       # SQL DDL schemas and triggers
+│   ├── requirements.txt  # Python dependencies
 │   ├── tests/            # Automated pytest suite (Auth, IDOR, AI, Excel)
 │   └── run.py            # Uvicorn entrypoint
 │
@@ -82,12 +94,18 @@ task-management-platform/
 │   │   ├── components/   # Layout, Tasks (List, Kanban, Calendar), AI, Excel
 │   │   ├── context/      # Authentication & session provider
 │   │   ├── services/     # Axios client with 401 refresh token interceptor
-│   │   ├── pages/        # Login page with demo switcher & Dashboard
+│   │   ├── pages/        # Landing page, Login (demo switcher) & Dashboard
 │   │   └── types/        # TypeScript interfaces matching backend DTOs
 │   ├── package.json
 │   └── vite.config.ts
 │
-└── docs/                 # Pre-documentation engineering suite
+├── api/index.py          # Vercel serverless entrypoint (FastAPI)
+├── vercel.json           # Build, routing and function config
+├── scripts/seed_demo.py  # Schema bootstrap + demo data
+├── graphify-out/         # Knowledge graph + Obsidian vault
+├── brag-output/          # Launch video sources
+│
+└── docs/                 # Engineering & product documentation suite
     ├── 01_PRD.md
     ├── 02_TRD.md
     ├── 03_SRS.md
@@ -117,7 +135,12 @@ python -m venv .venv
 # On macOS/Linux:
 source .venv/bin/activate
 
-pip install -r requirements.txt  # or install fastapi uvicorn sqlalchemy pydantic openpyxl pyjwt bcrypt
+pip install -r requirements.txt
+
+# Point at any PostgreSQL database, then create the schema + demo data (idempotent)
+export DATABASE_URL=postgresql://localhost:5432/taskpilot
+python ../scripts/seed_demo.py
+
 python run.py
 ```
 Backend API will be live at `http://127.0.0.1:8000`.  
@@ -134,9 +157,12 @@ Client SPA will be live at `http://localhost:5173`.
 ### 3. Running Automated Tests
 ```bash
 cd backend
-python -m pytest tests/ -v
+python -m pytest tests/ -v   # use a separate DATABASE_URL so demo data stays clean
 ```
-*(All 17 integration and IDOR security tests pass at 100%).*
+*(21 integration, AI, Excel and IDOR security tests.)*
+
+### 4. Deploy to Vercel
+One project serves the static app from the CDN and the FastAPI backend as a Python function (`api/index.py`, routed by `vercel.json`). Add a Neon Postgres database and set `JWT_SECRET_KEY`, then deploy — full steps in **[docs/13_DEPLOYMENT_GUIDE.md](./docs/13_DEPLOYMENT_GUIDE.md)**.
 
 ---
 
@@ -161,6 +187,27 @@ Detailed engineering documents are available in [`docs/`](./docs/):
 - **[07_SDLC_METHODOLOGY.md](./docs/07_SDLC_METHODOLOGY.md)**: Agile delivery & quality gates.
 - **[08_PROJECT_TRACKING_TRACEABILITY.md](./docs/08_PROJECT_TRACKING_TRACEABILITY.md)**: Requirements Traceability Matrix (RTM).
 - **[09_BACKEND_SCHEMA_SPEC.md](./docs/09_BACKEND_SCHEMA_SPEC.md)**: Comprehensive 19-table database dictionary.
+- **[10_PRODUCT_PROPOSAL.md](./docs/10_PRODUCT_PROPOSAL.md)**: Problem, solution, rollout plan, risks and the decision requested.
+- **[11_WORKFLOWS.md](./docs/11_WORKFLOWS.md)**: Task lifecycle, Excel onboarding, Copilot, isolation, admin and engineering/release workflows.
+- **[12_USER_MANUAL.md](./docs/12_USER_MANUAL.md)**: How to use every part of TaskPilot, for users and admins.
+- **[13_DEPLOYMENT_GUIDE.md](./docs/13_DEPLOYMENT_GUIDE.md)**: Vercel + Neon deployment, environment variables, operations.
+- **[14_API_REFERENCE.md](./docs/14_API_REFERENCE.md)**: All 52 endpoints with access level (generated from the OpenAPI schema).
+
+---
+
+## 🕸️ Knowledge Graph (Obsidian)
+
+The whole repository — code and docs — is mapped as a knowledge graph with [graphify](https://github.com/safishamsi/graphify) in [`graphify-out/`](./graphify-out/):
+
+- **`graphify-out/obsidian/`** — open this folder as a vault in Obsidian (*Open folder as vault*) to browse one note per concept, linked by real relationships; `graph.canvas` shows the community layout.
+- **`graphify-out/graph.html`** — the same graph, interactive in any browser.
+- **`graphify-out/GRAPH_REPORT.md`** — communities, god nodes and surprising connections.
+
+Refresh after code changes with `pip install graphifyy && graphify update .` (no API key needed).
+
+## 🎬 Launch Video
+
+The tour was produced with the [/brag](https://github.com/latent-spaces/brag) skill. Plan, share copy, poster and the frame/audio sources are in [`brag-output/`](./brag-output/); the soundtrack is original (synthesized), so it is free to reuse.
 
 ---
 

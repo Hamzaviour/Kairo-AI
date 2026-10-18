@@ -32,7 +32,7 @@ Spreadsheet → AI workspace. The Excel round-trip (validated import with dry-ru
 
 ## Evidence on Hand
 - Demo accounts and seed data from `data/Tasks_and_Users_Updated.xlsx` (2 users, 3 tasks) plus seeded demo tasks in `scripts/seed_demo.py`.
-- 17 passing backend tests (auth, IDOR isolation, AI, Excel).
+- 21 passing backend tests (auth, IDOR isolation, AI, Excel).
 - No customers, testimonials, pricing or usage metrics exist — never fabricate them.
 
 ## Product Principles
