@@ -187,7 +187,7 @@ Detailed engineering documents are available in [`docs/`](./docs/):
 - **[07_SDLC_METHODOLOGY.md](./docs/07_SDLC_METHODOLOGY.md)**: Agile delivery & quality gates.
 - **[08_PROJECT_TRACKING_TRACEABILITY.md](./docs/08_PROJECT_TRACKING_TRACEABILITY.md)**: Requirements Traceability Matrix (RTM).
 - **[09_BACKEND_SCHEMA_SPEC.md](./docs/09_BACKEND_SCHEMA_SPEC.md)**: Comprehensive 19-table database dictionary.
-- **[10_PRODUCT_PROPOSAL.md](./docs/10_PRODUCT_PROPOSAL.md)**: Problem, solution, rollout plan, risks and the decision requested.
+- **[10_PRODUCT_PROPOSAL.md](./docs/10_PRODUCT_PROPOSAL.md)**: Problem, solution, rollout plan, risks and the decision requested. Also as a designed PDF: **[HCCDI_TaskPilot_Product_Proposal.pdf](./docs/HCCDI_TaskPilot_Product_Proposal.pdf)**.
 - **[11_WORKFLOWS.md](./docs/11_WORKFLOWS.md)**: Task lifecycle, Excel onboarding, Copilot, isolation, admin and engineering/release workflows.
 - **[12_USER_MANUAL.md](./docs/12_USER_MANUAL.md)**: How to use every part of TaskPilot, for users and admins.
 - **[13_DEPLOYMENT_GUIDE.md](./docs/13_DEPLOYMENT_GUIDE.md)**: Vercel + Neon deployment, environment variables, operations.
