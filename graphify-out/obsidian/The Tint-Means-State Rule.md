@@ -11,7 +11,7 @@ tags:
 # The Tint-Means-State Rule
 
 ## Connections
-- [[DESIGN.md (Design System HCCDI TaskPilot)]] - `references` [EXTRACTED]
+- [[DESIGN.md (Design System Kairo)]] - `references` [EXTRACTED]
 - [[Sheet Emerald (Exceldone tint)]] - `conceptually_related_to` [EXTRACTED]
 - [[Status and Priority Pills (chips)]] - `conceptually_related_to` [EXTRACTED]
 

@@ -1,4 +1,4 @@
-"""Original soundtrack + SFX for the TaskPilot brag video, synthesized with numpy.
+"""Original soundtrack + SFX for the Kairo brag video, synthesized with numpy.
 
 112.5 BPM so the reveal (3.2 s) lands exactly on beat 6; Am-F-C-G in A minor.
 SFX are pitched to the same key and share the music's reverb so they sit inside the mix.

@@ -10,7 +10,7 @@ web
 Enterprise teams moving off shared Excel task trackers. **Admins** (team leads, ops managers) run the organisation: they see every task, manage users and roles, and read the audit trail. **Users** (individual contributors) see and work only their own tasks. Both arrive with existing spreadsheets and a daily need to know what to work on next.
 
 ## Product Purpose
-HCCDI TaskPilot turns error-prone spreadsheets into a secure, AI-assisted task workspace. Success means a team can import its existing tracker, plan and run work in the browser without ever leaking one person's tasks to another, and export back to Excel whenever a stakeholder still wants a sheet.
+Kairo turns error-prone spreadsheets into a secure, AI-assisted task workspace. Success means a team can import its existing tracker, plan and run work in the browser without ever leaking one person's tasks to another, and export back to Excel whenever a stakeholder still wants a sheet.
 
 ## Positioning
 Spreadsheet → AI workspace. The Excel round-trip (validated import with dry-run preview, styled export with native dropdown validation) is the on-ramp; the dual-engine AI Copilot (LLM when a key is configured, deterministic heuristics when not) is the payoff; strict per-user scope filtering is what makes it safe for an enterprise to adopt.
@@ -27,8 +27,11 @@ Spreadsheet → AI workspace. The Excel round-trip (validated import with dry-ru
 - Deployment target: Vercel (static frontend + Python serverless API) with a hosted Postgres.
 
 ## Brand Commitments
-- Name: **HCCDI TaskPilot**. Indigo brand scale (`brand-500 #6366f1` / `brand-600 #4f46e5`), Inter typeface, check-circle mark.
-- Voice: direct and operational; concrete nouns from the product (tasks, scopes, sheets), no hype.
+- Name: **Kairo** (from *kairos*, the opportune moment); tagline "Do the right work at the right moment". Renamed from the original working name on 2026-10-24; that name must not appear anywhere in the product.
+- Direction pinned by the owner: **calm premium** (Linear / Things register): deep ink, generous space, one bright accent.
+- Identity: open-ring mark with a saffron dot in its gap, monoline `kairo` wordmark whose i-dot is saffron. Ink neutrals, saffron `#ffb224` accent, Funnel Display + Geist + Geist Mono. See DESIGN.md and `/brand`.
+- Voice: calm, direct and specific; concrete nouns from the product (tasks, scopes, sheets), no hype.
+- Chat assistants: users and admins each get their own Groq-powered assistant in the bottom-right corner.
 
 ## Evidence on Hand
 - Demo accounts and seed data from `data/Tasks_and_Users_Updated.xlsx` (2 users, 3 tasks) plus seeded demo tasks in `scripts/seed_demo.py`.

@@ -11,7 +11,7 @@ tags:
 # Landing Page Surface Brief
 
 ## Connections
-- [[DESIGN.md (Design System HCCDI TaskPilot)]] - `references` [EXTRACTED]
+- [[DESIGN.md (Design System Kairo)]] - `references` [EXTRACTED]
 - [[Landing Story spreadsheet mess - isolation - video - live demo]] - `references` [EXTRACTED]
 - [[LandingPage()]] - `references` [EXTRACTED]
 - [[No Fabricated CustomersMetrics Rule]] - `conceptually_related_to` [INFERRED]

@@ -34,7 +34,7 @@ export const AICopilotDrawer: React.FC<AICopilotDrawerProps> = ({
     {
       id: 'welcome',
       sender: 'ai',
-      text: "Hello! I am your AI Task Copilot. I can turn natural language into structured tasks, break down complex projects, or build your optimized daily focus schedule. How can I assist you?",
+      text: "Hi, I'm Kairo's Copilot. I can turn natural language into structured tasks, break down complex projects, or build your optimized daily focus schedule. How can I assist you?",
       timestamp: new Date(),
     },
   ]);
@@ -136,16 +136,14 @@ export const AICopilotDrawer: React.FC<AICopilotDrawerProps> = ({
   return (
     <div className="fixed inset-y-0 right-0 z-40 w-full sm:w-[460px] bg-white shadow-2xl border-l border-slate-200 flex flex-col animate-slide-in-right">
       {/* Header */}
-      <div className="h-14 px-5 border-b border-slate-200 flex items-center justify-between bg-indigo-50/70">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-indigo-600 flex items-center justify-center text-white shadow-xs">
-            <Sparkles className="w-4 h-4" />
+      <div className="h-14 px-5 border-b border-slate-200 flex items-center justify-between bg-white">
+        <div className="flex items-center gap-2.5">
+          <div className="w-8 h-8 rounded-lg bg-slate-900 flex items-center justify-center text-brand-400">
+            <Sparkles className="w-4 h-4" strokeWidth={1.75} />
           </div>
           <div>
-            <h2 className="font-bold text-sm text-slate-800 leading-tight">AI Task Copilot</h2>
-            <span className="text-[10px] text-indigo-600 font-semibold uppercase tracking-wider">
-              Privacy-Scoped &amp; Dual Engine
-            </span>
+            <h2 className="font-display font-semibold text-[15px] text-slate-900 leading-tight">Copilot</h2>
+            <span className="text-[11px] text-slate-500">Plans, drafts and explains, using only your tasks</span>
           </div>
         </div>
 
@@ -162,21 +160,21 @@ export const AICopilotDrawer: React.FC<AICopilotDrawerProps> = ({
       <div className="p-3 bg-slate-50 border-b border-slate-200/80 flex items-center gap-2 overflow-x-auto text-[11px]">
         <button
           onClick={() => handleSend("Plan my day with optimized schedule")}
-          className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-white hover:bg-indigo-50 hover:text-indigo-700 hover:border-indigo-200 text-slate-700 rounded-lg border border-slate-200 shrink-0 font-medium transition-colors"
+          className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-white hover:bg-brand-50 hover:text-brand-800 hover:border-brand-200 text-slate-700 rounded-lg border border-slate-200 shrink-0 font-medium transition-colors"
         >
-          <CalendarClock className="w-3.5 h-3.5 text-indigo-500" aria-hidden="true" />
+          <CalendarClock className="w-3.5 h-3.5 text-brand-600" aria-hidden="true" />
           Plan my day
         </button>
         <button
           onClick={() => handleSend("What tasks are currently blocked or overdue?")}
-          className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-white hover:bg-indigo-50 hover:text-indigo-700 hover:border-indigo-200 text-slate-700 rounded-lg border border-slate-200 shrink-0 font-medium transition-colors"
+          className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-white hover:bg-brand-50 hover:text-brand-800 hover:border-brand-200 text-slate-700 rounded-lg border border-slate-200 shrink-0 font-medium transition-colors"
         >
-          <AlertTriangle className="w-3.5 h-3.5 text-amber-500" aria-hidden="true" />
+          <AlertTriangle className="w-3.5 h-3.5 text-orange-600" aria-hidden="true" />
           Overdue items
         </button>
         <button
           onClick={() => handleSend("Add task: Review Q4 deployment checklist by tomorrow 5pm with urgent priority")}
-          className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-white hover:bg-indigo-50 hover:text-indigo-700 hover:border-indigo-200 text-slate-700 rounded-lg border border-slate-200 shrink-0 font-medium transition-colors"
+          className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-white hover:bg-brand-50 hover:text-brand-800 hover:border-brand-200 text-slate-700 rounded-lg border border-slate-200 shrink-0 font-medium transition-colors"
         >
           <PenLine className="w-3.5 h-3.5 text-slate-500" aria-hidden="true" />
           Natural language parse
@@ -195,7 +193,7 @@ export const AICopilotDrawer: React.FC<AICopilotDrawerProps> = ({
             >
               <div
                 className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 text-xs font-bold ${
-                  isAi ? 'bg-indigo-600 text-white shadow-2xs' : 'bg-slate-200 text-slate-700'
+                  isAi ? 'bg-slate-900 text-white shadow-2xs' : 'bg-slate-200 text-slate-700'
                 }`}
               >
                 {isAi ? <Bot className="w-4 h-4" /> : <User className="w-4 h-4" />}
@@ -205,14 +203,14 @@ export const AICopilotDrawer: React.FC<AICopilotDrawerProps> = ({
                 className={`max-w-[85%] rounded-2xl p-3 text-xs leading-relaxed ${
                   isAi
                     ? 'bg-slate-50 text-slate-800 border border-slate-200/70 shadow-2xs'
-                    : 'bg-indigo-600 text-white'
+                    : 'bg-slate-900 text-white'
                 }`}
               >
                 <div className="whitespace-pre-wrap">{m.text}</div>
 
                 {/* Parsed Task Card if AI created a DTO */}
                 {m.parsedTask && (
-                  <div className="mt-3 p-3 bg-white rounded-xl border border-indigo-100 shadow-xs space-y-2 text-slate-800">
+                  <div className="mt-3 p-3 bg-white rounded-xl border border-brand-100 shadow-xs space-y-2 text-slate-800">
                     <div className="flex items-center justify-between">
                       <span className="font-bold text-xs">{m.parsedTask.title}</span>
                       <Badge type="priority" value={m.parsedTask.priority} />
@@ -225,7 +223,7 @@ export const AICopilotDrawer: React.FC<AICopilotDrawerProps> = ({
                         </span>
                         {m.parsedTask.suggested_subtasks.map((st, i) => (
                           <div key={i} className="text-[11px] text-slate-600 flex items-center gap-1.5">
-                            <span className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
+                            <span className="w-1.5 h-1.5 rounded-full bg-brand-400" />
                             <span>{st}</span>
                           </div>
                         ))}
@@ -234,7 +232,7 @@ export const AICopilotDrawer: React.FC<AICopilotDrawerProps> = ({
 
                     <button
                       onClick={() => handleConfirmTaskCreate(m.parsedTask!)}
-                      className="w-full mt-2 py-1.5 text-xs font-bold text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg shadow-2xs flex items-center justify-center gap-1.5 transition-all"
+                      className="w-full mt-2 py-1.5 text-xs font-bold text-white bg-slate-900 hover:bg-slate-800 rounded-lg shadow-2xs flex items-center justify-center gap-1.5 transition-all"
                     >
                       <CheckCircle2 className="w-3.5 h-3.5" />
                       <span>Confirm &amp; Add Task</span>
@@ -270,7 +268,7 @@ export const AICopilotDrawer: React.FC<AICopilotDrawerProps> = ({
 
         {isLoading && (
           <div className="flex items-center gap-2 text-xs text-slate-400 italic">
-            <Loader2 className="w-4 h-4 animate-spin text-indigo-600" />
+            <Loader2 className="w-4 h-4 animate-spin text-brand-700" />
             <span>AI Copilot is thinking...</span>
           </div>
         )}
@@ -283,7 +281,7 @@ export const AICopilotDrawer: React.FC<AICopilotDrawerProps> = ({
             e.preventDefault();
             handleSend();
           }}
-          className="flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 focus-within:bg-white focus-within:border-indigo-500 transition-colors"
+          className="flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-xl px-3 py-1.5 focus-within:bg-white focus-within:border-brand-500 transition-colors"
         >
           <input
             type="text"
@@ -295,7 +293,7 @@ export const AICopilotDrawer: React.FC<AICopilotDrawerProps> = ({
           <button
             type="submit"
             disabled={!input.trim() || isLoading}
-            className="p-1.5 text-white bg-indigo-600 hover:bg-indigo-700 disabled:opacity-40 rounded-lg shadow-2xs transition-all"
+            className="p-1.5 text-white bg-slate-900 hover:bg-slate-800 disabled:opacity-40 rounded-lg shadow-2xs transition-all"
           >
             <Send className="w-3.5 h-3.5" />
           </button>

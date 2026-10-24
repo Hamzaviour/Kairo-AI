@@ -12,7 +12,7 @@ tags:
 
 ## Connections
 - [[Neon PostgreSQL]] - `references` [EXTRACTED]
-- [[Product Proposal (TaskPilot)]] - `references` [EXTRACTED]
+- [[Product Proposal (Kairo)]] - `references` [EXTRACTED]
 - [[Vercel Hosting]] - `references` [EXTRACTED]
 
 #graphify/concept #graphify/EXTRACTED #community/Proposal_Architecture__Cost

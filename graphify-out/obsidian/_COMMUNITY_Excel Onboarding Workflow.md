@@ -11,7 +11,7 @@ members: 13
 - [[Access Levels (Public  Bearer  Admin)]] - concept - docs/14_API_REFERENCE.md
 - [[Bidirectional Excel Data Center (round-trip)]] - concept - README.md
 - [[Excel Hub (export  import with preview)]] - concept - docs/12_USER_MANUAL.md
-- [[HCCDI TaskPilot]] - concept - README.md
+- [[Kairo]] - concept - README.md
 - [[IDOR Immunity  Inviolable Scope Filtering]] - concept - README.md
 - [[Legacy Spreadsheet Problem]] - concept - docs/01_PRD.md
 - [[PRODUCT.md (Product Context)]] - document - PRODUCT.md
@@ -45,4 +45,4 @@ SORT file.name ASC
 - [[Bidirectional Excel Data Center (round-trip)]] - degree 7, connects to 3 communities
 - [[IDOR Immunity  Inviolable Scope Filtering]] - degree 9, connects to 2 communities
 - [[Legacy Spreadsheet Problem]] - degree 3, connects to 2 communities
-- [[HCCDI TaskPilot]] - degree 5, connects to 1 community
+- [[Kairo]] - degree 5, connects to 1 community

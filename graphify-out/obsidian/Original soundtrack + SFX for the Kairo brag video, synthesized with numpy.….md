@@ -9,7 +9,7 @@ tags:
   - community/Test_Fixtures__Video_Synth
 ---
 
-# Original soundtrack + SFX for the TaskPilot brag video, synthesized with numpy.…
+# Original soundtrack + SFX for the Kairo brag video, synthesized with numpy.…
 
 ## Connections
 - [[make_audio.py]] - `rationale_for` [EXTRACTED]

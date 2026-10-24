@@ -1,5 +1,5 @@
 -- ============================================================
--- HCCDI Task Management Platform — Database Schema
+-- Kairo — Database Schema
 -- PostgreSQL 18 on Neon
 -- Project: orange-snow-72696664
 -- Generated: 2026-10-18

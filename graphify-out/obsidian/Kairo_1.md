@@ -8,10 +8,10 @@ tags:
   - community/Proposal_Scope__Risks
 ---
 
-# HCCDI TaskPilot
+# Kairo
 
 ## Connections
-- [[Product Proposal (TaskPilot)]] - `references` [EXTRACTED]
+- [[Product Proposal (Kairo)]] - `references` [EXTRACTED]
 - [[Shared Excel Workbook Problem]] - `rationale_for` [EXTRACTED]
 
 #graphify/concept #graphify/EXTRACTED #community/Proposal_Scope__Risks

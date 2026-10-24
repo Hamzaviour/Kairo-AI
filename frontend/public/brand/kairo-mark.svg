@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 32 32" fill="none">
+  <title>Kairo mark</title>
+  <rect width="32" height="32" rx="8" fill="#13151a"/>
+  <path d="M23.94 15.03A8 8 0 1 1 16.97 8.06" stroke="#ffffff" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="21.66" cy="10.34" r="2.6" fill="#ffb224"/>
+</svg>

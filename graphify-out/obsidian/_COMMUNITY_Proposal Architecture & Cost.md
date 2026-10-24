@@ -14,7 +14,7 @@ members: 9
 - [[Deterministic Heuristic Engine]] - concept - docs/11_WORKFLOWS.md
 - [[Neon PostgreSQL]] - concept - docs/10_PRODUCT_PROPOSAL.md
 - [[Release Workflow (Smoke Test, Migrations, Rollback)]] - concept - docs/11_WORKFLOWS.md
-- [[TaskPilot Architecture (React SPA + FastAPI + PostgreSQL)]] - concept - docs/10_PRODUCT_PROPOSAL.md
+- [[Kairo Architecture (React SPA + FastAPI + PostgreSQL)]] - concept - docs/10_PRODUCT_PROPOSAL.md
 - [[Vercel Hosting]] - concept - docs/10_PRODUCT_PROPOSAL.md
 - [[ai_interactions Log]] - concept - docs/11_WORKFLOWS.md
 
@@ -34,7 +34,7 @@ SORT file.name ASC
 
 ## Top bridge nodes
 - [[Release Workflow (Smoke Test, Migrations, Rollback)]] - degree 5, connects to 3 communities
-- [[TaskPilot Architecture (React SPA + FastAPI + PostgreSQL)]] - degree 5, connects to 2 communities
+- [[Kairo Architecture (React SPA + FastAPI + PostgreSQL)]] - degree 5, connects to 2 communities
 - [[AI Copilot Parse-Task Flow]] - degree 4, connects to 1 community
 - [[AI Task Copilot]] - degree 3, connects to 1 community
 - [[Cost Model (Vercel + Neon free tiers)]] - degree 3, connects to 1 community

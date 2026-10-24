@@ -11,6 +11,6 @@ tags:
 # Out of Scope (Notifications, SSO, Mobile, Multi-tenancy)
 
 ## Connections
-- [[Product Proposal (TaskPilot)]] - `references` [EXTRACTED]
+- [[Product Proposal (Kairo)]] - `references` [EXTRACTED]
 
 #graphify/concept #graphify/EXTRACTED #community/Proposal_Scope__Risks

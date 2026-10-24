@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "generatedAt": "2026-10-18T08:54:47.407594+00:00",
-  "title": "Design System: HCCDI TaskPilot",
+  "title": "Design System: Kairo",
   "extensions": {
     "colorMeta": {
       "indigo-commit": {
@@ -586,7 +586,7 @@
   ],
   "narrative": {
     "northStar": "The Scoped Ledger",
-    "overview": "**Creative North Star: \"The Scoped Ledger\"**\n\nTaskPilot looks like the operational ledger it replaces, cleaned up and given a lock. A slate-900 ink column (the sidebar, and on the landing page the whole hero stage) holds white task tables whose meaning is carried by small tinted pills: status, priority, scope. One indigo carries every commitment the user can make: the active nav item, the primary button, the selected viewer, the focus ring. Everything else is slate.\n\nDensity is high and calm. Working surfaces run on 12px text, 10–11px uppercase column labels and tabular numerals so dates, counts and IDs line up like a spreadsheet. The marketing surface is the same world at page scale: the real shell (sidebar, top bar, task table) becomes the hero instead of a screenshot, with display type in tight-tracked Inter bold above it. Depth comes from hairline borders and the ink/paper contrast, not from shadows; only things that float above the workspace (drawer, modal card, the hero stage) lift.\n\nThe world rejects gradients and glass on new surfaces. The app's earlier indigo-to-purple gradients were removed; the indigo is flat.",
+    "overview": "**Creative North Star: \"The Scoped Ledger\"**\n\nKairo looks like the operational ledger it replaces, cleaned up and given a lock. A slate-900 ink column (the sidebar, and on the landing page the whole hero stage) holds white task tables whose meaning is carried by small tinted pills: status, priority, scope. One indigo carries every commitment the user can make: the active nav item, the primary button, the selected viewer, the focus ring. Everything else is slate.\n\nDensity is high and calm. Working surfaces run on 12px text, 10–11px uppercase column labels and tabular numerals so dates, counts and IDs line up like a spreadsheet. The marketing surface is the same world at page scale: the real shell (sidebar, top bar, task table) becomes the hero instead of a screenshot, with display type in tight-tracked Inter bold above it. Depth comes from hairline borders and the ink/paper contrast, not from shadows; only things that float above the workspace (drawer, modal card, the hero stage) lift.\n\nThe world rejects gradients and glass on new surfaces. The app's earlier indigo-to-purple gradients were removed; the indigo is flat.",
     "keyCharacteristics": [
       "Slate-900 ink ground against white and cool-paper task surfaces.",
       "One committed accent (indigo-600); semantic tints for state, never for decoration.",

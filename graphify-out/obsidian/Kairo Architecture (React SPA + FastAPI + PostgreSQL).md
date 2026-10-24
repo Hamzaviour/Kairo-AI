@@ -8,13 +8,13 @@ tags:
   - community/Proposal_Architecture__Cost
 ---
 
-# TaskPilot Architecture (React SPA + FastAPI + PostgreSQL)
+# Kairo Architecture (React SPA + FastAPI + PostgreSQL)
 
 ## Connections
 - [[AI Task Copilot]] - `references` [EXTRACTED]
 - [[Isolated Workspaces (Scope Filter)]] - `references` [EXTRACTED]
 - [[Neon PostgreSQL]] - `references` [EXTRACTED]
-- [[Product Proposal (TaskPilot)]] - `references` [EXTRACTED]
+- [[Product Proposal (Kairo)]] - `references` [EXTRACTED]
 - [[Vercel Hosting]] - `references` [EXTRACTED]
 
 #graphify/concept #graphify/EXTRACTED #community/Proposal_Architecture__Cost

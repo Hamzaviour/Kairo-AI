@@ -113,7 +113,7 @@ export const TaskModal: React.FC<TaskModalProps> = ({
               placeholder="e.g. Implement User Authentication"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
-              className="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-200 rounded-xl outline-none focus:bg-white focus:border-indigo-500 transition-colors"
+              className="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-200 rounded-xl outline-none focus:bg-white focus:border-brand-500 transition-colors"
               autoFocus
             />
           </div>
@@ -128,7 +128,7 @@ export const TaskModal: React.FC<TaskModalProps> = ({
               placeholder="Provide context, acceptance criteria, or execution notes..."
               value={description}
               onChange={(e) => setDescription(e.target.value)}
-              className="w-full px-3 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl outline-none focus:bg-white focus:border-indigo-500 transition-colors resize-none"
+              className="w-full px-3 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl outline-none focus:bg-white focus:border-brand-500 transition-colors resize-none"
             />
           </div>
 
@@ -141,7 +141,7 @@ export const TaskModal: React.FC<TaskModalProps> = ({
               <select
                 value={status}
                 onChange={(e) => setStatus(e.target.value as TaskStatus)}
-                className="w-full px-3 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl outline-none font-medium text-slate-700 focus:bg-white focus:border-indigo-500"
+                className="w-full px-3 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl outline-none font-medium text-slate-700 focus:bg-white focus:border-brand-500"
               >
                 <option value="backlog">Backlog</option>
                 <option value="todo">To Do</option>
@@ -159,7 +159,7 @@ export const TaskModal: React.FC<TaskModalProps> = ({
               <select
                 value={priority}
                 onChange={(e) => setPriority(e.target.value as TaskPriority)}
-                className="w-full px-3 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl outline-none font-medium text-slate-700 focus:bg-white focus:border-indigo-500"
+                className="w-full px-3 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl outline-none font-medium text-slate-700 focus:bg-white focus:border-brand-500"
               >
                 <option value="low">Low</option>
                 <option value="medium">Medium</option>
@@ -181,7 +181,7 @@ export const TaskModal: React.FC<TaskModalProps> = ({
                 placeholder="https://github.com/..."
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
-                className="w-full px-3 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl outline-none focus:bg-white focus:border-indigo-500"
+                className="w-full px-3 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl outline-none focus:bg-white focus:border-brand-500"
               />
             </div>
 
@@ -195,7 +195,7 @@ export const TaskModal: React.FC<TaskModalProps> = ({
                 placeholder="https://images.unsplash.com/..."
                 value={imageUrl}
                 onChange={(e) => setImageUrl(e.target.value)}
-                className="w-full px-3 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl outline-none focus:bg-white focus:border-indigo-500"
+                className="w-full px-3 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl outline-none focus:bg-white focus:border-brand-500"
               />
             </div>
           </div>
@@ -222,7 +222,7 @@ export const TaskModal: React.FC<TaskModalProps> = ({
               type="date"
               value={dueDate}
               onChange={(e) => setDueDate(e.target.value)}
-              className="w-full px-3 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl outline-none focus:bg-white focus:border-indigo-500"
+              className="w-full px-3 py-2 text-xs bg-slate-50 border border-slate-200 rounded-xl outline-none focus:bg-white focus:border-brand-500"
             />
           </div>
 
@@ -237,12 +237,12 @@ export const TaskModal: React.FC<TaskModalProps> = ({
                 type="button"
                 onClick={handleAIBreakdown}
                 disabled={!title.trim() || isGeneratingSubtasks}
-                className="flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-semibold text-indigo-700 bg-indigo-50 hover:bg-indigo-100 rounded-lg transition-colors disabled:opacity-50"
+                className="flex items-center gap-1.5 px-2.5 py-1 text-[11px] font-semibold text-brand-800 bg-brand-50 hover:bg-brand-100 rounded-lg transition-colors disabled:opacity-50"
               >
                 {isGeneratingSubtasks ? (
-                  <Loader2 className="w-3 h-3 animate-spin text-indigo-600" />
+                  <Loader2 className="w-3 h-3 animate-spin text-brand-700" />
                 ) : (
-                  <Sparkles className="w-3 h-3 text-indigo-600" />
+                  <Sparkles className="w-3 h-3 text-brand-700" />
                 )}
                 <span>AI Breakdown</span>
               </button>
@@ -304,7 +304,7 @@ export const TaskModal: React.FC<TaskModalProps> = ({
             <button
               type="submit"
               disabled={isSubmitting || !title.trim()}
-              className="px-5 py-2 text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-700 active:scale-98 rounded-xl shadow-xs transition-all disabled:opacity-50"
+              className="px-5 py-2 text-xs font-semibold text-white bg-slate-900 hover:bg-slate-800 active:scale-98 rounded-xl shadow-xs transition-all disabled:opacity-50"
             >
               {isSubmitting ? 'Creating...' : 'Create Task'}
             </button>

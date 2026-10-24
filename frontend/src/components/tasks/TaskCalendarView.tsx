@@ -33,7 +33,7 @@ export const TaskCalendarView: React.FC<TaskCalendarViewProps> = ({
       {/* Month Navigation Header */}
       <div className="flex items-center justify-between p-4 border-b border-slate-200">
         <div className="flex items-center gap-2">
-          <CalendarIcon className="w-5 h-5 text-indigo-600" />
+          <CalendarIcon className="w-5 h-5 text-brand-700" />
           <h2 className="font-bold text-sm text-slate-800">
             {format(currentMonth, 'MMMM yyyy')}
           </h2>
@@ -95,7 +95,7 @@ export const TaskCalendarView: React.FC<TaskCalendarViewProps> = ({
               <div className="flex items-center justify-between">
                 <span
                   className={`text-xs font-medium w-6 h-6 flex items-center justify-center rounded-full ${
-                    isToday ? 'bg-indigo-600 text-white font-bold' : ''
+                    isToday ? 'bg-slate-900 text-white font-bold' : ''
                   }`}
                 >
                   {format(day, 'd')}
@@ -113,7 +113,7 @@ export const TaskCalendarView: React.FC<TaskCalendarViewProps> = ({
                   <div
                     key={task.id}
                     onClick={() => onSelectTask(task)}
-                    className="px-1.5 py-0.5 rounded text-[11px] font-medium truncate bg-indigo-50 hover:bg-indigo-100 text-indigo-900 border border-indigo-200/60 cursor-pointer transition-colors"
+                    className="px-1.5 py-0.5 rounded text-[11px] font-medium truncate bg-brand-50 hover:bg-brand-100 text-brand-900 border border-brand-200/60 cursor-pointer transition-colors"
                     title={task.title}
                   >
                     {task.title}

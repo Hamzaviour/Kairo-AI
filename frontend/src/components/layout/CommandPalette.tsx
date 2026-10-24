@@ -75,7 +75,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
               }}
               className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs font-medium text-slate-700 hover:bg-white hover:shadow-2xs transition-all border border-transparent hover:border-slate-200"
             >
-              <Plus className="w-3.5 h-3.5 text-indigo-600" />
+              <Plus className="w-3.5 h-3.5 text-brand-700" />
               <span>New Task</span>
             </button>
             <button
@@ -83,9 +83,9 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
                 onClose();
                 onOpenAI();
               }}
-              className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs font-medium text-indigo-700 hover:bg-white hover:shadow-2xs transition-all border border-transparent hover:border-indigo-100"
+              className="flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-xs font-medium text-brand-800 hover:bg-white hover:shadow-2xs transition-all border border-transparent hover:border-brand-100"
             >
-              <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
+              <Sparkles className="w-3.5 h-3.5 text-brand-700" />
               <span>Ask AI Copilot</span>
             </button>
             <button
@@ -122,7 +122,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
                   className="w-full flex items-center justify-between px-3 py-2 text-xs text-left rounded-lg hover:bg-slate-50 transition-colors group"
                 >
                   <div className="flex items-center gap-2 truncate">
-                    <span className="w-2 h-2 rounded-full bg-indigo-500 shrink-0" />
+                    <span className="w-2 h-2 rounded-full bg-brand-400 shrink-0" />
                     <span className="font-medium text-slate-800 truncate">{task.title}</span>
                   </div>
                   <span className="text-[11px] text-slate-400 capitalize shrink-0 ml-2">

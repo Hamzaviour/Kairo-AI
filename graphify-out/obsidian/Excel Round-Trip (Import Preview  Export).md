@@ -12,6 +12,6 @@ tags:
 
 ## Connections
 - [[Excel Onboarding Flow (preview-import  commit-import  export)]] - `implements` [INFERRED]
-- [[Product Proposal (TaskPilot)]] - `references` [EXTRACTED]
+- [[Product Proposal (Kairo)]] - `references` [EXTRACTED]
 
 #graphify/rationale #graphify/EXTRACTED #community/Excel_Export

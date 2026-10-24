@@ -17,13 +17,15 @@ from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 from openpyxl.worksheet.datavalidation import DataValidation
 from openpyxl.utils import get_column_letter
 from datetime import datetime
+from pathlib import Path
 
 # ------------------------------------------------------------------
-# Configuration
+# Configuration: workbooks live in the repository's data/ folder
 # ------------------------------------------------------------------
-INPUT_FILE = "e:/HCCDI Huawei/Database Excel/Tasks_and_Users.xlsx"
-OUTPUT_FILE = "e:/HCCDI Huawei/Database Excel/Tasks_and_Users_Updated.xlsx"
-REPORT_FILE = "e:/HCCDI Huawei/Database Excel/migration_report.json"
+DATA_DIR = Path(__file__).resolve().parent.parent / "data"
+INPUT_FILE = str(DATA_DIR / "Tasks_and_Users.xlsx")
+OUTPUT_FILE = str(DATA_DIR / "Tasks_and_Users_Updated.xlsx")
+REPORT_FILE = str(DATA_DIR / "migration_report.json")
 
 # Status mapping: old -> new
 STATUS_MAP = {

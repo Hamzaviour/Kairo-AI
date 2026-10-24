@@ -13,7 +13,7 @@ tags:
 
 ## Connections
 - [[Implementation Plan & WBS]] - `references` [EXTRACTED]
-- [[Neon Project orange-snow-72696664 (HCCDI Task Manager)]] - `references` [EXTRACTED]
+- [[Neon Project orange-snow-72696664 (Kairo)]] - `references` [EXTRACTED]
 - [[Tasks_and_Users_Updated.xlsx (Normalized Workbook)]] - `references` [EXTRACTED]
 - [[Work Breakdown Structure (3 phases)]] - `references` [EXTRACTED]
 

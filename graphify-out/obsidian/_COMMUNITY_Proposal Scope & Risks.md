@@ -8,16 +8,16 @@ members: 10
 **Members:** 10 nodes
 
 ## Members
-- [[HCCDI TaskPilot_1]] - concept - docs/10_PRODUCT_PROPOSAL.md
+- [[Kairo_1]] - concept - docs/10_PRODUCT_PROPOSAL.md
 - [[JWT_SECRET_KEY Default Startup Guard]] - rationale - docs/10_PRODUCT_PROPOSAL.md
 - [[Out of Scope (Notifications, SSO, Mobile, Multi-tenancy)]] - concept - docs/10_PRODUCT_PROPOSAL.md
-- [[Product Proposal (TaskPilot)]] - document - docs/10_PRODUCT_PROPOSAL.md
+- [[Product Proposal (Kairo)]] - document - docs/10_PRODUCT_PROPOSAL.md
 - [[Risks and Mitigations]] - rationale - docs/10_PRODUCT_PROPOSAL.md
 - [[Roles Admin and User (RBAC)]] - concept - docs/10_PRODUCT_PROPOSAL.md
 - [[Rollout Plan (Deploy, Pilot, Review, Expand)]] - concept - docs/10_PRODUCT_PROPOSAL.md
 - [[Shared Excel Workbook Problem]] - rationale - docs/10_PRODUCT_PROPOSAL.md
 - [[Success Measures]] - concept - docs/10_PRODUCT_PROPOSAL.md
-- [[TaskPilot Tour Video]] - concept - docs/10_PRODUCT_PROPOSAL.md
+- [[Kairo Tour Video]] - concept - docs/10_PRODUCT_PROPOSAL.md
 
 ## Live Query (requires Dataview plugin)
 
@@ -33,6 +33,6 @@ SORT file.name ASC
 - 1 edge to [[_COMMUNITY_Excel Export]]
 
 ## Top bridge nodes
-- [[Product Proposal (TaskPilot)]] - degree 15, connects to 4 communities
+- [[Product Proposal (Kairo)]] - degree 15, connects to 4 communities
 - [[Roles Admin and User (RBAC)]] - degree 2, connects to 1 community
 - [[Success Measures]] - degree 2, connects to 1 community

@@ -52,7 +52,7 @@ Task Management Platform
 |---|---|---|---|
 | **M1.1** | Backup original Excel workbook | Done | `Tasks_and_Users_BACKUP.xlsx` created in root |
 | **M1.2** | Normalize schema and assign UUIDs | Done | `Tasks_and_Users_Updated.xlsx` with `ID`, `User ID`, `Role` |
-| **M1.3** | Provision Neon PostgreSQL 18 | Done | Project `HCCDI Task Manager` (`orange-snow-72696664`) |
+| **M1.3** | Provision Neon PostgreSQL 18 | Done | Project `Kairo` (`orange-snow-72696664`) |
 | **M1.4** | Execute full schema DDL | Done | 19 tables, 6 enums, 20 indexes, 7 triggers active in `neondb` |
 | **M1.5** | Seed users and tasks with bcrypt | Done | 2 users (Alexander Wright=admin, Sarah Jenkins=user), 3 tasks |
 

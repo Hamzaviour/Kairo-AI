@@ -1,15 +1,15 @@
 # User Manual
-## Project: HCCDI TaskPilot
+## Project: Kairo
 **Document Version:** 1.0.0  
 **Status:** Current  
-**Audience:** Everyone who uses TaskPilot — users and admins  
+**Audience:** Everyone who uses Kairo — users and admins  
 **Date:** October 2026  
 
 ---
 
 ## 1. Getting started
 
-### 1.1 Open TaskPilot
+### 1.1 Open Kairo
 Go to the deployment's home page (`/`). The landing page explains the product and plays a 20-second tour. Click **Try the live demo** or **Sign in**.
 
 ### 1.2 Sign in

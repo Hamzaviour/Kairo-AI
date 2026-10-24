@@ -12,6 +12,6 @@ tags:
 
 ## Connections
 - [[Administration Workflow]] - `conceptually_related_to` [INFERRED]
-- [[Product Proposal (TaskPilot)]] - `references` [EXTRACTED]
+- [[Product Proposal (Kairo)]] - `references` [EXTRACTED]
 
 #graphify/concept #graphify/EXTRACTED #community/Product_Capabilities

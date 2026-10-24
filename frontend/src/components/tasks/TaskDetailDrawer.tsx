@@ -190,7 +190,7 @@ const TaskDetailPanel: React.FC<TaskDetailDrawerProps & { task: Task }> = ({
           onClick={() => setActiveTab('details')}
           className={`py-3 px-3 border-b-2 font-semibold transition-colors ${
             activeTab === 'details'
-              ? 'border-indigo-600 text-indigo-600'
+              ? 'border-slate-900 text-brand-700'
               : 'border-transparent hover:text-slate-800'
           }`}
         >
@@ -200,7 +200,7 @@ const TaskDetailPanel: React.FC<TaskDetailDrawerProps & { task: Task }> = ({
           onClick={() => setActiveTab('comments')}
           className={`py-3 px-3 border-b-2 font-semibold transition-colors flex items-center gap-1 ${
             activeTab === 'comments'
-              ? 'border-indigo-600 text-indigo-600'
+              ? 'border-slate-900 text-brand-700'
               : 'border-transparent hover:text-slate-800'
           }`}
         >
@@ -211,7 +211,7 @@ const TaskDetailPanel: React.FC<TaskDetailDrawerProps & { task: Task }> = ({
           onClick={() => setActiveTab('history')}
           className={`py-3 px-3 border-b-2 font-semibold transition-colors flex items-center gap-1 ${
             activeTab === 'history'
-              ? 'border-indigo-600 text-indigo-600'
+              ? 'border-slate-900 text-brand-700'
               : 'border-transparent hover:text-slate-800'
           }`}
         >
@@ -242,13 +242,13 @@ const TaskDetailPanel: React.FC<TaskDetailDrawerProps & { task: Task }> = ({
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
                 onBlur={handleSaveText}
-                className="w-full font-bold text-lg text-slate-900 border-b border-transparent hover:border-slate-300 focus:border-indigo-500 outline-none pb-1 transition-colors"
+                className="w-full font-bold text-lg text-slate-900 border-b border-transparent hover:border-slate-300 focus:border-brand-500 outline-none pb-1 transition-colors"
               />
             </div>
 
             {/* Task URL link */}
             {task.url && (
-              <div className="flex items-center gap-2 p-2 bg-slate-50 rounded-lg text-xs text-indigo-600 border border-slate-200/60">
+              <div className="flex items-center gap-2 p-2 bg-slate-50 rounded-lg text-xs text-brand-700 border border-slate-200/60">
                 <ExternalLink className="w-4 h-4 shrink-0" />
                 <a
                   href={task.url}
@@ -262,23 +262,23 @@ const TaskDetailPanel: React.FC<TaskDetailDrawerProps & { task: Task }> = ({
             )}
 
             {/* AI Priority Recommendation Pill */}
-            <div className="p-3 bg-indigo-50/70 border border-indigo-100 rounded-xl space-y-2">
+            <div className="p-3 bg-brand-50/70 border border-brand-100 rounded-xl space-y-2">
               <div className="flex items-center justify-between">
-                <span className="flex items-center gap-1.5 text-xs font-bold text-indigo-900">
-                  <Sparkles className="w-3.5 h-3.5 text-indigo-600" />
+                <span className="flex items-center gap-1.5 text-xs font-bold text-brand-900">
+                  <Sparkles className="w-3.5 h-3.5 text-brand-700" />
                   <span>Explainable AI Priority</span>
                 </span>
                 <button
                   onClick={handleExplainPriority}
                   disabled={isLoadingAiPriority}
-                  className="px-2.5 py-1 text-[11px] font-semibold text-indigo-700 bg-white hover:bg-indigo-50 border border-indigo-200 rounded-lg shadow-2xs transition-all disabled:opacity-50"
+                  className="px-2.5 py-1 text-[11px] font-semibold text-brand-800 bg-white hover:bg-brand-50 border border-brand-200 rounded-lg shadow-2xs transition-all disabled:opacity-50"
                 >
                   {isLoadingAiPriority ? 'Evaluating...' : 'Explain Priority'}
                 </button>
               </div>
 
               {aiPriority && (
-                <div className="text-xs text-indigo-950 space-y-1.5 pt-1 border-t border-indigo-100/60 animate-fade-in">
+                <div className="text-xs text-brand-900 space-y-1.5 pt-1 border-t border-brand-100/60 animate-fade-in">
                   <div className="flex items-center gap-2">
                     <span>Recommended:</span>
                     <Badge type="priority" value={aiPriority.recommended_priority} />
@@ -304,7 +304,7 @@ const TaskDetailPanel: React.FC<TaskDetailDrawerProps & { task: Task }> = ({
                 onChange={(e) => setDescription(e.target.value)}
                 onBlur={handleSaveText}
                 placeholder="Add more details, notes, or acceptance criteria..."
-                className="w-full text-xs text-slate-700 bg-slate-50/60 p-3 rounded-xl border border-slate-200 outline-none focus:bg-white focus:border-indigo-500 transition-colors resize-none leading-relaxed"
+                className="w-full text-xs text-slate-700 bg-slate-50/60 p-3 rounded-xl border border-slate-200 outline-none focus:bg-white focus:border-brand-500 transition-colors resize-none leading-relaxed"
               />
             </div>
 
@@ -320,7 +320,7 @@ const TaskDetailPanel: React.FC<TaskDetailDrawerProps & { task: Task }> = ({
               {subtasks.length > 0 && (
                 <div className="w-full bg-slate-100 h-1.5 rounded-full mb-3 overflow-hidden">
                   <div
-                    className="bg-indigo-600 h-full rounded-full transition-all"
+                    className="bg-slate-900 h-full rounded-full transition-all"
                     style={{
                       width: `${(subtasks.filter((s) => s.is_completed).length / subtasks.length) * 100}%`,
                     }}
@@ -340,7 +340,7 @@ const TaskDetailPanel: React.FC<TaskDetailDrawerProps & { task: Task }> = ({
                       type="checkbox"
                       checked={st.is_completed}
                       onChange={() => {}}
-                      className="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                      className="rounded border-slate-300 text-slate-900 focus:ring-brand-400 cursor-pointer"
                     />
                     <span
                       className={`text-xs flex-1 ${
@@ -389,13 +389,13 @@ const TaskDetailPanel: React.FC<TaskDetailDrawerProps & { task: Task }> = ({
                 placeholder="Leave an update, note, or comment..."
                 value={newComment}
                 onChange={(e) => setNewComment(e.target.value)}
-                className="w-full text-xs p-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:bg-white focus:border-indigo-500 resize-none"
+                className="w-full text-xs p-3 bg-slate-50 border border-slate-200 rounded-xl outline-none focus:bg-white focus:border-brand-500 resize-none"
               />
               <div className="flex justify-end">
                 <button
                   onClick={handleAddComment}
                   disabled={!newComment.trim()}
-                  className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg disabled:opacity-50 transition-all shadow-2xs"
+                  className="flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-white bg-slate-900 hover:bg-slate-800 rounded-lg disabled:opacity-50 transition-all shadow-2xs"
                 >
                   <Send className="w-3.5 h-3.5" />
                   <span>Send Comment</span>
@@ -440,7 +440,7 @@ const TaskDetailPanel: React.FC<TaskDetailDrawerProps & { task: Task }> = ({
                   </div>
                   {log.field_name && (
                     <div className="text-[11px] text-slate-600">
-                      Field <span className="font-mono text-indigo-600">{log.field_name}</span> changed from "{log.old_value || 'none'}" to "{log.new_value}"
+                      Field <span className="font-mono text-brand-700">{log.field_name}</span> changed from "{log.old_value || 'none'}" to "{log.new_value}"
                     </div>
                   )}
                 </div>

@@ -12,7 +12,7 @@ tags:
 # Legacy Spreadsheet Problem
 
 ## Connections
-- [[HCCDI TaskPilot]] - `rationale_for` [INFERRED]
+- [[Kairo]] - `rationale_for` [INFERRED]
 - [[Product Requirements Document (PRD)]] - `references` [EXTRACTED]
 - [[Tasks_and_Users.xlsx (Legacy Workbook)]] - `conceptually_related_to` [INFERRED]
 

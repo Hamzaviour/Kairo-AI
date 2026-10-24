@@ -9,7 +9,7 @@ tags:
   - community/Schema_Migration
 ---
 
-# Neon Project orange-snow-72696664 (HCCDI Task Manager)
+# Neon Project orange-snow-72696664 (Kairo)
 
 ## Connections
 - [[Neon Serverless PostgreSQL]] - `conceptually_related_to` [INFERRED]

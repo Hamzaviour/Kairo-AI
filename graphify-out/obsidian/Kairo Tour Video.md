@@ -8,9 +8,9 @@ tags:
   - community/Proposal_Scope__Risks
 ---
 
-# TaskPilot Tour Video
+# Kairo Tour Video
 
 ## Connections
-- [[Product Proposal (TaskPilot)]] - `references` [EXTRACTED]
+- [[Product Proposal (Kairo)]] - `references` [EXTRACTED]
 
 #graphify/concept #graphify/EXTRACTED #community/Proposal_Scope__Risks

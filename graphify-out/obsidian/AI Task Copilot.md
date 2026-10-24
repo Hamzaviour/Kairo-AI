@@ -12,7 +12,7 @@ tags:
 
 ## Connections
 - [[AI Copilot Parse-Task Flow]] - `implements` [INFERRED]
-- [[Product Proposal (TaskPilot)]] - `references` [EXTRACTED]
-- [[TaskPilot Architecture (React SPA + FastAPI + PostgreSQL)]] - `references` [EXTRACTED]
+- [[Product Proposal (Kairo)]] - `references` [EXTRACTED]
+- [[Kairo Architecture (React SPA + FastAPI + PostgreSQL)]] - `references` [EXTRACTED]
 
 #graphify/concept #graphify/EXTRACTED #community/Proposal_Architecture__Cost

@@ -1,3 +1,5 @@
+from pathlib import Path
+
 import openpyxl
 from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
 from openpyxl.worksheet.datavalidation import DataValidation
@@ -191,7 +193,7 @@ def create_excel():
         ws_users.column_dimensions[col_letter].width = max(max_len + 5, 20)
 
     # Save to file
-    file_path = "e:/HCCDI Huawei/Database Excel/Tasks_and_Users.xlsx"
+    file_path = str(Path(__file__).resolve().parent.parent / "data" / "Tasks_and_Users.xlsx")
     wb.save(file_path)
     print(f"Successfully generated Excel workbook at: {file_path}")
 

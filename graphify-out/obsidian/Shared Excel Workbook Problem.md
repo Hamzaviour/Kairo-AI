@@ -11,7 +11,7 @@ tags:
 # Shared Excel Workbook Problem
 
 ## Connections
-- [[HCCDI TaskPilot_1]] - `rationale_for` [EXTRACTED]
-- [[Product Proposal (TaskPilot)]] - `references` [EXTRACTED]
+- [[Kairo_1]] - `rationale_for` [EXTRACTED]
+- [[Product Proposal (Kairo)]] - `references` [EXTRACTED]
 
 #graphify/rationale #graphify/EXTRACTED #community/Proposal_Scope__Risks

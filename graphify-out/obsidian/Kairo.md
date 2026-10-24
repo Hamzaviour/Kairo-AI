@@ -8,7 +8,7 @@ tags:
   - community/Excel_Onboarding_Workflow
 ---
 
-# HCCDI TaskPilot
+# Kairo
 
 ## Connections
 - [[Bidirectional Excel Data Center (round-trip)]] - `conceptually_related_to` [EXTRACTED]

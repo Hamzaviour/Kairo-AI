@@ -22,7 +22,7 @@ const COLUMNS: ColumnConfig[] = [
   { id: 'backlog', title: 'Backlog', badgeBg: 'bg-slate-100', badgeText: 'text-slate-700' },
   { id: 'todo', title: 'To Do', badgeBg: 'bg-gray-100', badgeText: 'text-gray-800' },
   { id: 'in_progress', title: 'In Progress', badgeBg: 'bg-blue-100', badgeText: 'text-blue-800' },
-  { id: 'in_review', title: 'In Review', badgeBg: 'bg-purple-100', badgeText: 'text-purple-800' },
+  { id: 'in_review', title: 'In Review', badgeBg: 'bg-violet-50', badgeText: 'text-violet-700' },
   { id: 'blocked', title: 'Blocked', badgeBg: 'bg-red-100', badgeText: 'text-red-800' },
   { id: 'completed', title: 'Completed', badgeBg: 'bg-emerald-100', badgeText: 'text-emerald-800' },
 ];
@@ -87,7 +87,7 @@ export const TaskKanbanView: React.FC<TaskKanbanViewProps> = ({
 
               <button
                 onClick={() => onQuickCreateWithStatus(col.id)}
-                className="p-1 text-slate-400 hover:text-indigo-600 hover:bg-white rounded transition-colors"
+                className="p-1 text-slate-400 hover:text-brand-700 hover:bg-white rounded transition-colors"
                 title={`Add task to ${col.title}`}
               >
                 <Plus className="w-4 h-4" />
@@ -101,7 +101,7 @@ export const TaskKanbanView: React.FC<TaskKanbanViewProps> = ({
                   <span>Drop task here</span>
                   <button
                     onClick={() => onQuickCreateWithStatus(col.id)}
-                    className="text-[11px] text-indigo-600 hover:underline mt-1"
+                    className="text-[11px] text-brand-700 hover:underline mt-1"
                   >
                     + Add task
                   </button>

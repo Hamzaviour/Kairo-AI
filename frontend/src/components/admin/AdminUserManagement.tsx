@@ -70,7 +70,7 @@ export const AdminUserManagement: React.FC = () => {
 
         <button
           onClick={() => setIsModalOpen(true)}
-          className="flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-700 rounded-xl shadow-xs transition-all"
+          className="flex items-center gap-1.5 px-3 py-2 text-xs font-semibold text-white bg-slate-900 hover:bg-slate-800 rounded-xl shadow-xs transition-all"
         >
           <Plus className="w-4 h-4" />
           <span>Provision User</span>
@@ -91,7 +91,7 @@ export const AdminUserManagement: React.FC = () => {
             {users.map((u) => (
               <tr key={u.id} className="hover:bg-slate-50/80 transition-colors">
                 <td className="py-3 px-4 flex items-center gap-2.5">
-                  <div className="w-7 h-7 rounded-full bg-indigo-100 text-indigo-800 flex items-center justify-center font-bold text-xs">
+                  <div className="w-7 h-7 rounded-full bg-brand-100 text-brand-900 flex items-center justify-center font-bold text-xs">
                     {u.name.slice(0, 1)}
                   </div>
                   <span className="font-semibold text-slate-800">{u.name}</span>
@@ -173,7 +173,7 @@ export const AdminUserManagement: React.FC = () => {
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-1.5 text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg"
+                  className="px-4 py-1.5 text-xs font-semibold text-white bg-slate-900 hover:bg-slate-800 rounded-lg"
                 >
                   Create User
                 </button>

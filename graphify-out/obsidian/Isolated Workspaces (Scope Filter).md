@@ -12,9 +12,9 @@ tags:
 
 ## Connections
 - [[Per-Request Isolation Check]] - `implements` [INFERRED]
-- [[Product Proposal (TaskPilot)]] - `references` [EXTRACTED]
+- [[Product Proposal (Kairo)]] - `references` [EXTRACTED]
 - [[Roles Admin and User (RBAC)]] - `conceptually_related_to` [INFERRED]
-- [[TaskPilot Architecture (React SPA + FastAPI + PostgreSQL)]] - `references` [EXTRACTED]
+- [[Kairo Architecture (React SPA + FastAPI + PostgreSQL)]] - `references` [EXTRACTED]
 - [[get_scoped_tasks_query()]] - `references` [EXTRACTED]
 - [[get_task_or_404()]] - `references` [EXTRACTED]
 

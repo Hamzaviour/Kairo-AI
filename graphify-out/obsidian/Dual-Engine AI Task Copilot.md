@@ -17,7 +17,7 @@ tags:
 - [[Automated Subtask Decomposition (3-7 items)]] - `conceptually_related_to` [EXTRACTED]
 - [[Deterministic Heuristic Fallback Engine]] - `conceptually_related_to` [EXTRACTED]
 - [[Explainable Prioritization]] - `conceptually_related_to` [EXTRACTED]
-- [[HCCDI TaskPilot]] - `conceptually_related_to` [EXTRACTED]
+- [[Kairo]] - `conceptually_related_to` [EXTRACTED]
 - [[Natural Language Task Parsing]] - `conceptually_related_to` [EXTRACTED]
 - [[Positioning Spreadsheet - AI Workspace]] - `references` [EXTRACTED]
 - [[Privacy-Scoped AI Context]] - `conceptually_related_to` [EXTRACTED]

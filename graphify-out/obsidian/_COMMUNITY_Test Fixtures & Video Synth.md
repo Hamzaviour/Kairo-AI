@@ -8,7 +8,7 @@ members: 26
 **Members:** 26 nodes
 
 ## Members
-- [[Original soundtrack + SFX for the TaskPilot brag video, synthesized with numpy.…]] - rationale - brag-output/source/make_audio.py
+- [[Original soundtrack + SFX for the Kairo brag video, synthesized with numpy.…]] - rationale - brag-output/source/make_audio.py
 - [[add()]] - code - brag-output/source/make_audio.py
 - [[admin_token()]] - code - backend/tests/conftest.py
 - [[blip()]] - code - brag-output/source/make_audio.py

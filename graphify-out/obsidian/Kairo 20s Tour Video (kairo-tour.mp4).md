@@ -8,7 +8,7 @@ tags:
   - community/Landing_Page__Design_System
 ---
 
-# TaskPilot 20s Tour Video (taskpilot-tour.mp4)
+# Kairo 20s Tour Video (kairo-tour.mp4)
 
 ## Connections
 - [[brag Launch Video Plan]] - `references` [EXTRACTED]

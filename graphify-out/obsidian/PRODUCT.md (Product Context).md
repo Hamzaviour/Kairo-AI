@@ -12,7 +12,7 @@ tags:
 
 ## Connections
 - [[Admin Role]] - `references` [EXTRACTED]
-- [[HCCDI TaskPilot]] - `references` [EXTRACTED]
+- [[Kairo]] - `references` [EXTRACTED]
 - [[No Fabricated CustomersMetrics Rule]] - `references` [EXTRACTED]
 - [[Positioning Spreadsheet - AI Workspace]] - `references` [EXTRACTED]
 - [[Principle AI explains itself]] - `references` [EXTRACTED]

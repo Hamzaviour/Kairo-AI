@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Kairo · Product Proposal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@500;600&family=Geist:wght@400;500;600&family=Geist+Mono&display=swap" rel="stylesheet">
+<!-- Source for docs/Kairo_Product_Proposal.pdf. Regenerate with: python docs/proposal/render_pdf.py -->
+<style>
+  @page { size: A4; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body { font-family: 'Geist', system-ui, sans-serif; color: #13151a; font-size: 10.5pt; line-height: 1.6; }
+  .page { width: 210mm; min-height: 297mm; padding: 22mm 20mm 20mm; position: relative; page-break-after: always; }
+  .page:last-child { page-break-after: auto; }
+  h1, h2, h3 { font-family: 'Funnel Display', 'Geist', sans-serif; font-weight: 600; letter-spacing: -0.02em; line-height: 1.1; }
+  h2 { font-size: 22pt; margin: 0 0 6mm; }
+  h3 { font-size: 12.5pt; margin: 7mm 0 2.5mm; }
+  p { margin: 0 0 3mm; max-width: 155mm; }
+  p.lead { font-size: 12.5pt; color: #343841; line-height: 1.55; }
+  .muted { color: #646b78; }
+  .mono, code { font-family: 'Geist Mono', ui-monospace, monospace; font-size: 8.5pt; }
+  code { background: #f0f1f4; padding: 0.3mm 1.2mm; border-radius: 1mm; }
+  table { width: 100%; border-collapse: collapse; margin: 3mm 0 5mm; font-size: 9.5pt; }
+  th { text-align: left; font-weight: 500; color: #646b78; font-size: 8.5pt; padding: 2mm 3mm 2mm 0; border-bottom: 0.3mm solid #c9cdd5; }
+  td { padding: 2.6mm 3mm 2.6mm 0; border-bottom: 0.2mm solid #e3e5ea; vertical-align: top; }
+  td:first-child { font-weight: 500; }
+  ol, ul { margin: 0 0 4mm 5mm; }
+  li { margin: 0 0 2.2mm; padding-left: 1mm; max-width: 160mm; }
+  li::marker { color: #9097a3; }
+  strong { font-weight: 600; }
+  .footer { position: absolute; left: 20mm; right: 20mm; bottom: 10mm; display: flex; justify-content: space-between; font-size: 7.5pt; color: #9097a3; }
+  .moment { display: inline-block; width: 2mm; height: 2mm; border-radius: 50%; background: #ffb224; vertical-align: middle; margin-right: 2mm; }
+  .callout { background: #f7f8fa; border: 0.2mm solid #e3e5ea; border-radius: 3mm; padding: 5mm 6mm; margin: 4mm 0 6mm; }
+  .decision { background: #0b0c10; color: #fff; border-radius: 4mm; padding: 8mm; margin-top: 8mm; }
+  .decision h3 { margin-top: 0; color: #fff; font-size: 15pt; }
+  .decision p { color: #c9cdd5; }
+  /* cover */
+  .cover { background: #0b0c10; color: #fff; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; }
+  .cover .ring { position: absolute; right: -150mm; top: 150mm; opacity: 0.06; }
+  .cover h1 { font-size: 46pt; line-height: 1.02; letter-spacing: -0.03em; max-width: 150mm; }
+  .cover .sub { margin-top: 8mm; font-size: 14pt; color: #9097a3; max-width: 140mm; line-height: 1.5; }
+  .meta { display: grid; grid-template-columns: repeat(4, auto); gap: 8mm; font-size: 8.5pt; color: #9097a3; }
+  .meta b { display: block; color: #fff; font-weight: 500; font-size: 9.5pt; margin-top: 1mm; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+  .cap { border-top: 0.3mm solid #13151a; padding-top: 3mm; }
+  .cap h4 { font-family: 'Funnel Display', sans-serif; font-weight: 600; font-size: 11pt; margin-bottom: 1.5mm; }
+  .cap p { font-size: 9.5pt; color: #343841; margin: 0; }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; margin: 4mm 0 6mm; }
+  .step { border: 0.2mm solid #e3e5ea; border-radius: 3mm; padding: 4mm; }
+  .step .n { font-family: 'Geist Mono', monospace; font-size: 8pt; color: #9a5d00; }
+  .step h4 { font-family: 'Funnel Display', sans-serif; font-weight: 600; font-size: 11pt; margin: 1.5mm 0; }
+  .step p { font-size: 8.8pt; color: #4a505b; margin: 0; }
+  .step .who { margin-top: 3mm; font-size: 8pt; color: #646b78; }
+</style>
+</head>
+<body>
+
+<!-- Cover -->
+<section class="page cover">
+  <svg class="ring" width="360mm" height="360mm" viewBox="0 0 32 32" fill="none"><path d="M23.94 15.03A8 8 0 1 1 16.97 8.06" stroke="#fff" stroke-width="3" stroke-linecap="round"/><circle cx="21.66" cy="10.34" r="2.6" fill="#ffb224"/></svg>
+  <div style="display:flex; align-items:center; gap:4mm; position:relative">
+    <svg width="12mm" height="12mm" viewBox="0 0 32 32" fill="none"><path d="M23.94 15.03A8 8 0 1 1 16.97 8.06" stroke="#fff" stroke-width="3" stroke-linecap="round"/><circle cx="21.66" cy="10.34" r="2.6" fill="#ffb224"/></svg>
+    <svg height="8mm" viewBox="0 0 74 32" fill="none"><g stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4.2V26M10.5 12.2 2.7 19.6M5.8 16.8 11 26"/><path d="M31.6 19a7 7 0 1 1-14 0 7 7 0 1 1 14 0M31.6 12.2V26"/><path d="M38.2 12.2V26"/><path d="M44.8 26v-7.2c0-4 2.6-6.6 6.6-6.6"/><path d="M71.1 19a7 7 0 1 1-14 0 7 7 0 1 1 14 0"/></g><circle cx="38.2" cy="5.8" r="2.4" fill="#ffb224"/></svg>
+  </div>
+  <div style="position:relative">
+    <p class="muted" style="font-size:10pt; margin-bottom:6mm">Product proposal</p>
+    <h1>Your spreadsheet, rebuilt as a calm, secure AI workspace.</h1>
+    <p class="sub">A request to run Kairo as the team’s task system of record, starting with a two-sprint pilot.</p>
+  </div>
+  <div class="meta" style="position:relative">
+    <div>Version<b>1.1</b></div>
+    <div>Status<b>Proposed</b></div>
+    <div>Audience<b>Sponsors, team leads, IT / security</b></div>
+    <div>Date<b>October 2026</b></div>
+  </div>
+</section>
+
+<!-- Summary + problem -->
+<section class="page">
+  <h2>Summary</h2>
+  <p class="lead">Teams that coordinate work in a shared Excel workbook pay for it every week: statuses drift (“Pending”, “Under Review?”, blank), nobody owns half the rows, everyone can read every row, and there is no history of who changed what.</p>
+  <p class="lead"><strong>Kairo</strong> replaces that workbook with a secure, AI-assisted task workspace <strong>without asking the team to abandon Excel on day one</strong>: the existing sheet is imported through a validation preview, and a styled spreadsheet can be exported back at any time.</p>
+  <table>
+    <tr><td style="width:42mm">What it is</td><td>Web app: React SPA, FastAPI API, PostgreSQL</td></tr>
+    <tr><td>Who it is for</td><td>Admins (team leads, ops managers) and users (individual contributors)</td></tr>
+    <tr><td>Core promise</td><td>Spreadsheet in, secure AI workspace out</td></tr>
+    <tr><td>Hosting</td><td>Vercel (app + Python function) with managed PostgreSQL on Neon</td></tr>
+    <tr><td>Live demo</td><td>Landing page <code>/</code>, two demo accounts on <code>/login</code></td></tr>
+  </table>
+
+  <h2 style="margin-top:12mm">The problem</h2>
+  <table>
+    <tr><th style="width:62mm">Pain in the shared workbook</th><th>Consequence</th></tr>
+    <tr><td>Everyone sees every row</td><td>Confidential or personal work is exposed to the whole team</td></tr>
+    <tr><td>Free-text statuses and priorities</td><td>Reports disagree; “Pending” and “To Do” are counted separately</td></tr>
+    <tr><td>Rows without owners or titles</td><td>Work silently falls through the cracks</td></tr>
+    <tr><td>No audit trail</td><td>Nobody can tell who changed a deadline or closed a task</td></tr>
+    <tr><td>No planning help</td><td>People decide what to do next by scrolling</td></tr>
+  </table>
+  <div class="footer"><span>Kairo · Product proposal</span><span>2</span></div>
+</section>
+
+<!-- Solution -->
+<section class="page">
+  <h2>The solution</h2>
+  <p class="muted" style="margin-bottom:6mm">Every capability below is implemented in the repository today.</p>
+  <div class="grid2">
+    <div class="cap"><h4>Excel round-trip</h4><p>Upload <code>.xlsx</code>, review a dry-run preview (legacy statuses mapped, rows missing a title held back), commit. Export back with native dropdowns on status and priority.</p></div>
+    <div class="cap"><h4>Isolated workspaces</h4><p>Every task query passes one scope filter. Users see only their own, assigned or project tasks; probing anyone else’s task ID returns <strong>404</strong>, not 403. Admins see the organisation.</p></div>
+    <div class="cap"><h4>Copilot</h4><p>Turns a sentence into a structured task with a checklist, breaks work down, explains priority and plans the day, using only your own tasks. Works fully offline.</p></div>
+    <div class="cap"><h4>Chat assistants</h4><p>A floating assistant creates, edits and closes tasks, comments and projects from plain language. Admins get their own, with organisation-wide reach. Deletes always wait for an explicit yes.</p></div>
+    <div class="cap"><h4>Four ways to work</h4><p>Dense list with bulk actions, drag-and-drop board, calendar, and a task drawer with checklist, comments and activity log. <code>Ctrl/⌘ K</code> jumps anywhere.</p></div>
+    <div class="cap"><h4>Governance</h4><p>User provisioning and roles, an organisation-wide audit trail, and productivity insights for admins.</p></div>
+  </div>
+
+  <h3 style="margin-top:12mm">Why this approach</h3>
+  <ul>
+    <li><strong>Low switching cost.</strong> The import and export loop lets the team migrate gradually and keeps stakeholders who still want a spreadsheet.</li>
+    <li><strong>Security by construction.</strong> Isolation lives in the data-access layer (<code>get_scoped_tasks_query</code>, <code>get_task_or_404</code>), not in hidden UI, and the assistants act through the same layer. It is covered by automated tests.</li>
+    <li><strong>No lock-in on AI.</strong> The Copilot needs no API key; the chat assistants use Groq and can be switched off by leaving the key empty.</li>
+  </ul>
+  <div class="footer"><span>Kairo · Product proposal</span><span>3</span></div>
+</section>
+
+<!-- Scope, roles, architecture -->
+<section class="page">
+  <h2>Scope and roles</h2>
+  <div class="callout">
+    <p><span class="moment"></span><strong>In scope for rollout:</strong> the capabilities above, demo data, Vercel deployment, and the documentation suite.</p>
+    <p style="margin:0" class="muted"><strong style="color:#13151a">Out of scope</strong> (candidate follow-ups, not built): email and Slack notifications, SSO / SAML, a recurring-task UI, mobile apps, multi-organisation tenancy.</p>
+  </div>
+  <table>
+    <tr><th style="width:28mm">Role</th><th>Can</th><th style="width:52mm">Cannot</th></tr>
+    <tr><td>Admin</td><td>See and edit every task; provision users and roles; read the audit trail and organisation insights; use the admin assistant</td><td>—</td></tr>
+    <tr><td>User</td><td>Create tasks; work on tasks they own, are assigned, or share through a project; use their own assistant</td><td>See other people’s tasks (404); open admin pages (403)</td></tr>
+  </table>
+
+  <h2 style="margin-top:12mm">Architecture at a glance</h2>
+  <svg viewBox="0 0 680 250" width="100%" style="margin-top:2mm" font-family="Geist, sans-serif" font-size="12">
+    <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5 0 10z" fill="#9097a3"/></marker></defs>
+    <g fill="#fff" stroke="#c9cdd5">
+      <rect x="0" y="95" width="130" height="56" rx="10"/>
+      <rect x="190" y="95" width="150" height="56" rx="10" fill="#13151a" stroke="#13151a"/>
+      <rect x="190" y="10" width="150" height="50" rx="10"/>
+      <rect x="400" y="95" width="130" height="56" rx="10"/>
+      <rect x="560" y="95" width="120" height="56" rx="10"/>
+      <rect x="400" y="180" width="130" height="50" rx="10"/>
+      <rect x="560" y="180" width="120" height="50" rx="10"/>
+      <rect x="190" y="180" width="150" height="50" rx="10"/>
+    </g>
+    <g fill="#13151a" text-anchor="middle">
+      <text x="65" y="119" font-weight="600">Browser</text><text x="65" y="137" fill="#646b78" font-size="11">React SPA</text>
+      <text x="265" y="119" font-weight="600" fill="#fff">FastAPI</text><text x="265" y="137" fill="#9097a3" font-size="11">Vercel Python function</text>
+      <text x="265" y="32" font-weight="600">Vercel CDN</text><text x="265" y="49" fill="#646b78" font-size="11">landing, app, video</text>
+      <text x="465" y="119" font-weight="600">Scope filter</text><text x="465" y="137" fill="#646b78" font-size="11">JWT + roles</text>
+      <text x="620" y="119" font-weight="600">PostgreSQL</text><text x="620" y="137" fill="#646b78" font-size="11">Neon</text>
+      <text x="465" y="202" font-weight="600">Copilot</text><text x="465" y="219" fill="#646b78" font-size="11">offline engine</text>
+      <text x="620" y="202" font-weight="600">Assistants</text><text x="620" y="219" fill="#646b78" font-size="11">Groq LLM</text>
+      <text x="265" y="202" font-weight="600">Excel pipeline</text><text x="265" y="219" fill="#646b78" font-size="11">openpyxl</text>
+    </g>
+    <g stroke="#9097a3" stroke-width="1.3" fill="none" marker-end="url(#a)">
+      <path d="M130 123H186"/><path d="M65 95V35H186"/><path d="M340 123H396"/><path d="M530 123H556"/>
+      <path d="M340 140C380 160 400 175 430 178"/><path d="M340 145C420 175 520 170 590 178"/><path d="M265 151V176"/>
+    </g>
+    <circle cx="465" cy="95" r="5" fill="#ffb224"/>
+  </svg>
+  <p class="muted" style="margin-top:4mm">Every request that touches tasks, including the assistants’ tool calls, passes the scope filter (saffron dot) before reaching the database.</p>
+  <div class="footer"><span>Kairo · Product proposal</span><span>4</span></div>
+</section>
+
+<!-- Rollout + success -->
+<section class="page">
+  <h2>Rollout plan</h2>
+  <div class="steps">
+    <div class="step"><div class="n">01</div><h4>Deploy</h4><p>Vercel project and Neon database, secrets set, demo seed loaded.</p><div class="who">Engineering</div></div>
+    <div class="step"><div class="n">02</div><h4>Pilot</h4><p>One team imports its workbook through the preview and runs on Kairo for two sprints.</p><div class="who">Team lead</div></div>
+    <div class="step"><div class="n">03</div><h4>Review</h4><p>Compare against the success measures; fix gaps.</p><div class="who">Team lead + Engineering</div></div>
+    <div class="step"><div class="n">04</div><h4>Expand</h4><p>Provision remaining users; retire the shared workbook and keep an export as archive.</p><div class="who">Admin</div></div>
+  </div>
+
+  <h2 style="margin-top:12mm">Success measures</h2>
+  <p class="muted">Proposed targets to agree with the sponsor. These are not measured results.</p>
+  <ul style="margin-top:3mm">
+    <li>100% of active work items live in Kairo by the end of the pilot; the shared workbook becomes read-only.</li>
+    <li>Zero cross-user data exposures, verified by the isolation test suite on every change.</li>
+    <li>Every task has an owner and a valid status after import, enforced by the preview.</li>
+    <li>Weekly stakeholder reports come from the Excel export instead of hand-edited sheets.</li>
+  </ul>
+  <div class="footer"><span>Kairo · Product proposal</span><span>5</span></div>
+</section>
+
+<!-- Risks, cost, decision -->
+<section class="page">
+  <h2>Risks and mitigations</h2>
+  <table>
+    <tr><th style="width:56mm">Risk</th><th>Mitigation</th></tr>
+    <tr><td>Default secrets reach production</td><td>Startup fails on Vercel if <code>JWT_SECRET_KEY</code> is the public default</td></tr>
+    <tr><td>Messy legacy sheets</td><td>Dry-run preview; rows missing a title are held back and statuses normalised</td></tr>
+    <tr><td>AI output quality</td><td>The offline engine is predictable; drafts are always editable and never auto-committed</td></tr>
+    <tr><td>An assistant deletes the wrong thing</td><td>Destructive actions need an explicit “yes” from the person, enforced on the server, and every assistant turn is logged</td></tr>
+    <tr><td>Groq free-tier rate limits</td><td>Automatic fallback to a smaller model, then a short retry; the rest of the app is unaffected</td></tr>
+    <tr><td>Serverless cold starts</td><td>One lightweight function, NullPool against Neon’s pooler, static assets on the CDN</td></tr>
+    <tr><td>Adoption</td><td>Excel export stays available; the landing page and a 20-second tour explain the product</td></tr>
+  </table>
+
+  <h3>Cost model</h3>
+  <p>Hosting runs on two managed services, each with a free tier suitable for a pilot: <strong>Vercel</strong> (frontend and Python function) and <strong>Neon</strong> (PostgreSQL). The chat assistants use <strong>Groq</strong>, whose free tier is rate-limited per minute. Paid tiers are needed only for production-scale traffic; check each vendor’s current pricing before the expansion step.</p>
+
+  <div class="decision">
+    <h3>Decision requested</h3>
+    <p style="margin:0">Approve the pilot (steps 1 to 3) with one team, using the deployment described in the Deployment Guide (<span class="mono" style="color:#fff">docs/13_DEPLOYMENT_GUIDE.md</span>).</p>
+  </div>
+  <div class="footer"><span>Kairo · Product proposal</span><span>6</span></div>
+</section>
+
+</body>
+</html>

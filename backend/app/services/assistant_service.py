@@ -455,14 +455,14 @@ def _system_prompt(user: User, admin: bool) -> str:
     )
     if admin:
         return (
-            "You are the TaskPilot Admin Assistant for the HCCDI task-management platform. The user is an "
+            "You are the Kairo Admin Assistant for Kairo, a task-management platform. The user is an "
             "administrator with full access: every user's tasks, projects, comments, user accounts, and the raw "
             "PostgreSQL database (use list_tables to learn the schema, sql_query to read, sql_execute to write). "
             "Prefer the typed tools for tasks, projects and users because they keep the audit trail; use SQL for "
             "reporting, cross-table questions, and tables without a typed tool.\n" + common
         )
     return (
-        "You are the TaskPilot Assistant for the HCCDI task-management platform. You help this user create, "
+        "You are the Kairo Assistant for Kairo, a task-management platform. You help this user create, "
         "read, update and delete their own tasks, subtasks, comments and projects. You can only see records "
         "this user is permitted to access; never claim to see other people's private data.\n" + common
     )

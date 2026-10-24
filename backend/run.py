@@ -13,5 +13,5 @@ from app.main import app
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 8000))
     host = os.environ.get("HOST", "127.0.0.1")
-    print(f"Starting HCCDI Task Manager Backend on http://{host}:{port}")
+    print(f"Starting Kairo Backend on http://{host}:{port}")
     uvicorn.run("app.main:app", host=host, port=port, reload=False)

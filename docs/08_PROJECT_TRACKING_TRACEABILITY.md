@@ -43,21 +43,21 @@
 ### Phase 1 Milestones (Completed)
 - [x] **2026-10-18 12:01** — Created original Excel workbook backup `Tasks_and_Users_BACKUP.xlsx`.
 - [x] **2026-10-18 12:03** — Executed `migrate_excel.py`, generating stable UUIDs, `user_id` assignments, and `role` classifications.
-- [x] **2026-10-18 12:05** — Provisioned Neon PostgreSQL 18 project `HCCDI Task Manager` (`orange-snow-72696664`).
+- [x] **2026-10-18 12:05** — Provisioned Neon PostgreSQL 18 project `Kairo` (`orange-snow-72696664`).
 - [x] **2026-10-18 12:09** — Executed DDL creating 19 normalized tables, 6 enums, 20 indexes, and 7 auto-update triggers.
 - [x] **2026-10-18 12:11** — Seeded Alexander Wright (Admin) and Sarah Jenkins (User) with salted bcrypt password hashes.
 - [x] **2026-10-18 12:12** — Seeded 3 tasks with relational integrity and verified database queries.
 
 ### Pre-Documentation Suite (Completed)
-- [x] **2026-10-18 12:25** — Published [01_PRD.md](file:///e:/HCCDI%20Huawei/Database%20Excel/task-management-platform/docs/01_PRD.md).
-- [x] **2026-10-18 12:26** — Published [02_TRD.md](file:///e:/HCCDI%20Huawei/Database%20Excel/task-management-platform/docs/02_TRD.md).
-- [x] **2026-10-18 12:26** — Published [03_SRS.md](file:///e:/HCCDI%20Huawei/Database%20Excel/task-management-platform/docs/03_SRS.md).
-- [x] **2026-10-18 12:27** — Published [04_SYSTEM_DESIGN_ARCHITECTURE.md](file:///e:/HCCDI%20Huawei/Database%20Excel/task-management-platform/docs/04_SYSTEM_DESIGN_ARCHITECTURE.md).
-- [x] **2026-10-18 12:27** — Published [05_UI_UX_DESIGN_SPEC.md](file:///e:/HCCDI%20Huawei/Database%20Excel/task-management-platform/docs/05_UI_UX_DESIGN_SPEC.md).
-- [x] **2026-10-18 12:27** — Published [06_IMPLEMENTATION_PLAN.md](file:///e:/HCCDI%20Huawei/Database%20Excel/task-management-platform/docs/06_IMPLEMENTATION_PLAN.md).
-- [x] **2026-10-18 12:28** — Published [07_SDLC_METHODOLOGY.md](file:///e:/HCCDI%20Huawei/Database%20Excel/task-management-platform/docs/07_SDLC_METHODOLOGY.md).
-- [x] **2026-10-18 12:28** — Published [08_PROJECT_TRACKING_TRACEABILITY.md](file:///e:/HCCDI%20Huawei/Database%20Excel/task-management-platform/docs/08_PROJECT_TRACKING_TRACEABILITY.md).
-- [x] **2026-10-18 12:35** — Published [09_BACKEND_SCHEMA_SPEC.md](file:///e:/HCCDI%20Huawei/Database%20Excel/task-management-platform/docs/09_BACKEND_SCHEMA_SPEC.md).
+- [x] **2026-10-18 12:25** — Published [01_PRD.md](./01_PRD.md).
+- [x] **2026-10-18 12:26** — Published [02_TRD.md](./02_TRD.md).
+- [x] **2026-10-18 12:26** — Published [03_SRS.md](./03_SRS.md).
+- [x] **2026-10-18 12:27** — Published [04_SYSTEM_DESIGN_ARCHITECTURE.md](./04_SYSTEM_DESIGN_ARCHITECTURE.md).
+- [x] **2026-10-18 12:27** — Published [05_UI_UX_DESIGN_SPEC.md](./05_UI_UX_DESIGN_SPEC.md).
+- [x] **2026-10-18 12:27** — Published [06_IMPLEMENTATION_PLAN.md](./06_IMPLEMENTATION_PLAN.md).
+- [x] **2026-10-18 12:28** — Published [07_SDLC_METHODOLOGY.md](./07_SDLC_METHODOLOGY.md).
+- [x] **2026-10-18 12:28** — Published [08_PROJECT_TRACKING_TRACEABILITY.md](./08_PROJECT_TRACKING_TRACEABILITY.md).
+- [x] **2026-10-18 12:35** — Published [09_BACKEND_SCHEMA_SPEC.md](./09_BACKEND_SCHEMA_SPEC.md).
 
 ### Phase 2 Milestones (Completed ✅)
 - [x] **Config & DB Connection**: Configured `.env` and SQLAlchemy engine with Neon pool.
@@ -84,13 +84,13 @@
 
 ### Starting the Backend Locally
 ```powershell
-cd "e:\HCCDI Huawei\Database Excel\task-management-platform\backend"
+cd backend
 python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload
 ```
 API Documentation will be immediately accessible at `http://127.0.0.1:8000/docs`.
 
 ### Running Automated Test Suite
 ```powershell
-cd "e:\HCCDI Huawei\Database Excel\task-management-platform\backend"
+cd backend
 python -m pytest tests/ -v
 ```

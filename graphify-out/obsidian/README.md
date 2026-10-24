@@ -25,7 +25,7 @@ tags:
 - [[Slide-Over Task Drawer]] - `references` [EXTRACTED]
 - [[Stateless JWT with Refresh Token Rotation]] - `references` [EXTRACTED]
 - [[System Architecture (React SPA - FastAPI - SQLAlchemy - Neon)]] - `references` [EXTRACTED]
-- [[TaskPilot 20s Tour Video (taskpilot-tour.mp4)]] - `references` [EXTRACTED]
+- [[Kairo 20s Tour Video (kairo-tour.mp4)]] - `references` [EXTRACTED]
 - [[User Manual]] - `references` [EXTRACTED]
 - [[graphify Knowledge Graph  Obsidian Vault]] - `references` [EXTRACTED]
 - [[index.py]] - `references` [EXTRACTED]

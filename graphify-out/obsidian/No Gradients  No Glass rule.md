@@ -11,7 +11,7 @@ tags:
 # No Gradients / No Glass rule
 
 ## Connections
-- [[DESIGN.md (Design System HCCDI TaskPilot)]] - `references` [EXTRACTED]
+- [[DESIGN.md (Design System Kairo)]] - `references` [EXTRACTED]
 - [[Own-World Direction (slate-900 ground, indigo accent)]] - `conceptually_related_to` [INFERRED]
 
 #graphify/concept #graphify/EXTRACTED #community/Landing_Page__Design_System

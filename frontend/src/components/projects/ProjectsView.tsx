@@ -43,7 +43,7 @@ export const ProjectsView: React.FC = () => {
         {!isCreating && (
           <button
             onClick={() => setIsCreating(true)}
-            className="flex items-center gap-1 px-3 py-1.5 text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-700 rounded-lg shadow-xs transition-colors"
+            className="flex items-center gap-1 px-3 py-1.5 text-xs font-semibold text-white bg-slate-900 hover:bg-slate-800 rounded-lg shadow-xs transition-colors"
           >
             <Plus className="w-4 h-4" />
             New Project
@@ -79,7 +79,7 @@ export const ProjectsView: React.FC = () => {
             <button type="button" onClick={() => setIsCreating(false)} className="px-3 py-1.5 text-xs font-medium text-slate-600 hover:text-slate-900">
               Cancel
             </button>
-            <button type="submit" disabled={!name.trim()} className="px-3 py-1.5 text-xs font-semibold text-white bg-indigo-600 hover:bg-indigo-700 disabled:opacity-50 rounded-lg">
+            <button type="submit" disabled={!name.trim()} className="px-3 py-1.5 text-xs font-semibold text-white bg-slate-900 hover:bg-slate-800 disabled:opacity-50 rounded-lg">
               Create Project
             </button>
           </div>
@@ -124,7 +124,7 @@ export const ProjectsView: React.FC = () => {
                 {p.description && <p className="text-xs text-slate-500 line-clamp-2">{p.description}</p>}
                 <div className="pt-1 space-y-1">
                   <div className="h-1.5 rounded-full bg-slate-100 overflow-hidden">
-                    <div className="h-full bg-indigo-500 rounded-full" style={{ width: `${pct}%` }} />
+                    <div className="h-full bg-brand-400 rounded-full" style={{ width: `${pct}%` }} />
                   </div>
                   <div className="tabular text-[11px] text-slate-500">
                     {done} of {total} tasks completed

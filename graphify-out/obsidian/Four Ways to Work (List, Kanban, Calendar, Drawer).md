@@ -12,6 +12,6 @@ tags:
 
 ## Connections
 - [[CtrlCmd K Command Palette]] - `references` [EXTRACTED]
-- [[Product Proposal (TaskPilot)]] - `references` [EXTRACTED]
+- [[Product Proposal (Kairo)]] - `references` [EXTRACTED]
 
 #graphify/concept #graphify/EXTRACTED #community/Product_Capabilities

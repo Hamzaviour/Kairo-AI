@@ -13,7 +13,7 @@ tags:
 ## Connections
 - [[Access Levels (Public  Bearer  Admin)]] - `conceptually_related_to` [INFERRED]
 - [[Claim other users' tasks return 404, not just hidden]] - `conceptually_related_to` [INFERRED]
-- [[HCCDI TaskPilot]] - `conceptually_related_to` [EXTRACTED]
+- [[Kairo]] - `conceptually_related_to` [EXTRACTED]
 - [[Positioning Spreadsheet - AI Workspace]] - `references` [EXTRACTED]
 - [[Principle Isolation is non-negotiable]] - `conceptually_related_to` [INFERRED]
 - [[Privacy-Scoped AI Context]] - `conceptually_related_to` [INFERRED]

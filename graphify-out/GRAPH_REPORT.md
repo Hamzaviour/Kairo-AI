@@ -180,7 +180,7 @@ Nodes (10): SRS-AI-002 Subtask Checklist Decomposition, AICopilotDrawer, API Ref
 
 ### Community 23 - "Proposal: Scope & Risks"
 Cohesion: 0.22
-Nodes (7): HCCDI TaskPilot, TaskPilot Tour Video, Out of Scope (Notifications, SSO, Mobile, Multi-tenancy), Product Proposal (TaskPilot), Roles: Admin and User (RBAC), Rollout Plan (Deploy, Pilot, Review, Expand), Success Measures
+Nodes (7): Kairo, Kairo Tour Video, Out of Scope (Notifications, SSO, Mobile, Multi-tenancy), Product Proposal (Kairo), Roles: Admin and User (RBAC), Rollout Plan (Deploy, Pilot, Review, Expand), Success Measures
 
 ### Community 24 - "RBAC & Implementation Plan"
 Cohesion: 0.33
@@ -188,7 +188,7 @@ Nodes (8): OWASP Top 10 Threat Model, Implementation Plan & WBS, app.core.deps (
 
 ### Community 25 - "Proposal: Architecture & Cost"
 Cohesion: 0.28
-Nodes (9): AI Task Copilot, TaskPilot Architecture (React SPA + FastAPI + PostgreSQL), Cost Model (Vercel + Neon free tiers), Neon PostgreSQL, Vercel Hosting, ai_interactions Log, AI Copilot Parse-Task Flow, Deterministic Heuristic Engine (+1 more)
+Nodes (9): AI Task Copilot, Kairo Architecture (React SPA + FastAPI + PostgreSQL), Cost Model (Vercel + Neon free tiers), Neon PostgreSQL, Vercel Hosting, ai_interactions Log, AI Copilot Parse-Task Flow, Deterministic Heuristic Engine (+1 more)
 
 ### Community 26 - "Excel Schemas"
 Cohesion: 0.39
@@ -200,7 +200,7 @@ Nodes (8): Backend Python Requirements, bcrypt, FastAPI, openpyxl, psycopg 3, Py
 
 ### Community 28 - "Schema Migration"
 Cohesion: 0.25
-Nodes (8): 19 Tables / 6 Enums / 20 Indexes / 7 Triggers, Deployment Topology (Nginx + FastAPI instances), 001_initial_schema.sql, Neon Project orange-snow-72696664 (HCCDI Task Manager), Requirements Traceability Matrix (REQ-01..12), verify_migration.py, Neon Serverless PostgreSQL, System Architecture (React SPA -> FastAPI -> SQLAlchemy -> Neon)
+Nodes (8): 19 Tables / 6 Enums / 20 Indexes / 7 Triggers, Deployment Topology (Nginx + FastAPI instances), 001_initial_schema.sql, Neon Project orange-snow-72696664 (Kairo), Requirements Traceability Matrix (REQ-01..12), verify_migration.py, Neon Serverless PostgreSQL, System Architecture (React SPA -> FastAPI -> SQLAlchemy -> Neon)
 
 ### Community 29 - "Excel Legacy Migration"
 Cohesion: 0.39

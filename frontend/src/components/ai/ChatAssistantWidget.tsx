@@ -43,7 +43,7 @@ const TOOL_LABELS: Record<string, string> = {
 
 const PERSONAS = {
   user: {
-    title: 'TaskPilot Assistant',
+    title: 'Kairo Assistant',
     subtitle: 'Your tasks & projects',
     greeting:
       "Hi! I can create, find, update and delete your tasks, subtasks, comments and projects. Just tell me what you need.",
@@ -150,7 +150,7 @@ const MarkdownText: React.FC<{ text: string }> = ({ text }) => {
   return <div className="space-y-0.5 break-words">{blocks}</div>;
 };
 
-const storageKey = (userId: string, mode: string) => `taskpilot-assistant:${mode}:${userId}`;
+const storageKey = (userId: string, mode: string) => `kairo-assistant:${mode}:${userId}`;
 
 export const ChatAssistantWidget: React.FC<ChatAssistantWidgetProps> = ({ onDataChanged }) => {
   const { user, isAdmin } = useAuth();
@@ -217,9 +217,10 @@ export const ChatAssistantWidget: React.FC<ChatAssistantWidgetProps> = ({ onData
     }
   };
 
+  // Both personas live on ink; the admin one is marked by the saffron launcher and badge
   const accent = isAdmin
-    ? { launcher: 'bg-slate-900 hover:bg-slate-800', header: 'bg-slate-900 text-white', bubble: 'bg-slate-900 text-white', ring: 'focus-within:border-slate-700', send: 'bg-slate-900 hover:bg-slate-800' }
-    : { launcher: 'bg-indigo-600 hover:bg-indigo-700', header: 'bg-indigo-600 text-white', bubble: 'bg-indigo-600 text-white', ring: 'focus-within:border-indigo-500', send: 'bg-indigo-600 hover:bg-indigo-700' };
+    ? { launcher: 'bg-brand-400 hover:bg-brand-300 text-slate-950', header: 'bg-slate-950 text-white', bubble: 'bg-slate-900 text-white', ring: 'focus-within:border-slate-900', send: 'bg-slate-900 hover:bg-slate-800', tile: 'bg-brand-400 text-slate-950' }
+    : { launcher: 'bg-slate-900 hover:bg-slate-800 text-white', header: 'bg-slate-950 text-white', bubble: 'bg-slate-900 text-white', ring: 'focus-within:border-slate-900', send: 'bg-slate-900 hover:bg-slate-800', tile: 'bg-white/10 text-brand-400' };
   const PersonaIcon = isAdmin ? ShieldCheck : Bot;
 
   return (
@@ -233,12 +234,12 @@ export const ChatAssistantWidget: React.FC<ChatAssistantWidgetProps> = ({ onData
         >
           <div className={`px-4 py-3 flex items-center justify-between ${accent.header}`}>
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-white/15 flex items-center justify-center">
-                <PersonaIcon className="w-4 h-4" />
+              <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${accent.tile}`}>
+                <PersonaIcon className="w-4 h-4" strokeWidth={1.75} />
               </div>
               <div>
-                <h2 className="font-bold text-sm leading-tight">{persona.title}</h2>
-                <span className="text-[10px] font-semibold uppercase tracking-wider opacity-80">{persona.subtitle}</span>
+                <h2 className="font-display font-semibold text-[15px] leading-tight">{persona.title}</h2>
+                <span className="text-[11px] text-slate-400">{persona.subtitle}</span>
               </div>
             </div>
             <div className="flex items-center gap-1">
@@ -370,7 +371,7 @@ export const ChatAssistantWidget: React.FC<ChatAssistantWidgetProps> = ({ onData
 
       <button
         onClick={() => setIsOpen((o) => !o)}
-        className={`fixed z-30 bottom-4 right-4 w-14 h-14 rounded-full text-white shadow-xl flex items-center justify-center transition-transform hover:scale-105 ${accent.launcher}`}
+        className={`fixed z-30 bottom-5 right-5 w-14 h-14 rounded-2xl shadow-float flex items-center justify-center transition-[transform,background-color] duration-200 hover:-translate-y-0.5 ${accent.launcher}`}
         aria-label={isOpen ? 'Close assistant' : `Open ${persona.title}`}
         aria-expanded={isOpen}
       >

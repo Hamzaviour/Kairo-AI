@@ -4,12 +4,15 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import { LandingPage } from './pages/LandingPage';
 import { LoginPage } from './pages/LoginPage';
 import { DashboardPage } from './pages/DashboardPage';
-import { Loader2 } from 'lucide-react';
+import { BrandPage } from './pages/BrandPage';
+import { KairoMark } from './components/brand/KairoLogo';
 
 const FullScreenLoader: React.FC = () => (
-  <div className="h-screen w-screen flex flex-col items-center justify-center bg-slate-50 gap-3">
-    <Loader2 className="w-8 h-8 animate-spin text-indigo-600" />
-    <span className="text-xs font-semibold text-slate-500">Loading HCCDI TaskPilot...</span>
+  <div className="h-screen w-screen flex flex-col items-center justify-center bg-slate-50 gap-4" role="status">
+    <span className="rounded-lg animate-moment">
+      <KairoMark size={40} />
+    </span>
+    <span className="text-[13px] text-slate-500">Opening your workspace…</span>
   </div>
 );
 
@@ -33,6 +36,7 @@ export const App: React.FC = () => {
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LoginRoute />} />
           <Route path="/app" element={<WorkspaceRoute />} />
+          <Route path="/brand" element={<BrandPage />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </AuthProvider>

@@ -43,7 +43,7 @@ export const AuditTrailView: React.FC = () => {
   return (
     <div className="space-y-4 max-w-4xl">
       <div className="flex items-center gap-2">
-        <ShieldAlert className="w-5 h-5 text-indigo-600" />
+        <ShieldAlert className="w-5 h-5 text-brand-700" />
         <div>
           <h2 className="text-lg font-bold text-slate-800">Audit Trail</h2>
           <p className="text-xs text-slate-500">Immutable, organisation-wide record of task changes. Most recent first.</p>

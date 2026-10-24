@@ -11,7 +11,7 @@ tags:
 # Viewer Switch (signature component)
 
 ## Connections
-- [[DESIGN.md (Design System HCCDI TaskPilot)]] - `references` [EXTRACTED]
+- [[DESIGN.md (Design System Kairo)]] - `references` [EXTRACTED]
 - [[IDOR Immunity  Inviolable Scope Filtering]] - `conceptually_related_to` [INFERRED]
 - [[LandingPage()]] - `references` [INFERRED]
 - [[The Stable Stage Rule]] - `conceptually_related_to` [INFERRED]

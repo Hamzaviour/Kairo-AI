@@ -13,7 +13,7 @@ tags:
 
 ## Connections
 - [[001_initial_schema.sql]] - `references` [EXTRACTED]
-- [[Neon Project orange-snow-72696664 (HCCDI Task Manager)]] - `references` [EXTRACTED]
+- [[Neon Project orange-snow-72696664 (Kairo)]] - `references` [EXTRACTED]
 - [[Product Requirements Document (PRD)]] - `cites` [EXTRACTED]
 - [[Technical Requirements Document (TRD)]] - `cites` [EXTRACTED]
 - [[ai_service.py]] - `references` [EXTRACTED]

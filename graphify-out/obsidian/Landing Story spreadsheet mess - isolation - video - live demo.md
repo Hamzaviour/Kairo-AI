@@ -12,6 +12,6 @@ tags:
 
 ## Connections
 - [[Landing Page Surface Brief]] - `references` [EXTRACTED]
-- [[TaskPilot 20s Tour Video (taskpilot-tour.mp4)]] - `references` [INFERRED]
+- [[Kairo 20s Tour Video (kairo-tour.mp4)]] - `references` [INFERRED]
 
 #graphify/concept #graphify/EXTRACTED #community/Landing_Page__Design_System

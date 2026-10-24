@@ -27,7 +27,7 @@ export const TaskCard: React.FC<TaskCardProps> = ({
   return (
     <div
       onClick={onClick}
-      className="group bg-white rounded-xl border border-slate-200/90 hover:border-indigo-300 p-3.5 shadow-2xs hover:shadow-md transition-all cursor-pointer relative overflow-hidden flex flex-col gap-2.5"
+      className="group bg-white rounded-xl border border-slate-200/90 hover:border-brand-300 p-3.5 shadow-2xs hover:shadow-md transition-all cursor-pointer relative overflow-hidden flex flex-col gap-2.5"
     >
       {/* Top row: Priority & External URL */}
       <div className="flex items-center justify-between gap-2">
@@ -45,7 +45,7 @@ export const TaskCard: React.FC<TaskCardProps> = ({
               target="_blank"
               rel="noopener noreferrer"
               onClick={(e) => e.stopPropagation()}
-              className="text-indigo-500 hover:text-indigo-700 p-0.5 rounded transition-colors"
+              className="text-brand-600 hover:text-brand-800 p-0.5 rounded transition-colors"
               title="Open linked URL"
             >
               <ExternalLink className="w-3.5 h-3.5" />
@@ -69,7 +69,7 @@ export const TaskCard: React.FC<TaskCardProps> = ({
       )}
 
       {/* Task Heading */}
-      <h3 className="font-semibold text-sm text-slate-800 line-clamp-2 leading-snug group-hover:text-indigo-600 transition-colors">
+      <h3 className="font-semibold text-sm text-slate-800 line-clamp-2 leading-snug group-hover:text-brand-700 transition-colors">
         {task.title}
       </h3>
 
@@ -86,7 +86,7 @@ export const TaskCard: React.FC<TaskCardProps> = ({
           <CheckSquare className="w-3.5 h-3.5 text-slate-400" />
           <div className="flex-1 bg-slate-100 h-1.5 rounded-full overflow-hidden">
             <div
-              className="bg-indigo-600 h-full rounded-full transition-all"
+              className="bg-slate-900 h-full rounded-full transition-all"
               style={{ width: `${(completedSubtasks / totalSubtasks) * 100}%` }}
             />
           </div>
@@ -99,7 +99,7 @@ export const TaskCard: React.FC<TaskCardProps> = ({
       {/* Bottom meta row */}
       <div className="flex items-center justify-between text-xs text-slate-400 pt-2 border-t border-slate-100/80">
         <div className="flex items-center gap-1.5">
-          <div className="w-5 h-5 rounded-full bg-indigo-50 text-indigo-700 font-bold text-[10px] flex items-center justify-center border border-indigo-200">
+          <div className="w-5 h-5 rounded-full bg-brand-50 text-brand-800 font-bold text-[10px] flex items-center justify-center border border-brand-200">
             {task.assignee?.name?.slice(0, 1) || 'U'}
           </div>
           <span className="text-[11px] text-slate-600 truncate max-w-[90px]">

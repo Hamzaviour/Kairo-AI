@@ -1,4 +1,4 @@
-# HCCDI TaskPilot — AI-Powered Task Management & To-Do Platform
+# Kairo — AI-Powered Task Management & To-Do Platform
 
 [![Python](https://img.shields.io/badge/Python-3.14-blue.svg)](https://www.python.org/)
 [![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-009688.svg)](https://fastapi.tiangolo.com/)
@@ -8,11 +8,11 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38b2ac.svg)](https://tailwindcss.com/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
-An enterprise-grade, full-stack, AI-powered work orchestration and task management platform that transforms unstructured, error-prone spreadsheets into a secure, collaborative, multi-tenant productivity suite.
+An enterprise-grade, full-stack, AI-powered work orchestration and task management platform that transforms unstructured, error-prone spreadsheets into a secure, collaborative, multi-tenant productivity suite. *Do the right work at the right moment.*
+
+**Watch the 20-second tour:** [`frontend/public/media/kairo-tour.mp4`](./frontend/public/media/kairo-tour.mp4) (also embedded on the landing page). Brand kit: [`docs/15_BRAND_KIT.md`](./docs/15_BRAND_KIT.md) or `/brand` in the app.
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FHamzaviour%2FAI-Based-To-Do-App&env=JWT_SECRET_KEY,DATABASE_URL&envDescription=JWT_SECRET_KEY%3A%20long%20random%20string%20(openssl%20rand%20-hex%2032).%20DATABASE_URL%3A%20pooled%20Neon%20Postgres%20URL.&envLink=https%3A%2F%2Fgithub.com%2FHamzaviour%2FAI-Based-To-Do-App%2Fblob%2Fmain%2Fdocs%2F13_DEPLOYMENT_GUIDE.md)
-
-**Watch the 20-second tour:** [`frontend/public/media/taskpilot-tour.mp4`](./frontend/public/media/taskpilot-tour.mp4) (also embedded on the landing page).
 
 | Route | What's there |
 |---|---|
@@ -138,7 +138,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 
 # Point at any PostgreSQL database, then create the schema + demo data (idempotent)
-export DATABASE_URL=postgresql://localhost:5432/taskpilot
+export DATABASE_URL=postgresql://localhost:5432/kairo
 python ../scripts/seed_demo.py
 
 python run.py
@@ -187,11 +187,12 @@ Detailed engineering documents are available in [`docs/`](./docs/):
 - **[07_SDLC_METHODOLOGY.md](./docs/07_SDLC_METHODOLOGY.md)**: Agile delivery & quality gates.
 - **[08_PROJECT_TRACKING_TRACEABILITY.md](./docs/08_PROJECT_TRACKING_TRACEABILITY.md)**: Requirements Traceability Matrix (RTM).
 - **[09_BACKEND_SCHEMA_SPEC.md](./docs/09_BACKEND_SCHEMA_SPEC.md)**: Comprehensive 19-table database dictionary.
-- **[10_PRODUCT_PROPOSAL.md](./docs/10_PRODUCT_PROPOSAL.md)**: Problem, solution, rollout plan, risks and the decision requested. Also as a designed PDF: **[HCCDI_TaskPilot_Product_Proposal.pdf](./docs/HCCDI_TaskPilot_Product_Proposal.pdf)**.
+- **[10_PRODUCT_PROPOSAL.md](./docs/10_PRODUCT_PROPOSAL.md)**: Problem, solution, rollout plan, risks and the decision requested. Also as a designed PDF: **[Kairo_Product_Proposal.pdf](./docs/Kairo_Product_Proposal.pdf)** (source in `docs/proposal/`).
 - **[11_WORKFLOWS.md](./docs/11_WORKFLOWS.md)**: Task lifecycle, Excel onboarding, Copilot, isolation, admin and engineering/release workflows.
-- **[12_USER_MANUAL.md](./docs/12_USER_MANUAL.md)**: How to use every part of TaskPilot, for users and admins.
+- **[12_USER_MANUAL.md](./docs/12_USER_MANUAL.md)**: How to use every part of Kairo, for users and admins.
 - **[13_DEPLOYMENT_GUIDE.md](./docs/13_DEPLOYMENT_GUIDE.md)**: Vercel + Neon deployment, environment variables, operations.
 - **[14_API_REFERENCE.md](./docs/14_API_REFERENCE.md)**: All 52 endpoints with access level (generated from the OpenAPI schema).
+- **[15_BRAND_KIT.md](./docs/15_BRAND_KIT.md)**: Name, logo files and usage, colour, typography and voice. Live version at `/brand` in the app.
 
 ---
 

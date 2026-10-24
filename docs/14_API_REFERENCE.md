@@ -1,5 +1,5 @@
 # API Reference
-## Project: HCCDI TaskPilot
+## Project: Kairo
 **Document Version:** 1.0.0  
 **Status:** Generated from the FastAPI OpenAPI schema  
 **Date:** October 2026  

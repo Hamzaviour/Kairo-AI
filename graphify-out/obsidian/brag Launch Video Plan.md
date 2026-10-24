@@ -16,6 +16,6 @@ tags:
 - [[Launch Share Copy]] - `references` [EXTRACTED]
 - [[Original Synthesized Soundtrack (112 BPM)]] - `references` [EXTRACTED]
 - [[README]] - `references` [INFERRED]
-- [[TaskPilot 20s Tour Video (taskpilot-tour.mp4)]] - `references` [EXTRACTED]
+- [[Kairo 20s Tour Video (kairo-tour.mp4)]] - `references` [EXTRACTED]
 
 #graphify/document #graphify/EXTRACTED #community/Landing_Page__Design_System

@@ -11,6 +11,6 @@ tags:
 # The Tabular Rule (tabular numerals)
 
 ## Connections
-- [[DESIGN.md (Design System HCCDI TaskPilot)]] - `references` [EXTRACTED]
+- [[DESIGN.md (Design System Kairo)]] - `references` [EXTRACTED]
 
 #graphify/concept #graphify/EXTRACTED #community/Landing_Page__Design_System

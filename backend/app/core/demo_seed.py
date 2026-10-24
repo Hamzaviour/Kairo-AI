@@ -50,7 +50,7 @@ EXTRA_TASKS = [
     ("Prepare Q4 budget report", "Consolidate department spend and submit the Q4 budget report for review.",
      "todo", "urgent", "alexander.wright@enterprise.com", 3,
      ["Collect department spend sheets", "Reconcile vendor invoices", "Draft executive summary", "Submit for approval"]),
-    ("Migrate legacy spreadsheet tracker", "Import the remaining Excel task sheets into TaskPilot and retire the old file.",
+    ("Migrate legacy spreadsheet tracker", "Import the remaining Excel task sheets into Kairo and retire the old file.",
      "in_review", "high", "alexander.wright@enterprise.com", 5,
      ["Export sheets to .xlsx", "Run import dry-run preview", "Commit validated rows"]),
     ("Write onboarding guide", "Short guide for new teammates covering views, AI Copilot and Excel import.",
@@ -136,7 +136,7 @@ def seed() -> None:
         if not project:
             admin = by_email["alexander.wright@enterprise.com"]
             project = Project(name="Spreadsheet Migration", color="#6366f1", owner_id=admin.id,
-                              description="Move the team's Excel task tracker into TaskPilot and retire the legacy sheet.")
+                              description="Move the team's Excel task tracker into Kairo and retire the legacy sheet.")
             project.members = [ProjectMember(user_id=admin.id, role="owner")]
             db.add(project)
             db.flush()

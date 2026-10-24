@@ -4,11 +4,11 @@ from pydantic import AliasChoices, Field
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 # Public development default; a deployment must override it or anyone could mint tokens
-DEV_JWT_SECRET = "hccdi-task-manager-super-secure-jwt-secret-key-2026-production-grade"
+DEV_JWT_SECRET = "kairo-dev-only-jwt-secret-change-me-in-production-2026"
 
 
 class Settings(BaseSettings):
-    APP_NAME: str = "HCCDI Task Manager"
+    APP_NAME: str = "Kairo"
     APP_VERSION: str = "1.0.0"
     # Deployed on Vercel unless told otherwise, so error responses never echo exception details
     ENVIRONMENT: str = "production" if os.environ.get("VERCEL") else "development"

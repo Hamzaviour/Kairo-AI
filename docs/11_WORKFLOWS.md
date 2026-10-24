@@ -1,10 +1,10 @@
 # Workflows
-## Project: HCCDI TaskPilot
+## Project: Kairo
 **Document Version:** 1.0.0  
 **Status:** Current  
 **Date:** October 2026  
 
-This document describes how work moves through TaskPilot — for the people using it and for the engineers changing it. Every flow below matches the shipped code; file references point at where each step lives.
+This document describes how work moves through Kairo — for the people using it and for the engineers changing it. Every flow below matches the shipped code; file references point at where each step lives.
 
 ---
 

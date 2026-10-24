@@ -11,7 +11,7 @@ members: 8
 - [[001_initial_schema.sql]] - code - docs/08_PROJECT_TRACKING_TRACEABILITY.md
 - [[19 Tables  6 Enums  20 Indexes  7 Triggers]] - concept - docs/02_TRD.md
 - [[Deployment Topology (Nginx + FastAPI instances)]] - concept - docs/04_SYSTEM_DESIGN_ARCHITECTURE.md
-- [[Neon Project orange-snow-72696664 (HCCDI Task Manager)]] - concept - docs/08_PROJECT_TRACKING_TRACEABILITY.md
+- [[Neon Project orange-snow-72696664 (Kairo)]] - concept - docs/08_PROJECT_TRACKING_TRACEABILITY.md
 - [[Neon Serverless PostgreSQL]] - concept - README.md
 - [[Requirements Traceability Matrix (REQ-01..12)]] - concept - docs/08_PROJECT_TRACKING_TRACEABILITY.md
 - [[System Architecture (React SPA - FastAPI - SQLAlchemy - Neon)]] - concept - README.md
@@ -41,5 +41,5 @@ SORT file.name ASC
 - [[Requirements Traceability Matrix (REQ-01..12)]] - degree 10, connects to 7 communities
 - [[19 Tables  6 Enums  20 Indexes  7 Triggers]] - degree 3, connects to 2 communities
 - [[Neon Serverless PostgreSQL]] - degree 4, connects to 1 community
-- [[Neon Project orange-snow-72696664 (HCCDI Task Manager)]] - degree 3, connects to 1 community
+- [[Neon Project orange-snow-72696664 (Kairo)]] - degree 3, connects to 1 community
 - [[Deployment Topology (Nginx + FastAPI instances)]] - degree 2, connects to 1 community

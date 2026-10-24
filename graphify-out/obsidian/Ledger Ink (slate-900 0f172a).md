@@ -11,7 +11,7 @@ tags:
 # Ledger Ink (slate-900 #0f172a)
 
 ## Connections
-- [[DESIGN.md (Design System HCCDI TaskPilot)]] - `references` [EXTRACTED]
+- [[DESIGN.md (Design System Kairo)]] - `references` [EXTRACTED]
 - [[Own-World Direction (slate-900 ground, indigo accent)]] - `references` [INFERRED]
 
 #graphify/concept #graphify/EXTRACTED #community/Landing_Page__Design_System

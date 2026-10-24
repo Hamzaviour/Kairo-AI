@@ -14,7 +14,7 @@ members: 48
 - [[CopilotDemo()]] - code - frontend/src/pages/LandingPage.tsx
 - [[Creative North Star The Scoped Ledger]] - concept - DESIGN.md
 - [[DEMO_TASKS]] - code - frontend/src/pages/LandingPage.tsx
-- [[DESIGN.md (Design System HCCDI TaskPilot)]] - document - DESIGN.md
+- [[DESIGN.md (Design System Kairo)]] - document - DESIGN.md
 - [[Indigo Commit (4f46e5) accent]] - concept - DESIGN.md
 - [[Inter Typeface]] - concept - DESIGN.md
 - [[Landing Page Surface Brief]] - document - .impeccable/surfaces/frontend-src-pages-landingpage-tsx.md
@@ -43,7 +43,7 @@ members: 48
 - [[SheetDemo()]] - code - frontend/src/pages/LandingPage.tsx
 - [[Status]] - code - frontend/src/pages/LandingPage.tsx
 - [[Status and Priority Pills (chips)]] - concept - DESIGN.md
-- [[TaskPilot 20s Tour Video (taskpilot-tour.mp4)]] - concept - brag-output/brag-plan.md
+- [[Kairo 20s Tour Video (kairo-tour.mp4)]] - concept - brag-output/brag-plan.md
 - [[The Border-First Rule]] - concept - DESIGN.md
 - [[The One Commitment Rule (indigo only for actselected)]] - concept - DESIGN.md
 - [[The Stable Stage Rule]] - concept - DESIGN.md

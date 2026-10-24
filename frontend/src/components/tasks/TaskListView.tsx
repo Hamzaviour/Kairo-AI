@@ -65,7 +65,7 @@ export const TaskListView: React.FC<TaskListViewProps> = ({
               aria-label="Filter tasks"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-9 pr-3 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-lg outline-none focus:bg-white focus:border-indigo-500 transition-colors"
+              className="w-full pl-9 pr-3 py-1.5 text-xs bg-slate-50 border border-slate-200 rounded-lg outline-none focus:bg-white focus:border-brand-500 transition-colors"
             />
           </div>
 
@@ -105,7 +105,7 @@ export const TaskListView: React.FC<TaskListViewProps> = ({
 
       {/* Bulk Action Bar (when items selected) */}
       {selectedIds.length > 0 && (
-        <div className="bg-indigo-50 border border-indigo-200 p-2.5 rounded-xl flex items-center justify-between text-xs text-indigo-900 animate-fade-in">
+        <div className="bg-brand-50 border border-brand-200 p-2.5 rounded-xl flex items-center justify-between text-xs text-brand-900 animate-fade-in">
           <div className="flex items-center gap-2 font-semibold">
             <span>{selectedIds.length} tasks selected</span>
           </div>
@@ -150,7 +150,7 @@ export const TaskListView: React.FC<TaskListViewProps> = ({
                     type="checkbox"
                     checked={selectedIds.length > 0 && selectedIds.length === filteredTasks.length}
                     onChange={toggleSelectAll}
-                    className="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                    className="rounded border-slate-300 text-slate-900 focus:ring-brand-400 cursor-pointer"
                   />
                 </th>
                 <th className="py-3 px-4">Task Heading</th>
@@ -180,7 +180,7 @@ export const TaskListView: React.FC<TaskListViewProps> = ({
                         type="checkbox"
                         checked={selectedIds.includes(task.id)}
                         onChange={() => {}}
-                        className="rounded border-slate-300 text-indigo-600 focus:ring-indigo-500 cursor-pointer"
+                        className="rounded border-slate-300 text-slate-900 focus:ring-brand-400 cursor-pointer"
                       />
                     </td>
                     <td className="py-3 px-4">
@@ -198,7 +198,7 @@ export const TaskListView: React.FC<TaskListViewProps> = ({
                           </div>
                         )}
                         <div className="truncate">
-                          <span className="font-semibold text-slate-800 group-hover:text-indigo-600 transition-colors">
+                          <span className="font-semibold text-slate-800 group-hover:text-brand-700 transition-colors">
                             {task.title}
                           </span>
                           {task.description && (
@@ -213,7 +213,7 @@ export const TaskListView: React.FC<TaskListViewProps> = ({
                             target="_blank"
                             rel="noopener noreferrer"
                             onClick={(e) => e.stopPropagation()}
-                            className="text-indigo-500 hover:text-indigo-700 p-0.5 shrink-0"
+                            className="text-brand-600 hover:text-brand-800 p-0.5 shrink-0"
                             title="Visit resource URL"
                           >
                             <ExternalLink className="w-3.5 h-3.5" />
@@ -225,7 +225,7 @@ export const TaskListView: React.FC<TaskListViewProps> = ({
                       <select
                         value={task.status}
                         onChange={(e) => onStatusChange(task.id, e.target.value as TaskStatus)}
-                        className="text-xs py-1 px-2 rounded-md font-medium border border-transparent hover:border-slate-300 bg-transparent focus:bg-white focus:border-indigo-500 outline-none transition-colors"
+                        className="text-xs py-1 px-2 rounded-md font-medium border border-transparent hover:border-slate-300 bg-transparent focus:bg-white focus:border-brand-500 outline-none transition-colors"
                       >
                         <option value="backlog">Backlog</option>
                         <option value="todo">To Do</option>

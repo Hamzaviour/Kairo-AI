@@ -1,5 +1,5 @@
 # Product Proposal
-## Project: HCCDI TaskPilot — AI-Powered Task Management & To-Do Platform
+## Project: Kairo — AI-Powered Task Management & To-Do Platform
 **Document Version:** 1.0.0  
 **Status:** Proposed  
 **Audience:** Sponsors, team leads, IT/security reviewers  
@@ -9,17 +9,17 @@
 
 ## 1. Summary
 
-Teams that coordinate work in a shared Excel workbook pay for it every week: statuses drift ("Pending", "Under Review?", blank), nobody owns half the rows, every person can read every row, and there is no history of who changed what. **HCCDI TaskPilot** replaces that workbook with a secure, AI-assisted task workspace **without asking the team to abandon Excel on day one**: the existing sheet is imported with a validation preview, and a styled spreadsheet can be exported back at any time.
+Teams that coordinate work in a shared Excel workbook pay for it every week: statuses drift ("Pending", "Under Review?", blank), nobody owns half the rows, every person can read every row, and there is no history of who changed what. **Kairo** replaces that workbook with a secure, AI-assisted task workspace **without asking the team to abandon Excel on day one**: the existing sheet is imported with a validation preview, and a styled spreadsheet can be exported back at any time.
 
-This proposal asks for approval to run TaskPilot as the team's task system of record, hosted on Vercel with a managed PostgreSQL database (Neon).
+This proposal asks for approval to run Kairo as the team's task system of record, hosted on Vercel with a managed PostgreSQL database (Neon).
 
 | | |
 |---|---|
 | **What it is** | Web app (React SPA + FastAPI API + PostgreSQL) |
 | **Who it is for** | Admins (team leads, ops managers) and users (individual contributors) |
 | **Core promise** | Spreadsheet in, secure AI workspace out |
+| **Launch video** | `frontend/public/media/kairo-tour.mp4` (20 s), embedded on the landing page |
 | **Live demo** | Landing page `/`, demo accounts on `/login` (see [User Manual](./12_USER_MANUAL.md)) |
-| **Launch video** | `frontend/public/media/taskpilot-tour.mp4` (20 s), embedded on the landing page |
 
 ---
 
@@ -42,6 +42,7 @@ This proposal asks for approval to run TaskPilot as the team's task system of re
 3. **AI Task Copilot.** Turn a sentence into a structured task (title, priority, due date, checklist), break work into subtasks, explain a priority, plan the day, and answer questions about *your own* tasks. A deterministic engine works fully offline; an LLM key can be added for richer output.
 4. **Four ways to work.** Dense list with bulk actions, drag-and-drop Kanban, monthly calendar, and a slide-over task drawer with checklist, comments and activity log; global `Ctrl/⌘ K` command palette.
 5. **Governance.** Admin user provisioning and role management, organisation-wide audit trail, productivity analytics.
+6. **Chat assistants.** A floating assistant in the workspace creates, finds, edits and closes tasks, subtasks, comments and projects from plain language (Groq-hosted LLM). Users get one scoped to their own work; admins get their own with organisation-wide reach, user management and read-only SQL. Deletes and database writes always wait for an explicit "yes".
 
 ### 3.2 Why this approach
 
@@ -81,7 +82,7 @@ Details: [System Design & Architecture](./04_SYSTEM_DESIGN_ARCHITECTURE.md), [Ba
 | Step | Outcome | Owner |
 |---|---|---|
 | 1. Deploy | Vercel project + Neon database, secrets set, demo seed loaded | Engineering |
-| 2. Pilot | One team imports its workbook via the preview, runs on TaskPilot for two sprints | Team lead |
+| 2. Pilot | One team imports its workbook via the preview, runs on Kairo for two sprints | Team lead |
 | 3. Review | Compare against the success measures below; fix gaps | Team lead + Engineering |
 | 4. Expand | Provision remaining users; retire the shared workbook (export kept as archive) | Admin |
 
@@ -89,7 +90,7 @@ Details: [System Design & Architecture](./04_SYSTEM_DESIGN_ARCHITECTURE.md), [Ba
 
 These are proposed targets, not measured results:
 
-- 100% of active work items live in TaskPilot by the end of the pilot; the shared workbook becomes read-only.
+- 100% of active work items live in Kairo by the end of the pilot; the shared workbook becomes read-only.
 - 0 cross-user data exposures (verified by the isolation test suite on every change).
 - Every task has an owner and a valid status after import (enforced by the preview).
 - Weekly stakeholder reports produced from the Excel export instead of hand-edited sheets.
@@ -106,7 +107,7 @@ These are proposed targets, not measured results:
 
 ## 10. Cost model
 
-Hosting runs on two managed services, each with a free tier suitable for a pilot: **Vercel** (frontend + Python function) and **Neon** (PostgreSQL). Paid tiers are only needed for production-scale traffic or team features; check both vendors' current pricing before the expansion step. An LLM provider is optional and billed by usage if enabled.
+Hosting runs on two managed services, each with a free tier suitable for a pilot: **Vercel** (frontend + Python function) and **Neon** (PostgreSQL). Paid tiers are only needed for production-scale traffic or team features; check both vendors' current pricing before the expansion step. The chat assistants use **Groq**, whose free tier is rate-limited per minute; a paid tier is billed by usage. The Copilot itself needs no LLM.
 
 ## 11. Decision requested
 

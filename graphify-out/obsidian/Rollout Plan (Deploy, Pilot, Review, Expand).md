@@ -11,6 +11,6 @@ tags:
 # Rollout Plan (Deploy, Pilot, Review, Expand)
 
 ## Connections
-- [[Product Proposal (TaskPilot)]] - `references` [EXTRACTED]
+- [[Product Proposal (Kairo)]] - `references` [EXTRACTED]
 
 #graphify/concept #graphify/EXTRACTED #community/Proposal_Scope__Risks

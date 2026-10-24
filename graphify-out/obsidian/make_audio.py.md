@@ -12,7 +12,7 @@ tags:
 # make_audio.py
 
 ## Connections
-- [[Original soundtrack + SFX for the TaskPilot brag video, synthesized with numpy.…]] - `rationale_for` [EXTRACTED]
+- [[Original soundtrack + SFX for the Kairo brag video, synthesized with numpy.…]] - `rationale_for` [EXTRACTED]
 - [[add()]] - `contains` [EXTRACTED]
 - [[blip()]] - `contains` [EXTRACTED]
 - [[env()]] - `contains` [EXTRACTED]

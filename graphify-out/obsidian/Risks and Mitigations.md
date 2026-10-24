@@ -12,6 +12,6 @@ tags:
 
 ## Connections
 - [[JWT_SECRET_KEY Default Startup Guard]] - `references` [EXTRACTED]
-- [[Product Proposal (TaskPilot)]] - `references` [EXTRACTED]
+- [[Product Proposal (Kairo)]] - `references` [EXTRACTED]
 
 #graphify/rationale #graphify/EXTRACTED #community/Proposal_Scope__Risks

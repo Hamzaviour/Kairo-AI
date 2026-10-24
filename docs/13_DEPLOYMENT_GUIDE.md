@@ -1,10 +1,10 @@
 # Deployment Guide (Vercel + Neon)
-## Project: HCCDI TaskPilot
+## Project: Kairo
 **Document Version:** 1.0.0  
 **Status:** Current  
 **Date:** October 2026  
 
-TaskPilot deploys to **Vercel** as one project:
+Kairo deploys to **Vercel** as one project:
 
 | Piece | How it runs on Vercel | Source |
 |---|---|---|
@@ -101,8 +101,8 @@ vercel --prod
 
 ```bash
 # Database (any Postgres 14+)
-createdb taskpilot
-export DATABASE_URL=postgresql://localhost:5432/taskpilot
+createdb kairo
+export DATABASE_URL=postgresql://localhost:5432/kairo
 python scripts/seed_demo.py
 
 # API on :8000
@@ -115,9 +115,9 @@ cd frontend && npm install && npm run dev
 Tests (use a separate database so the demo data stays clean):
 
 ```bash
-createdb taskpilot_test
-DATABASE_URL=postgresql://localhost:5432/taskpilot_test python scripts/seed_demo.py
-cd backend && DATABASE_URL=postgresql://localhost:5432/taskpilot_test python -m pytest tests -q
+createdb kairo_test
+DATABASE_URL=postgresql://localhost:5432/kairo_test python scripts/seed_demo.py
+cd backend && DATABASE_URL=postgresql://localhost:5432/kairo_test python -m pytest tests -q
 ```
 
 ## 8. Limits to know

@@ -8,7 +8,7 @@ tags:
   - community/Landing_Page__Design_System
 ---
 
-# DESIGN.md (Design System: HCCDI TaskPilot)
+# DESIGN.md (Design System: Kairo)
 
 ## Connections
 - [[Creative North Star The Scoped Ledger]] - `references` [EXTRACTED]

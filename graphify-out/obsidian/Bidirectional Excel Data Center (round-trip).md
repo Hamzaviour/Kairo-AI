@@ -13,7 +13,7 @@ tags:
 ## Connections
 - [[Excel Hub (export  import with preview)]] - `implements` [INFERRED]
 - [[Excel Two-Way Synchronization with Import Preview]] - `semantically_similar_to` [INFERRED]
-- [[HCCDI TaskPilot]] - `conceptually_related_to` [EXTRACTED]
+- [[Kairo]] - `conceptually_related_to` [EXTRACTED]
 - [[Positioning Spreadsheet - AI Workspace]] - `references` [EXTRACTED]
 - [[Principle Meet teams where they are (Excel in, Excel out)]] - `conceptually_related_to` [INFERRED]
 - [[README]] - `references` [EXTRACTED]

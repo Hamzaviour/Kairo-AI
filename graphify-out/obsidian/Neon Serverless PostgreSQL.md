@@ -12,7 +12,7 @@ tags:
 
 ## Connections
 - [[Deployment Topology (Nginx + FastAPI instances)]] - `references` [EXTRACTED]
-- [[Neon Project orange-snow-72696664 (HCCDI Task Manager)]] - `conceptually_related_to` [INFERRED]
+- [[Neon Project orange-snow-72696664 (Kairo)]] - `conceptually_related_to` [INFERRED]
 - [[System Architecture (React SPA - FastAPI - SQLAlchemy - Neon)]] - `references` [EXTRACTED]
 - [[Vercel Deployment (static CDN + Python function)]] - `references` [INFERRED]
 

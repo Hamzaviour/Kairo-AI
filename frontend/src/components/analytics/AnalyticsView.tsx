@@ -47,7 +47,7 @@ export const AnalyticsView: React.FC<AnalyticsViewProps> = ({
               {userAnalytics.total_assigned}
             </div>
           </div>
-          <div className="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center">
+          <div className="w-10 h-10 rounded-xl bg-brand-50 text-brand-700 flex items-center justify-center">
             <BarChart3 className="w-5 h-5" />
           </div>
         </div>
@@ -86,12 +86,12 @@ export const AnalyticsView: React.FC<AnalyticsViewProps> = ({
             <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-wider">
               Focus Time
             </span>
-            <div className="text-2xl font-bold text-indigo-600 mt-0.5 flex items-center gap-1">
+            <div className="text-2xl font-bold text-brand-700 mt-0.5 flex items-center gap-1">
               <span>{Math.round(userAnalytics.total_focus_minutes / 60)}</span>
               <span className="text-xs font-medium text-slate-400">hours</span>
             </div>
           </div>
-          <div className="w-10 h-10 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center">
+          <div className="w-10 h-10 rounded-xl bg-violet-50 text-violet-700 flex items-center justify-center">
             <Clock className="w-5 h-5" />
           </div>
         </div>
@@ -101,11 +101,11 @@ export const AnalyticsView: React.FC<AnalyticsViewProps> = ({
       <div className="bg-white p-5 rounded-xl border border-slate-200/90 shadow-2xs space-y-3">
         <div className="flex items-center justify-between text-xs">
           <span className="font-bold text-slate-700">Sprint Completion Rate</span>
-          <span className="font-bold text-indigo-600">{userAnalytics.completion_rate_pct}%</span>
+          <span className="font-bold text-brand-700">{userAnalytics.completion_rate_pct}%</span>
         </div>
         <div className="w-full bg-slate-100 h-2.5 rounded-full overflow-hidden">
           <div
-            className="bg-indigo-600 h-full rounded-full transition-all"
+            className="bg-slate-900 h-full rounded-full transition-all"
             style={{ width: `${userAnalytics.completion_rate_pct}%` }}
           />
         </div>
@@ -115,7 +115,7 @@ export const AnalyticsView: React.FC<AnalyticsViewProps> = ({
       {isAdmin && (
         <div className="bg-white p-5 rounded-xl border border-slate-200/90 shadow-2xs space-y-4">
           <div className="flex items-center gap-2">
-            <Users className="w-5 h-5 text-indigo-600" />
+            <Users className="w-5 h-5 text-brand-700" />
             <h3 className="font-bold text-sm text-slate-800">
               Organization Workload Distribution (Admin Overview)
             </h3>
@@ -125,10 +125,10 @@ export const AnalyticsView: React.FC<AnalyticsViewProps> = ({
             <div className="p-4 bg-slate-50 rounded-xl border border-slate-200/60 space-y-2">
               <div className="flex items-center justify-between text-xs font-semibold">
                 <span>Alexander Wright (Executive Admin)</span>
-                <span className="text-indigo-600">2 Tasks</span>
+                <span className="text-brand-700">2 Tasks</span>
               </div>
               <div className="w-full bg-slate-200 h-2 rounded-full overflow-hidden">
-                <div className="bg-indigo-600 h-full w-[66%]" />
+                <div className="bg-slate-900 h-full w-[66%]" />
               </div>
               <span className="text-[11px] text-slate-400">1 In Progress, 1 To Do</span>
             </div>
