@@ -27,7 +27,7 @@ Spreadsheet → AI workspace. Lead with the pain everyone recognises (the team s
 | 2 | 3.2–6.6 | **Reveal** | The grid rows lift and re-set as Kairo task rows with status/priority pills; the logo and *"Kairo"* land; subline *"Your spreadsheet, rebuilt as a secure AI workspace."* |
 | 3 | 6.6–11.6 | **Highlight: Copilot** | The Copilot panel. The sentence *"Submit Q4 budget report to Alex by next Thursday with urgent priority"* types in, then the parsed task assembles: title, Urgent, Thursday 5:00 PM, five checklist items tick in. Caption *"Type it the way you'd say it."* |
 | 4 | 11.6–16.4 | **Highlight: Scopes** | The task table as Alexander · Admin (9 tasks). A click flips to Sarah · Member: five rows collapse, footer reads `GET /api/tasks/5647ef57… → 404 Not Found`. Caption *"Everyone sees only their own work."* |
-| 5 | 16.4–20.0 | **Punchline / outro** | Dark stage, mark + name, *"Spreadsheet in. Secure AI workspace out."*, button *"Try the live demo"*, repo path `github.com/Hamzaviour/AI-Based-To-Do-App`. |
+| 5 | 16.4–20.0 | **Punchline / outro** | Dark stage, mark + name, *"Spreadsheet in. Secure AI workspace out."*, button *"Try the live demo"*, repo path `github.com/Hamzaviour/Kairo-AI`. |
 
 ## Sound
 Original synthesized track (no third-party audio): 112 BPM, A minor-ish pop progression (Am–F–C–G), soft kick + closed hat + plucked bass + warm pad. SFX in the same key and room: soft tick for typing (sparse, -20 dB under music), a muted "pop" on the reveal downbeat, a low "thunk" when rows collapse. Light reverb on everything; fade out last 1.2 s; loudness-normalised to about -16 LUFS.

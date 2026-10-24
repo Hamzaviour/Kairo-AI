@@ -92,6 +92,8 @@ All endpoints live under `/api` and return the envelope `{ success, data, messag
 | `POST` | `/api/ai/prioritize` | Bearer | Recommends explainable priority scoring considering due date proximity, |
 | `POST` | `/api/ai/smart-schedule` | Bearer | Generates an optimized daily schedule incorporating strictly the authenticated user's |
 | `POST` | `/api/ai/chat` | Bearer | Natural-language task assistant strictly scoped to the requesting user's permitted tasks. |
+| `POST` | `/api/ai/assistant` | Bearer | Groq-powered chat assistant: CRUD on the caller's own tasks, subtasks, comments and projects via tool calls. Body `{ messages: [{role, content}] }`. |
+| `POST` | `/api/ai/admin-assistant` | Admin | Organisation-wide assistant with user management and SQL (read-only queries, confirmed INSERT/UPDATE/DELETE, no DDL). |
 
 ## Productivity Analytics
 

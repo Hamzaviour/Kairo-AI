@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 import { KairoLockup, KairoMark } from '../components/brand/KairoLogo';
 
-const REPO_URL = 'https://github.com/Hamzaviour/AI-Based-To-Do-App';
+const REPO_URL = 'https://github.com/Hamzaviour/Kairo-AI';
 
 type Viewer = 'admin' | 'user';
 type Status = 'backlog' | 'todo' | 'in_progress' | 'in_review' | 'blocked' | 'completed';

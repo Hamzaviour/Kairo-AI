@@ -1,219 +1,392 @@
-# Kairo — AI-Powered Task Management & To-Do Platform
+<div align="center">
 
-[![Python](https://img.shields.io/badge/Python-3.14-blue.svg)](https://www.python.org/)
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-009688.svg)](https://fastapi.tiangolo.com/)
-[![React](https://img.shields.io/badge/React-18.3-61dafb.svg)](https://reactjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-3178c6.svg)](https://www.typescriptlang.org/)
-[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-18%20(Neon)-336791.svg)](https://neon.tech/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind-3.4-38b2ac.svg)](https://tailwindcss.com/)
-[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="./frontend/public/brand/kairo-lockup-dark.svg">
+  <img src="./frontend/public/brand/kairo-lockup.svg" alt="Kairo" width="260">
+</picture>
 
-An enterprise-grade, full-stack, AI-powered work orchestration and task management platform that transforms unstructured, error-prone spreadsheets into a secure, collaborative, multi-tenant productivity suite. *Do the right work at the right moment.*
+### Do the right work at the right moment.
 
-**Watch the 20-second tour:** [`frontend/public/media/kairo-tour.mp4`](./frontend/public/media/kairo-tour.mp4) (also embedded on the landing page). Brand kit: [`docs/15_BRAND_KIT.md`](./docs/15_BRAND_KIT.md) or `/brand` in the app.
+**Kairo turns the Excel tracker your team already runs on into a calm, secure, AI-assisted task workspace.**
+Import the sheet, plan work from a sentence, and give every person a workspace scoped to exactly what they are allowed to see.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FHamzaviour%2FAI-Based-To-Do-App&env=JWT_SECRET_KEY,DATABASE_URL&envDescription=JWT_SECRET_KEY%3A%20long%20random%20string%20(openssl%20rand%20-hex%2032).%20DATABASE_URL%3A%20pooled%20Neon%20Postgres%20URL.&envLink=https%3A%2F%2Fgithub.com%2FHamzaviour%2FAI-Based-To-Do-App%2Fblob%2Fmain%2Fdocs%2F13_DEPLOYMENT_GUIDE.md)
+[![Python](https://img.shields.io/badge/Python-3.10%2B-13151a?logo=python&logoColor=white)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.115-13151a?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![React](https://img.shields.io/badge/React-18.3-13151a?logo=react&logoColor=white)](https://react.dev/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.7-13151a?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Neon-13151a?logo=postgresql&logoColor=white)](https://neon.tech/)
+[![Groq](https://img.shields.io/badge/AI-Groq-ffb224)](https://groq.com/)
+[![Tests](https://img.shields.io/badge/tests-28%20passing-059669)](./backend/tests)
+[![License: MIT](https://img.shields.io/badge/License-MIT-ffb224.svg)](./LICENSE)
 
-| Route | What's there |
+[Live demo accounts](#-demo-accounts) · [Quickstart](#-quickstart) · [Screenshots](#-screenshots) · [Docs](./docs) · [Brand kit](./docs/15_BRAND_KIT.md)
+
+<br>
+
+<a href="./frontend/public/media/kairo-tour.mp4"><img src="./frontend/public/media/kairo-tour.jpg" alt="Watch the 20-second Kairo tour" width="760"></a>
+
+<sub>▶ Click to watch the 20-second tour (MP4). It is also embedded on the landing page.</sub>
+
+</div>
+
+---
+
+## Table of contents
+
+- [Why Kairo](#-why-kairo)
+- [Screenshots](#-screenshots)
+- [Features](#-features)
+- [Tech stack](#-tech-stack)
+- [Architecture](#-architecture)
+- [Quickstart](#-quickstart)
+- [Environment variables](#-environment-variables)
+- [Demo accounts](#-demo-accounts)
+- [Testing](#-testing)
+- [Deployment](#-deployment)
+- [API overview](#-api-overview)
+- [Project structure](#-project-structure)
+- [Security](#-security)
+- [Documentation](#-documentation)
+- [Roadmap](#-roadmap)
+- [Contributing](#-contributing)
+- [License](#-license)
+- [Author](#-author)
+
+---
+
+## 💡 Why Kairo
+
+Teams that coordinate work in a shared spreadsheet pay for it every week:
+
+| Pain in the shared workbook | What Kairo does instead |
 |---|---|
-| `/` | Landing page with a live "Viewing as" scope demo and the video tour |
-| `/login` | Sign in (`?demo=admin` / `?demo=user` pre-fills a demo account) |
-| `/app` | The workspace (List, Kanban, Calendar, Projects, Analytics, Admin) |
-| `/docs` | Interactive API documentation (Swagger) |
+| Everyone can read every row | Every query passes one scope filter; other people's tasks return **404** |
+| Free-text statuses ("Pending", "Under Review?", blank) | Import preview maps legacy values and holds back broken rows |
+| Rows without owners | Every task has an owner and a valid status after import |
+| No history | Immutable activity log per task and an organisation-wide audit trail |
+| People decide what to do next by scrolling | Copilot plans the day; chat assistants do the clicking for you |
+
+*Kairo* comes from the Greek *kairos*: not clock time, but the right moment.
 
 ---
 
-## 🌟 Key Highlights & Architectural Pillars
+## 📸 Screenshots
 
-### 1. 🛡️ High-Assurance Security & IDOR Immunity
-- **Inviolable Scope Filtering**: Mathematical protection against Insecure Direct Object Reference (IDOR). Regular users receive strict `404 Not Found` when probing unauthorized task UUIDs.
-- **Stateless JWT with Token Rotation**: Short-lived 60-minute access tokens coupled with revocable, cryptographically hashed 7-day refresh tokens.
-- **Salted Bcrypt Password Hashing**: Passwords stored using Blowfish salted hashing with cost factor 12.
+<table>
+  <tr>
+    <td colspan="2" align="center"><b>Landing page</b><br><img src="./docs/screenshots/01-landing.png" alt="Landing page"></td>
+  </tr>
+  <tr>
+    <td width="50%" align="center"><b>Live scope demo: same database, Sarah's view</b><br><img src="./docs/screenshots/02-landing-scope.png" alt="Scope demo on the landing page"></td>
+    <td width="50%" align="center"><b>Sign in with demo accounts</b><br><img src="./docs/screenshots/03-login.png" alt="Login page"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Workspace (admin)</b><br><img src="./docs/screenshots/04-workspace-admin.png" alt="Task list as admin"></td>
+    <td align="center"><b>Workspace (member, own tasks only)</b><br><img src="./docs/screenshots/11-workspace-member.png" alt="Task list as member with the assistant open"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Kanban board</b><br><img src="./docs/screenshots/05-board.png" alt="Kanban board"></td>
+    <td align="center"><b>Calendar</b><br><img src="./docs/screenshots/06-calendar.png" alt="Calendar view"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Task drawer with explainable AI priority</b><br><img src="./docs/screenshots/07-task-drawer.png" alt="Task detail drawer"></td>
+    <td align="center"><b>Copilot</b><br><img src="./docs/screenshots/08-copilot.png" alt="Copilot drawer"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Team &amp; roles (admin)</b><br><img src="./docs/screenshots/09-admin-team.png" alt="Team and role management"></td>
+    <td align="center"><b>Admin assistant with full database access</b><br><img src="./docs/screenshots/10-admin-assistant.png" alt="Admin chat assistant"></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Brand kit (<code>/brand</code>)</b><br><img src="./docs/screenshots/12-brand-kit.png" alt="Brand kit page"></td>
+    <td align="center"><b>Mobile</b><br><img src="./docs/screenshots/13-mobile-landing.png" alt="Landing page on a phone" width="260"></td>
+  </tr>
+</table>
 
-### 2. 🤖 Dual-Engine AI Task Copilot
-- **Natural Language Parsing**: Converts raw phrases (*"Submit Q4 budget report to Alex by next Thursday with urgent priority"*) into structured task entities.
-- **Automated Subtask Decomposition**: Deconstructs high-level objectives into 3–7 actionable checklist items.
-- **Explainable Prioritization**: Evaluates due date proximity, blocker weights, and capacity to deliver transparent prioritization scores with human-readable rationale.
-- **Privacy-Scoped Context**: AI queries query strictly against the authenticated user's permitted tasks, eliminating data leakage across tenants.
-- **Deterministic Heuristic Fallback**: 100% operational in air-gapped or offline environments without external API keys.
-
-### 3. 📊 Omnichannel Task Orchestration
-- **Dense Sortable List View**: Tabular layout with inline status selectors, bulk multi-selection, and fast filtering.
-- **Interactive Kanban Board**: 6-column HTML5 drag-and-drop board with confetti celebration upon task completion.
-- **Monthly Calendar**: Visual deadline tracking with clickable day event chips.
-- **Slide-Over Task Drawer**: Subtasks checklist with live progress bar, threaded comments, and immutable audit logs.
-- **Global Command Palette (`⌘K` / `Ctrl+K`)**: Instant task search and shortcut triggers.
-
-### 4. 📑 Bidirectional Microsoft Excel Data Center
-- **Dynamic Streaming Export**: Generates `.xlsx` spreadsheets complete with styled headers and native dropdown data validation.
-- **Import Validation Preview**: Dry-run verification before committing imported spreadsheets to PostgreSQL.
+<sub>Screenshots are generated from a running dev build with <code>python scripts/capture_screenshots.py</code>.</sub>
 
 ---
 
-## 🏗️ System Architecture
+## ✨ Features
+
+### 📑 Excel in, Excel out
+- Upload an `.xlsx` and get a **dry-run import preview**: legacy statuses are normalised, rows missing a title are held back, nothing is written until you commit.
+- **Styled export** back to Excel with native dropdown validation on status and priority, so stakeholders who still want a sheet keep one.
+
+### 🛡️ Isolated workspaces
+- One data-access scope filter (`get_scoped_tasks_query` / `get_task_or_404`) behind every task query.
+- Members see only tasks they created, are assigned to, or share through a project. Probing anyone else's task ID returns **404, not 403**, so existence never leaks.
+- Admins see the whole organisation, manage users and roles, and read the audit trail.
+
+### 🤖 Copilot (works offline)
+- Sentence in, structured task out: *"Submit Q4 budget report to Alex by next Thursday with urgent priority"* becomes a title, priority, due date and checklist.
+- Subtask breakdown, explainable priority scoring, smart daily schedule and scoped Q&A.
+- A deterministic engine runs with **no API key at all**.
+
+### 💬 Chat assistants (Groq)
+- A floating assistant in the bottom-right corner creates, finds, edits and closes **tasks, subtasks, comments and projects** from plain language.
+- **Members** get an assistant scoped to their own work. **Admins** get their own, with organisation-wide reach, user management and direct SQL (read-only queries, confirmed `INSERT` / `UPDATE` / `DELETE`, no schema changes).
+- Destructive actions wait for an explicit "yes", enforced on the server. Password and token hashes are never exposed. Every turn is logged.
+- Falls back to a smaller model on rate limits, then retries.
+
+### 🗂️ Four ways to work
+- Dense **list** with inline status, bulk actions and filters.
+- Drag-and-drop **Kanban** board, monthly **calendar**, and a slide-over **task drawer** with checklist, comments and activity log.
+- Global **`Ctrl/⌘ K`** command palette.
+
+### 🎨 Designed, not decorated
+- Calm premium interface: ink neutrals, one saffron accent for "now", Funnel Display + Geist type.
+- Full brand kit with logo files at [`/brand`](./docs/15_BRAND_KIT.md).
+
+---
+
+## 🧰 Tech stack
+
+| Layer | Technology |
+|---|---|
+| Frontend | React 18, TypeScript 5, Vite 6, Tailwind CSS 3, lucide-react, axios |
+| Backend | FastAPI, SQLAlchemy 2, Pydantic v2, PyJWT, bcrypt, openpyxl, httpx |
+| Database | PostgreSQL (Neon serverless), 19 tables, ENUM / JSONB types |
+| AI | Offline heuristic Copilot · Groq (`openai/gpt-oss-120b`, fallback `openai/gpt-oss-20b`) for the assistants |
+| Hosting | Vercel: static SPA on the CDN + FastAPI as one Python function |
+| Testing | pytest + FastAPI TestClient (28 tests) |
+
+---
+
+## 🏗️ Architecture
 
 ```mermaid
-graph TD
-    Client[React 18 + Vite + TypeScript SPA] -->|HTTPS REST / JSON| Gateway[FastAPI ASGI Gateway]
-    
-    subgraph Backend Engine
-        Gateway --> AuthMiddleware[JWT Auth & RBAC Guard]
-        AuthMiddleware --> Router[Modular API Routers]
-        Router --> Service[Service Layer: Tasks, AI, Excel]
-        Service --> AIService[Dual-Engine AI Copilot]
-        Service --> ExcelEngine[OpenPyXL Data Pipeline]
-        Service --> ORM[SQLAlchemy 2.0 ORM]
-    end
-
-    subgraph Serverless Database
-        ORM --> Pooler[Neon PgBouncer Connection Pooler]
-        Pooler --> NeonDB[(Neon Serverless PostgreSQL 18)]
-    end
+graph LR
+  B[Browser · React SPA] -->|/api JSON| F[FastAPI · Vercel Python function]
+  B -->|static| V[Vercel CDN · app, landing, video]
+  F --> S[Scope filter · JWT + roles]
+  S --> D[(PostgreSQL · Neon)]
+  F --> C[Copilot · offline engine]
+  F --> A[Chat assistants · Groq tool calls]
+  A --> S
+  F --> X[Excel pipeline · openpyxl]
 ```
+
+Every request that touches tasks, including the assistants' tool calls, passes the scope filter before it reaches the database. Details: [System design](./docs/04_SYSTEM_DESIGN_ARCHITECTURE.md) · [Database schema](./docs/09_BACKEND_SCHEMA_SPEC.md).
 
 ---
 
-## 📂 Project Structure
-
-```text
-task-management-platform/
-├── backend/
-│   ├── app/
-│   │   ├── api/          # REST route endpoints (Auth, Tasks, AI, Admin, Excel)
-│   │   ├── core/         # Config, database connection pooling, security, deps
-│   │   ├── models/       # Declarative SQLAlchemy 2.0 models (19 tables)
-│   │   ├── schemas/      # Pydantic v2 validation DTOs and envelopes
-│   │   └── services/     # Task isolation, AI engine, OpenPyXL pipeline
-│   ├── migrations/       # SQL DDL schemas and triggers
-│   ├── requirements.txt  # Python dependencies
-│   ├── tests/            # Automated pytest suite (Auth, IDOR, AI, Excel)
-│   └── run.py            # Uvicorn entrypoint
-│
-├── frontend/
-│   ├── src/
-│   │   ├── components/   # Layout, Tasks (List, Kanban, Calendar), AI, Excel
-│   │   ├── context/      # Authentication & session provider
-│   │   ├── services/     # Axios client with 401 refresh token interceptor
-│   │   ├── pages/        # Landing page, Login (demo switcher) & Dashboard
-│   │   └── types/        # TypeScript interfaces matching backend DTOs
-│   ├── package.json
-│   └── vite.config.ts
-│
-├── api/index.py          # Vercel serverless entrypoint (FastAPI)
-├── vercel.json           # Build, routing and function config
-├── scripts/seed_demo.py  # Schema bootstrap + demo data
-├── graphify-out/         # Knowledge graph + Obsidian vault
-├── brag-output/          # Launch video sources
-│
-└── docs/                 # Engineering & product documentation suite
-    ├── 01_PRD.md
-    ├── 02_TRD.md
-    ├── 03_SRS.md
-    ├── 04_SYSTEM_DESIGN_ARCHITECTURE.md
-    ├── 05_UI_UX_DESIGN_SPEC.md
-    ├── 06_IMPLEMENTATION_PLAN.md
-    ├── 07_SDLC_METHODOLOGY.md
-    ├── 08_PROJECT_TRACKING_TRACEABILITY.md
-    └── 09_BACKEND_SCHEMA_SPEC.md
-```
-
----
-
-## 🚀 Quickstart Guide
+## 🚀 Quickstart
 
 ### Prerequisites
-- **Python 3.10+** (Python 3.14 supported)
-- **Node.js 18+** & **npm**
-- **Git**
+- **Python 3.10+**, **Node.js 18+** and npm, **Git**
+- A **PostgreSQL** database (a free [Neon](https://neon.tech) project works)
+- Optional: a **Groq API key** ([console.groq.com](https://console.groq.com/keys)) for the chat assistants
 
-### 1. Backend Setup
+### 1. Clone
+
+```bash
+git clone https://github.com/Hamzaviour/Kairo-AI.git
+cd Kairo-AI
+```
+
+### 2. Backend
+
 ```bash
 cd backend
 python -m venv .venv
-# On Windows:
-.venv\Scripts\activate
-# On macOS/Linux:
-source .venv/bin/activate
-
+.venv\Scripts\activate          # Windows
+# source .venv/bin/activate     # macOS / Linux
 pip install -r requirements.txt
 
-# Point at any PostgreSQL database, then create the schema + demo data (idempotent)
-export DATABASE_URL=postgresql://localhost:5432/kairo
-python ../scripts/seed_demo.py
-
-python run.py
+cp ../.env.example .env         # then fill in DATABASE_URL, JWT_SECRET_KEY, GROQ_API_KEY
+python ../scripts/seed_demo.py  # creates the schema + demo data (idempotent)
+python run.py                   # http://127.0.0.1:8000  ·  Swagger at /docs
 ```
-Backend API will be live at `http://127.0.0.1:8000`.  
-Interactive OpenAPI Swagger documentation: `http://127.0.0.1:8000/docs`.
 
-### 2. Frontend Setup
+> The API also bootstraps an empty database on first start, so the seed step is only needed to restore demo rows.
+
+### 3. Frontend
+
 ```bash
 cd frontend
 npm install
-npm run dev
+npm run dev                     # http://localhost:5173 (proxies /api to :8000)
 ```
-Client SPA will be live at `http://localhost:5173`.
 
-### 3. Running Automated Tests
+Open `http://localhost:5173`, click **Try the live demo**, and you are in.
+
+---
+
+## 🔐 Environment variables
+
+Set these in `backend/.env` locally, or in Vercel → Project Settings → Environment Variables.
+
+| Variable | Required | Default | Purpose |
+|---|---|---|---|
+| `DATABASE_URL` | ✅ | — | PostgreSQL connection string (Neon's `POSTGRES_URL` is also accepted) |
+| `JWT_SECRET_KEY` | ✅ in production | dev-only value | Signs access and refresh tokens. Startup fails on Vercel if left at the default |
+| `GROQ_API_KEY` | for the assistants | empty | Enables the user and admin chat assistants |
+| `GROQ_MODEL` | | `openai/gpt-oss-120b` | Primary assistant model |
+| `GROQ_FALLBACK_MODEL` | | `openai/gpt-oss-20b` | Used when the primary model is rate-limited |
+| `ACCESS_TOKEN_EXPIRE_MINUTES` | | `60` | Access token lifetime |
+| `REFRESH_TOKEN_EXPIRE_DAYS` | | `7` | Refresh token lifetime |
+| `CORS_ORIGINS` | | localhost ports | Comma-separated allowed origins |
+| `ENVIRONMENT` | | `development` (`production` on Vercel) | Controls error detail in responses |
+
+Never commit `.env`; it is ignored by git. See [`.env.example`](./.env.example).
+
+---
+
+## 🔑 Demo accounts
+
+Both accounts come from the original Excel workbook.
+
+| Account | Email | Password | Scope |
+|---|---|---|---|
+| **Alexander Wright** | `alexander.wright@enterprise.com` | `P@ssw0rd!2026` | Admin · whole organisation |
+| **Sarah Jenkins** | `sarah.jenkins@enterprise.com` | `Secur3_Token#88` | Member · own tasks only |
+
+`/login?demo=admin` and `/login?demo=user` pre-fill them. Sign in as each and compare what you can see.
+
+---
+
+## 🧪 Testing
+
 ```bash
 cd backend
-python -m pytest tests/ -v   # use a separate DATABASE_URL so demo data stays clean
+python -m pytest tests -q
 ```
-*(21 integration, AI, Excel and IDOR security tests.)*
 
-### 4. Deploy to Vercel
-One project serves the static app from the CDN and the FastAPI backend as a Python function (`api/index.py`, routed by `vercel.json`). Add a Neon Postgres database and set `JWT_SECRET_KEY`, then deploy — full steps in **[docs/13_DEPLOYMENT_GUIDE.md](./docs/13_DEPLOYMENT_GUIDE.md)**.
+28 tests cover authentication and token rotation, IDOR isolation (404 on other people's tasks), AI parsing, the chat assistants' permission and confirmation guards, SQL safety rules, and the Excel round-trip. The suite writes test rows, so point `DATABASE_URL` at a separate database.
 
 ---
 
-## 🔑 Demo Credentials (Migrated from Excel)
+## ☁️ Deployment
 
-| Account | Email | Password | Role / Scope |
-|---|---|---|---|
-| **Alexander Wright** | `alexander.wright@enterprise.com` | `P@ssw0rd!2026` | `admin` (System & Org-wide Scope) |
-| **Sarah Jenkins** | `sarah.jenkins@enterprise.com` | `Secur3_Token#88` | `user` (Strictly Isolated Scope) |
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FHamzaviour%2FKairo-AI&env=JWT_SECRET_KEY,DATABASE_URL,GROQ_API_KEY&envDescription=JWT_SECRET_KEY%3A%20long%20random%20string.%20DATABASE_URL%3A%20pooled%20Neon%20Postgres%20URL.%20GROQ_API_KEY%3A%20optional%2C%20for%20the%20chat%20assistants.&envLink=https%3A%2F%2Fgithub.com%2FHamzaviour%2FKairo-AI%2Fblob%2Fmain%2Fdocs%2F13_DEPLOYMENT_GUIDE.md)
 
----
+One Vercel project serves the static app from the CDN and the FastAPI backend as a single Python function (`api/index.py`, routed by `vercel.json`).
 
-## 📚 Engineering Documentation Suite
+1. Import the repository in Vercel.
+2. Add a Neon Postgres database (or set `DATABASE_URL`).
+3. Set `JWT_SECRET_KEY` (`openssl rand -hex 32`) and, optionally, `GROQ_API_KEY`.
+4. Deploy. The first request bootstraps the schema and demo data.
 
-Detailed engineering documents are available in [`docs/`](./docs/):
-- **[01_PRD.md](./docs/01_PRD.md)**: Product Requirements Document.
-- **[02_TRD.md](./docs/02_TRD.md)**: Technical Requirements Document & API Route Registry.
-- **[03_SRS.md](./docs/03_SRS.md)**: IEEE Std 830-1998 Software Requirements Specification.
-- **[04_SYSTEM_DESIGN_ARCHITECTURE.md](./docs/04_SYSTEM_DESIGN_ARCHITECTURE.md)**: Architecture, Sequences, & IDOR filters.
-- **[05_UI_UX_DESIGN_SPEC.md](./docs/05_UI_UX_DESIGN_SPEC.md)**: Linear/Notion design system tokens & component hierarchy.
-- **[06_IMPLEMENTATION_PLAN.md](./docs/06_IMPLEMENTATION_PLAN.md)**: Work Breakdown Structure (WBS).
-- **[07_SDLC_METHODOLOGY.md](./docs/07_SDLC_METHODOLOGY.md)**: Agile delivery & quality gates.
-- **[08_PROJECT_TRACKING_TRACEABILITY.md](./docs/08_PROJECT_TRACKING_TRACEABILITY.md)**: Requirements Traceability Matrix (RTM).
-- **[09_BACKEND_SCHEMA_SPEC.md](./docs/09_BACKEND_SCHEMA_SPEC.md)**: Comprehensive 19-table database dictionary.
-- **[10_PRODUCT_PROPOSAL.md](./docs/10_PRODUCT_PROPOSAL.md)**: Problem, solution, rollout plan, risks and the decision requested. Also as a designed PDF: **[Kairo_Product_Proposal.pdf](./docs/Kairo_Product_Proposal.pdf)** (source in `docs/proposal/`).
-- **[11_WORKFLOWS.md](./docs/11_WORKFLOWS.md)**: Task lifecycle, Excel onboarding, Copilot, isolation, admin and engineering/release workflows.
-- **[12_USER_MANUAL.md](./docs/12_USER_MANUAL.md)**: How to use every part of Kairo, for users and admins.
-- **[13_DEPLOYMENT_GUIDE.md](./docs/13_DEPLOYMENT_GUIDE.md)**: Vercel + Neon deployment, environment variables, operations.
-- **[14_API_REFERENCE.md](./docs/14_API_REFERENCE.md)**: All 52 endpoints with access level (generated from the OpenAPI schema).
-- **[15_BRAND_KIT.md](./docs/15_BRAND_KIT.md)**: Name, logo files and usage, colour, typography and voice. Live version at `/brand` in the app.
+Full guide: **[docs/13_DEPLOYMENT_GUIDE.md](./docs/13_DEPLOYMENT_GUIDE.md)**.
 
 ---
 
-## 🕸️ Knowledge Graph (Obsidian)
+## 🔌 API overview
 
-The whole repository — code and docs — is mapped as a knowledge graph with [graphify](https://github.com/safishamsi/graphify) in [`graphify-out/`](./graphify-out/):
+All endpoints live under `/api` and return `{ success, data, message, error, meta }`. Interactive docs at **`/docs`** (Swagger) and **`/redoc`**.
 
-- **`graphify-out/obsidian/`** — open this folder as a vault in Obsidian (*Open folder as vault*) to browse one note per concept, linked by real relationships; `graph.canvas` shows the community layout.
-- **`graphify-out/graph.html`** — the same graph, interactive in any browser.
-- **`graphify-out/GRAPH_REPORT.md`** — communities, god nodes and surprising connections.
+| Area | Examples |
+|---|---|
+| Auth | `POST /api/auth/login`, `POST /api/auth/refresh`, `GET /api/auth/me` |
+| Tasks | `GET/POST /api/tasks`, `PUT/DELETE /api/tasks/{id}`, `PATCH /api/tasks/{id}/status`, bulk update, duplicate |
+| Subtasks & comments | `/api/tasks/{id}/subtasks`, `/api/tasks/{id}/comments` |
+| Projects | `GET/POST /api/projects`, members |
+| AI | `/api/ai/parse-task`, `/breakdown`, `/prioritize`, `/smart-schedule`, `/chat` |
+| Assistants | `POST /api/ai/assistant` (member), `POST /api/ai/admin-assistant` (admin) |
+| Excel | `/api/excel/preview-import`, `/commit-import`, `/export` |
+| Admin | `/api/admin/users`, `/api/admin/audit-logs` |
 
-Refresh after code changes with `pip install graphifyy && graphify update .` (no API key needed).
-
-## 🎬 Launch Video
-
-The tour was produced with the [/brag](https://github.com/latent-spaces/brag) skill. Plan, share copy, poster and the frame/audio sources are in [`brag-output/`](./brag-output/); the soundtrack is original (synthesized), so it is free to reuse.
+Every endpoint with its access level: **[docs/14_API_REFERENCE.md](./docs/14_API_REFERENCE.md)**.
 
 ---
 
-## 👤 Author & Contributor
+## 📂 Project structure
 
-**Hamza** ([@Hamzaviour](https://github.com/Hamzaviour))  
-Email: [hamzavelous@gmail.com](mailto:hamzavelous@gmail.com)  
-Project Repository: [AI-Based-To-Do-App](https://github.com/Hamzaviour/AI-Based-To-Do-App)
+```text
+Kairo-AI/
+├── backend/
+│   ├── app/
+│   │   ├── api/endpoints/   # auth, tasks, subtasks, comments, projects, ai, excel, admin, analytics
+│   │   ├── core/            # config, database, security, deps, demo seed
+│   │   ├── models/          # SQLAlchemy models (19 tables)
+│   │   ├── schemas/         # Pydantic DTOs and the response envelope
+│   │   └── services/        # scoped task service, Copilot, chat assistants, Excel pipeline
+│   ├── migrations/          # SQL schema
+│   ├── tests/               # pytest suite
+│   └── run.py               # local entrypoint
+├── frontend/
+│   ├── public/              # favicon, brand logo files, tour video
+│   └── src/
+│       ├── components/      # layout, tasks, ai (Copilot + chat widget), brand, admin, excel
+│       ├── pages/           # Landing, Login, Dashboard, Brand
+│       ├── services/        # axios client with refresh-token rotation
+│       └── context/         # auth provider
+├── api/index.py             # Vercel serverless entrypoint
+├── vercel.json              # build, routing, function config
+├── scripts/                 # demo seed, Excel tools, screenshot capture
+├── data/                    # original and migrated Excel workbooks
+├── docs/                    # product + engineering docs, proposal PDF, screenshots
+├── brag-output/             # tour video source (HTML frames + synthesized soundtrack)
+└── graphify-out/            # knowledge graph + Obsidian vault of the repo
+```
+
+---
+
+## 🛡️ Security
+
+- **IDOR immunity:** scope filtering in the data layer; unauthorised task IDs return 404.
+- **Tokens:** 60-minute access tokens, single-use rotating refresh tokens stored only as hashes, revoked at logout.
+- **Passwords:** bcrypt with salt.
+- **Assistants:** act through the same scoped services as the UI; deletes and SQL writes need explicit confirmation; schema changes are blocked; secrets and hashes are never sent to the model.
+- **Production guard:** the API refuses to start on Vercel with the default JWT secret.
+
+Found a vulnerability? Please email the author rather than opening a public issue.
+
+---
+
+## 📚 Documentation
+
+| Document | Contents |
+|---|---|
+| [01_PRD](./docs/01_PRD.md) | Product requirements |
+| [02_TRD](./docs/02_TRD.md) | Technical requirements and route registry |
+| [03_SRS](./docs/03_SRS.md) | Software requirements specification |
+| [04_SYSTEM_DESIGN_ARCHITECTURE](./docs/04_SYSTEM_DESIGN_ARCHITECTURE.md) | Architecture, sequences, isolation |
+| [05_UI_UX_DESIGN_SPEC](./docs/05_UI_UX_DESIGN_SPEC.md) | Original UI/UX specification |
+| [06_IMPLEMENTATION_PLAN](./docs/06_IMPLEMENTATION_PLAN.md) | Work breakdown structure |
+| [07_SDLC_METHODOLOGY](./docs/07_SDLC_METHODOLOGY.md) | Delivery process and quality gates |
+| [08_PROJECT_TRACKING_TRACEABILITY](./docs/08_PROJECT_TRACKING_TRACEABILITY.md) | Requirements traceability matrix |
+| [09_BACKEND_SCHEMA_SPEC](./docs/09_BACKEND_SCHEMA_SPEC.md) | 19-table database dictionary |
+| [10_PRODUCT_PROPOSAL](./docs/10_PRODUCT_PROPOSAL.md) | Problem, solution, rollout, risks · [designed PDF](./docs/Kairo_Product_Proposal.pdf) |
+| [11_WORKFLOWS](./docs/11_WORKFLOWS.md) | Task lifecycle, Excel onboarding, Copilot, admin flows |
+| [12_USER_MANUAL](./docs/12_USER_MANUAL.md) | How to use every part of Kairo |
+| [13_DEPLOYMENT_GUIDE](./docs/13_DEPLOYMENT_GUIDE.md) | Vercel + Neon deployment and operations |
+| [14_API_REFERENCE](./docs/14_API_REFERENCE.md) | Every endpoint with access level |
+| [15_BRAND_KIT](./docs/15_BRAND_KIT.md) | Name, logo, colour, type, voice |
+| [DESIGN.md](./DESIGN.md) · [PRODUCT.md](./PRODUCT.md) | Design system and product context |
+
+**Knowledge graph:** open [`graphify-out/obsidian/`](./graphify-out/obsidian/) as an Obsidian vault, or [`graphify-out/graph.html`](./graphify-out/graph.html) in a browser.
+
+---
+
+## 🗺️ Roadmap
+
+- [ ] Email and Slack notifications
+- [ ] SSO / SAML sign-in
+- [ ] Recurring-task UI
+- [ ] Dark mode for the workspace
+- [ ] Streaming assistant replies
+- [ ] Multi-organisation tenancy
+
+---
+
+## 🤝 Contributing
+
+1. Fork the repo and create a branch: `git checkout -b feature/your-idea`
+2. Run the backend tests and `npx tsc --noEmit` in `frontend/`
+3. Follow the design rules in [DESIGN.md](./DESIGN.md) for any UI change
+4. Open a pull request describing what changed and why
+
+---
+
+## 📄 License
+
+Released under the [MIT License](./LICENSE).
+
+---
+
+## 👤 Author
+
+**Hamza Younas** · [@Hamzaviour](https://github.com/Hamzaviour) · [hamzavelous@gmail.com](mailto:hamzavelous@gmail.com)
+
+If Kairo is useful to you, a ⭐ on the repo is appreciated.

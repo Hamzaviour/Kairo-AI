@@ -1,4 +1,4 @@
-# Graph Report - AI-Based-To-Do-App  (2026-10-18)
+# Graph Report - Kairo-AI  (2026-10-18)
 
 ## Corpus Check
 - 109 files · ~61,482 words
