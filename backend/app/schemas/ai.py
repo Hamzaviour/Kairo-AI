@@ -1,4 +1,4 @@
-from typing import Optional, List
+from typing import Optional, List, Literal
 from uuid import UUID
 from datetime import datetime
 from pydantic import BaseModel, Field
@@ -57,3 +57,22 @@ class AIChatResponse(BaseModel):
     response: str
     model_used: str
     action_suggestions: List[str] = []
+
+class AssistantMessage(BaseModel):
+    role: Literal["user", "assistant"]
+    content: str = Field(..., min_length=1, max_length=8000)
+
+class AssistantChatRequest(BaseModel):
+    # Visible conversation, oldest first; the newest entry must be the user's turn
+    messages: List[AssistantMessage] = Field(..., min_length=1, max_length=40)
+
+class AssistantAction(BaseModel):
+    tool: str
+    ok: bool
+    write: bool
+
+class AssistantChatResponse(BaseModel):
+    reply: str
+    actions: List[AssistantAction] = []
+    data_changed: bool = False
+    model: str

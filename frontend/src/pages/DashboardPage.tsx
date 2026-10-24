@@ -8,6 +8,7 @@ import { TaskCalendarView } from '../components/tasks/TaskCalendarView';
 import { TaskModal } from '../components/tasks/TaskModal';
 import { TaskDetailDrawer } from '../components/tasks/TaskDetailDrawer';
 import { AICopilotDrawer } from '../components/ai/AICopilotDrawer';
+import { ChatAssistantWidget } from '../components/ai/ChatAssistantWidget';
 import { ExcelCenterModal } from '../components/excel/ExcelCenterModal';
 import { AnalyticsView } from '../components/analytics/AnalyticsView';
 import { AdminUserManagement } from '../components/admin/AdminUserManagement';
@@ -188,6 +189,9 @@ export const DashboardPage: React.FC = () => {
         onClose={() => setIsAIDrawerOpen(false)}
         onTaskCreatedFromAI={handleCreateTask}
       />
+
+      {/* Floating chat assistant (admin and user personas) */}
+      <ChatAssistantWidget key={user?.id} onDataChanged={fetchTasks} />
 
       {/* Excel Data Hub Modal */}
       <ExcelCenterModal

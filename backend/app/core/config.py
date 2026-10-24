@@ -34,7 +34,14 @@ class Settings(BaseSettings):
     AI_API_KEY: str = ""
     AI_MODEL: str = "gpt-4o-mini"
     AI_BASE_URL: str = ""
-    
+
+    # Groq-hosted LLM behind the floating chat assistants (user + admin)
+    GROQ_API_KEY: str = ""
+    GROQ_MODEL: str = "openai/gpt-oss-120b"
+    # Used when the primary model hits Groq's per-minute token limit
+    GROQ_FALLBACK_MODEL: str = "openai/gpt-oss-20b"
+    GROQ_BASE_URL: str = "https://api.groq.com/openai/v1"
+
     @property
     def cors_origin_list(self) -> List[str]:
         return [origin.strip() for origin in self.CORS_ORIGINS.split(",") if origin.strip()]

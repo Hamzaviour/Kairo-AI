@@ -3,16 +3,18 @@ from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 
 from app.core.database import get_db
-from app.core.deps import get_current_active_user
+from app.core.deps import get_current_active_user, get_current_admin
 from app.models.user import User
 from app.schemas.ai import (
     ParseTaskRequest, ParsedTaskResponse, SubtaskBreakdownRequest,
     SubtaskBreakdownResponse, PrioritizeRequest, PrioritizeResponse,
-    SmartScheduleResponse, AIChatRequest, AIChatResponse
+    SmartScheduleResponse, AIChatRequest, AIChatResponse,
+    AssistantChatRequest, AssistantChatResponse
 )
 from app.schemas.common import ResponseEnvelope
 from app.services.ai_service import AIService
 from app.services.task_service import get_task_or_404
+from app.services.assistant_service import run_assistant, AssistantError
 
 router = APIRouter()
 
@@ -77,3 +79,36 @@ def chat_copilot_route(
     """
     answer = AIService.answer_chat(req.prompt, current_user, db, req.task_id)
     return ResponseEnvelope(data=answer)
+
+def _assistant_turn(req: AssistantChatRequest, user: User, db: Session, admin: bool) -> AssistantChatResponse:
+    if req.messages[-1].role != "user":
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="The last message must come from the user")
+    try:
+        result = run_assistant(db, user, [m.model_dump() for m in req.messages], admin=admin)
+    except AssistantError as exc:
+        raise HTTPException(status_code=status.HTTP_502_BAD_GATEWAY, detail=str(exc))
+    return AssistantChatResponse(**result)
+
+@router.post("/assistant", response_model=ResponseEnvelope[AssistantChatResponse])
+def user_assistant_route(
+    req: AssistantChatRequest,
+    current_user: User = Depends(get_current_active_user),
+    db: Session = Depends(get_db)
+):
+    """
+    Groq-powered assistant that performs CRUD on the caller's own tasks, subtasks,
+    comments and projects. Every tool runs through the scoped task services.
+    """
+    return ResponseEnvelope(data=_assistant_turn(req, current_user, db, admin=False))
+
+@router.post("/admin-assistant", response_model=ResponseEnvelope[AssistantChatResponse])
+def admin_assistant_route(
+    req: AssistantChatRequest,
+    admin_user: User = Depends(get_current_admin),
+    db: Session = Depends(get_db)
+):
+    """
+    Admin-only assistant with organization-wide CRUD, user management and
+    direct SQL access to the database (read-only queries plus confirmed writes).
+    """
+    return ResponseEnvelope(data=_assistant_turn(req, admin_user, db, admin=True))
