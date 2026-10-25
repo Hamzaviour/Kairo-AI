@@ -94,7 +94,7 @@ Teams that coordinate work in a shared spreadsheet pay for it every week:
   </tr>
   <tr>
     <td align="center"><b>Team &amp; roles (admin)</b><br><img src="./docs/screenshots/09-admin-team.png" alt="Team and role management"></td>
-    <td align="center"><b>Admin assistant with full database access</b><br><img src="./docs/screenshots/10-admin-assistant.png" alt="Admin chat assistant"></td>
+    <td align="center"><b>Admin assistant with organisation-wide reach</b><br><img src="./docs/screenshots/10-admin-assistant.png" alt="Admin chat assistant"></td>
   </tr>
   <tr>
     <td align="center"><b>Brand kit (<code>/brand</code>)</b><br><img src="./docs/screenshots/12-brand-kit.png" alt="Brand kit page"></td>
@@ -124,8 +124,9 @@ Teams that coordinate work in a shared spreadsheet pay for it every week:
 
 ### 💬 Chat assistants (Groq)
 - A floating assistant in the bottom-right corner creates, finds, edits and closes **tasks, subtasks, comments and projects** from plain language.
-- **Members** get an assistant scoped to their own work. **Admins** get their own, with organisation-wide reach, user management and direct SQL (read-only queries, confirmed `INSERT` / `UPDATE` / `DELETE`, no schema changes).
-- Destructive actions wait for an explicit "yes", enforced on the server. Password and token hashes are never exposed. Every turn is logged.
+- **Members** get an assistant scoped to their own work. **Admins** get their own, with organisation-wide reach, workload reports and member-account management. Admin accounts and role changes stay in the admin panel.
+- **Guardrails:** neither assistant has direct database access. Requests for the database structure, SQL, source code, infrastructure, credentials or the system prompt, and prompt-injection attempts, are refused before they reach the model; replies are scanned and secrets redacted; tool calls only accept declared parameters; turns are rate-limited per user.
+- Destructive actions wait for an explicit "yes", enforced on the server. Every turn, including blocked ones, is logged.
 - Falls back to a smaller model on rate limits, then retries.
 
 ### 🗂️ Four ways to work
@@ -252,7 +253,7 @@ cd backend
 python -m pytest tests -q
 ```
 
-28 tests cover authentication and token rotation, IDOR isolation (404 on other people's tasks), AI parsing, the chat assistants' permission and confirmation guards, SQL safety rules, and the Excel round-trip. The suite writes test rows, so point `DATABASE_URL` at a separate database.
+28 tests cover authentication and token rotation, IDOR isolation (404 on other people's tasks), AI parsing, the chat assistants' permission and confirmation guards and guardrails, and the Excel round-trip. The suite writes test rows, so point `DATABASE_URL` at a separate database.
 
 ---
 
@@ -327,7 +328,7 @@ Kairo-AI/
 - **IDOR immunity:** scope filtering in the data layer; unauthorised task IDs return 404.
 - **Tokens:** 60-minute access tokens, single-use rotating refresh tokens stored only as hashes, revoked at logout.
 - **Passwords:** bcrypt with salt.
-- **Assistants:** act through the same scoped services as the UI; deletes and SQL writes need explicit confirmation; schema changes are blocked; secrets and hashes are never sent to the model.
+- **Assistants:** act through the same scoped services as the UI; deletes need explicit confirmation; no raw SQL or schema access; guardrails screen requests and replies; secrets and hashes are never sent to the model.
 - **Production guard:** the API refuses to start on Vercel with the default JWT secret.
 
 Found a vulnerability? Please email the author rather than opening a public issue.

@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { Bot, ShieldCheck, Send, X, Loader2, RotateCcw, Check, AlertCircle, MessageSquare } from 'lucide-react';
+import { Send, X, Loader2, RotateCcw, Check, AlertCircle } from 'lucide-react';
+import AssistantMark from './AssistantMark';
 import { assistantService, AssistantAction, AssistantMessage } from '../../services/assistantService';
 import { useAuth } from '../../context/AuthContext';
 
@@ -36,9 +37,7 @@ const TOOL_LABELS: Record<string, string> = {
   create_user: 'Created user',
   update_user: 'Updated user',
   delete_user: 'Deleted user',
-  list_tables: 'Read schema',
-  sql_query: 'Ran SQL query',
-  sql_execute: 'Ran SQL write',
+  workload_report: 'Built workload report',
 };
 
 const PERSONAS = {
@@ -57,16 +56,16 @@ const PERSONAS = {
   },
   admin: {
     title: 'Admin Assistant',
-    subtitle: 'Full database access',
+    subtitle: 'Organization-wide workspace',
     greeting:
-      'Hello, admin. I have organization-wide access: every task, project, comment and user account, plus direct SQL on the database. Deletes and SQL writes always wait for your confirmation.',
+      'Hello, admin. I can see and manage every task, project and comment, report on team workload, and manage member accounts. Deletes always wait for your confirmation.',
     suggestions: [
       'How many tasks does each user have, by status?',
       'List all users and their roles',
       'Show every overdue task across the organization',
-      'Which tables are in the database?',
+      'Who has the most overdue work?',
     ],
-    placeholder: 'Query, create, update or delete anything…',
+    placeholder: 'Ask about tasks, projects or the team…',
   },
 } as const;
 
@@ -220,8 +219,9 @@ export const ChatAssistantWidget: React.FC<ChatAssistantWidgetProps> = ({ onData
   // Both personas live on ink; the admin one is marked by the saffron launcher and badge
   const accent = isAdmin
     ? { launcher: 'bg-brand-400 hover:bg-brand-300 text-slate-950', header: 'bg-slate-950 text-white', bubble: 'bg-slate-900 text-white', ring: 'focus-within:border-slate-900', send: 'bg-slate-900 hover:bg-slate-800', tile: 'bg-brand-400 text-slate-950' }
-    : { launcher: 'bg-slate-900 hover:bg-slate-800 text-white', header: 'bg-slate-950 text-white', bubble: 'bg-slate-900 text-white', ring: 'focus-within:border-slate-900', send: 'bg-slate-900 hover:bg-slate-800', tile: 'bg-white/10 text-brand-400' };
-  const PersonaIcon = isAdmin ? ShieldCheck : Bot;
+    : { launcher: 'bg-slate-900 hover:bg-slate-800 text-white', header: 'bg-slate-950 text-white', bubble: 'bg-slate-900 text-white', ring: 'focus-within:border-slate-900', send: 'bg-slate-900 hover:bg-slate-800', tile: 'bg-white/10 text-white' };
+  // On the saffron admin surfaces the dot turns white so it doesn't vanish into the background
+  const tileDot = isAdmin ? 'fill-white' : 'fill-brand-400';
 
   return (
     <>
@@ -235,7 +235,7 @@ export const ChatAssistantWidget: React.FC<ChatAssistantWidgetProps> = ({ onData
           <div className={`px-4 py-3 flex items-center justify-between ${accent.header}`}>
             <div className="flex items-center gap-2.5">
               <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${accent.tile}`}>
-                <PersonaIcon className="w-4 h-4" strokeWidth={1.75} />
+                <AssistantMark className="w-5 h-5" dotClassName={tileDot} />
               </div>
               <div>
                 <h2 className="font-display font-semibold text-[15px] leading-tight">{persona.title}</h2>
@@ -261,7 +261,7 @@ export const ChatAssistantWidget: React.FC<ChatAssistantWidgetProps> = ({ onData
           <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-3 bg-slate-50/60">
             <div className="flex gap-2 items-start">
               <div className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 ${accent.bubble}`}>
-                <PersonaIcon className="w-3.5 h-3.5" />
+                <AssistantMark className="w-4 h-4" />
               </div>
               <div className="max-w-[85%] rounded-2xl rounded-tl-md p-3 text-xs leading-relaxed bg-white text-slate-800 border border-slate-200">
                 {persona.greeting}
@@ -292,7 +292,7 @@ export const ChatAssistantWidget: React.FC<ChatAssistantWidgetProps> = ({ onData
               ) : (
                 <div key={idx} className="flex gap-2 items-start">
                   <div className={`w-7 h-7 rounded-full flex items-center justify-center shrink-0 ${m.error ? 'bg-rose-100 text-rose-600' : accent.bubble}`}>
-                    {m.error ? <AlertCircle className="w-3.5 h-3.5" /> : <PersonaIcon className="w-3.5 h-3.5" />}
+                    {m.error ? <AlertCircle className="w-3.5 h-3.5" /> : <AssistantMark className="w-4 h-4" />}
                   </div>
                   <div className="max-w-[85%] space-y-1.5">
                     <div
@@ -375,7 +375,7 @@ export const ChatAssistantWidget: React.FC<ChatAssistantWidgetProps> = ({ onData
         aria-label={isOpen ? 'Close assistant' : `Open ${persona.title}`}
         aria-expanded={isOpen}
       >
-        {isOpen ? <X className="w-6 h-6" /> : isAdmin ? <ShieldCheck className="w-6 h-6" /> : <MessageSquare className="w-6 h-6" />}
+        {isOpen ? <X className="w-6 h-6" /> : <AssistantMark className="w-7 h-7" dotClassName={tileDot} />}
       </button>
     </>
   );

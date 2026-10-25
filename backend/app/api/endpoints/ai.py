@@ -108,7 +108,7 @@ def admin_assistant_route(
     db: Session = Depends(get_db)
 ):
     """
-    Admin-only assistant with organization-wide CRUD, user management and
-    direct SQL access to the database (read-only queries plus confirmed writes).
+    Admin-only assistant with organization-wide CRUD, workload reporting and
+    member-account management. No direct database access; guardrails apply.
     """
     return ResponseEnvelope(data=_assistant_turn(req, admin_user, db, admin=True))
