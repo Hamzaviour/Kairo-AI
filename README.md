@@ -19,7 +19,7 @@ Import the sheet, plan work from a sentence, and give every person a workspace s
 [![Tests](https://img.shields.io/badge/tests-28%20passing-059669)](./backend/tests)
 [![License: MIT](https://img.shields.io/badge/License-MIT-ffb224.svg)](./LICENSE)
 
-[Live demo accounts](#-demo-accounts) · [Quickstart](#-quickstart) · [Screenshots](#-screenshots) · [Docs](./docs) · [Brand kit](./docs/15_BRAND_KIT.md)
+**[🌐 Live app](https://kairo-ai-pi.vercel.app)** · [Live demo accounts](#-demo-accounts) · [Quickstart](#-quickstart) · [Screenshots](#-screenshots) · [Docs](./docs) · [Brand kit](./docs/15_BRAND_KIT.md)
 
 <br>
 
